@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Gogh 캔버스</title>
+    <style>
+       * {padding: 0;
+          margin: 0;
+}
+.clear {
+    clear: both;
+}
+body {
+    font-family: 'Noto Sans KR';
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+header, footer {
+    max-width: 2160px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 80px 0 80px;
+    box-sizing: border-box;
+}
+header {
+    height: 70px;
+    border-bottom: 1px solid #020215;
+}
+footer{
+    border-top: 1px solid #020215;
+}
+#logo {
+    float: left;
+    margin: 20px 0 20px 0;
+}
+#menu {
+    float: right;
+    margin: 20px 0 20px 0;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: #020215;
+}
+#main_menu li a:hover {
+    color: #243B7B;
+    font-weight: bold;
+}
+#main_menu li {
+    display: inline;
+    margin: 0 40px 0 40px;
+    font-size: 18px;
+}
+#main_contents {
+    width: 100%;
+    margin: 0 auto;
+}
+#main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+#main_text h3{
+    font-size: 40px;
+}
+#philosophy_cards { 
+    max-width: 1200px;
+    width: 90%;
+    margin: 30px auto 70px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+.philosophy_card { 
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.card_image_box { 
+    width: 100%;
+    padding-bottom: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+
+.card_image_box img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.philosophy_card h4 {
+    font-size: 18px;
+    color: #020215;
+    margin: 15px 10px 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.philosophy_card p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+.philosophy_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: #243B7B;
+}
+.philosophy_card:hover h4,
+.philosophy_card:hover p {
+    color: white;
+}
+.philosophy_card:hover .card_image_box img {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+#modal_content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    max-height: 90vh; 
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#modal_caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+.close_button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.close_button:hover,
+.close_button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+footer {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer_logo {
+    float: right;
+    margin-top: 0;
+    text-align: right;
+}
+#address {
+    margin-top: 0;
+    float: left;
+}
+#active {
+    font-weight: bold;
+    border-bottom: 2px solid #020215;
+}
+@media (max-width: 800px) {
+    #main_menu li{
+        margin: 0 15px;
+        font-size: 16px;
+    }
+    #footer_logo{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #address{
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #philosophy_cards { 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    header {
+        height: auto;
+        padding: 10px 5%;
+    }
+    #logo {
+        float: none;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    #main_menu {
+        text-align: center;
+    }
+    #main_menu li{
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    #philosophy_cards { 
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+    #address li {
+        font-size: 12px;
+    }
+    #active{
+        background-color: #ccc;
+        border: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <nav id="menu">
+            <ul id="main_menu">
+                                <li><a href="sub1.html">생애</li></a>
+                                <li><a href="sub2.html">작품분석</li></a>
+                                <li><a href="sub3.html">고흐의 세계</li></a>
+                                <li id="active"><a href="sub4.html">캔버스</li></a>
+                                <li><a href="sub5.html">To.테오</li></a>
+                        </ul>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <section id="main_contents">
+     <div id="main_text">
+    <h3>캔버스</h3>
+    <p>고흐의 인생이 담긴 그림</p>
+    </div>
+        
+    <div id="philosophy_cards">
+        
+        <div class="philosophy_card" onclick="openModal('img/c1.jpg', '아를의 침실 (1888) - 아를')">
+            <div class="card_image_box">
+                <img src="img/c1.jpg">
+            </div>
+            <h4>아를의 침실</h4>
+            <p>1888 (아를)</p>
+        </div>
+
+        <div class="philosophy_card" onclick="openModal('img/c2.jpg', '론강의 별이 빛나는 밤 (1888) - 아를')">
+            <div class="card_image_box">
+                <img src="img/c2.jpg">
+            </div>
+            <h4>론강의 별이 빛나는 밤</h4>
+            <p>1888 (아를)</p>
+        </div>
+
+        <div class="philosophy_card" onclick="openModal('img/c3.jpg', '아이리스 (1889) - 생 레미')">
+            <div class="card_image_box">
+                <img src="img/c3.jpg">
+            </div>
+            <h4>아이리스</h4>
+            <p>1889 (생 레미)</p>
+        </div>
+
+        <div class="philosophy_card" onclick="openModal('img/c4.jpg', '사이프러스 나무 (1889) - 생 레미')">
+            <div class="card_image_box">
+                <img src="img/c4.jpg">
+            </div>
+            <h4>사이프러스 나무</h4>
+            <p>1889 (생 레미)</p>
+        </div>
+        
+        <div class="philosophy_card" onclick="openModal('img/c5.jpg', '가셰 박사의 초상 (1890) - 오베르')">
+            <div class="card_image_box">
+                <img src="img/c5.jpg">
+            </div>
+            <h4>가세 박사의 초상</h4>
+            <p>1890 (오베르)</p>
+        </div>
+
+        <div class="philosophy_card" onclick="openModal('img/c6.jpg', '까마귀가 나는 밀밭 (1890) - 오베르')">
+            <div class="card_image_box">
+                <img src="img/c6.jpg">
+            </div>
+            <h4>까마귀가 나는 밀밭</h4>
+            <p>1890 (오베르)</p>
+        </div>
+    </div>
+    </section>
+    
+    <div id="modal">
+        <span class="close_button" onclick="closeModal()">&times;</span>
+        <img id="modal_content">
+        <div id="modal_caption"></div>
+    </div>
+    <footer>
+        <div id="footer_box">
+                        <div id="footer_logo">
+                                <img src="img/logo.png">
+                                <div>Vincent van Gogh THE immortal.</div>
+                        </div>
+                        <ul id="address">
+                                <li>"나는 나의 예술로 사람들을 어루만지고 싶다. 그들이 이렇게 말하길 바란다.<br>
+                                그는 깊이 느끼는 사람이고, 따뜻하고 섬세한 감정을 가진 사람이다."  - 빈센트 반 고흐</li>
+                                <li>&nbsp;</li>
+                                <li>Copyright 2025 Van Gogh THE immortal all rights reserved</li>
+                        </ul>
+                </div>
+    </footer>
+    <script>
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modal_content");
+        const modalCaption = document.getElementById("modal_caption");
+        function openModal(imageSrc, captionText) {
+            modal.style.display = "block";
+            modalContent.src = imageSrc;
+            modalCaption.innerHTML = captionText;
+        }
+        function closeModal() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

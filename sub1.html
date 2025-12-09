@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Gogh 생애</title>
+    <style>
+       * {padding: 0;
+          margin: 0;
+}
+.clear {
+    clear: both;
+}
+body {
+    font-family: 'Noto Sans KR';
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+header, footer {
+    max-width: 2160px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 80px 0 80px;
+    box-sizing: border-box;
+}
+header {
+    height: 70px;
+    border-bottom: 1px solid #020215;
+}
+footer{
+    border-top: 1px solid #020215;
+}
+
+#logo {
+    float: left;
+    margin: 20px 0 20px 0;
+}
+#menu {
+    float: right;
+    margin: 20px 0 20px 0;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: #020215;
+}
+#main_menu li a:hover {
+    color: #243B7B;
+    font-weight: bold;
+}
+#main_menu li {
+    display: inline;
+    margin: 0 40px 0 40px;
+    font-size: 18px;
+}
+#main_contents {
+    width: 100%;
+    margin: 0 auto;
+}
+#main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+#main_text h3{
+    font-size: 40px;
+}
+#timeline_container {
+    max-width: 1440px;
+    width: 90%;
+    margin: 50px auto;
+    position: relative;
+    padding-bottom: 50px;
+}
+#timeline_container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #243B7B;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 0;
+}
+.timeline_item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+.timeline_content {
+    padding: 15px;
+    background-color: #243B7B;
+    color: white;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.timeline_year {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #020215;
+    z-index: 2;
+}
+.timeline_image_content {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    color: white;
+}
+.timeline_item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+.timeline_item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+.timeline_item:nth-child(odd) .timeline_year {
+    right: -100px;
+}
+.timeline_item:nth-child(even) .timeline_year {
+    left: -100px;
+}
+.timeline_item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #243B7B;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.timeline_item:nth-child(odd)::after {
+    right: -10px;
+}
+.timeline_item:nth-child(even)::after {
+    left: -10px;
+}
+.timeline_content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+.timeline_image_wrap {
+    position: relative;
+}
+.timeline_image_text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-align: center;
+    border-radius: 0 0 6px 6px;
+}
+.timeline_image_wrap img {
+    border-radius: 6px;
+    margin-bottom: 0;
+}
+.image_item .timeline_content {
+    padding: 0;
+    overflow: hidden;
+}
+.image_item .timeline_image_text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.4;
+    border-radius: 0 0 6px 6px;
+}
+.image_item img {
+    width: 100%;
+    display: block;
+    height: auto;
+    border-radius: 6px;
+}
+.image_item h4 {
+    margin-bottom: 5px;
+}
+footer {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer_logo {
+    float: right;
+    margin-top: 0;
+    text-align: right;
+}
+#address {
+    margin-top: 0;
+    float: left;
+}
+#active {
+    font-weight: bold;
+    border-bottom: 2px solid #020215;
+}
+
+
+@media (max-width: 800px) {
+    #main_menu li{
+        margin: 0 15px;
+        font-size: 16px;
+    }
+    #footer_logo{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #address{
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #timeline_container::after {
+        left: 5%;
+    }
+
+    .timeline_item {
+        width: 95%;
+        padding: 0 0 30px 40px;
+        left: 0 !important;
+        text-align: left !important;
+    }
+    
+    .timeline_item::after {
+        left: 5px !important;
+        right: auto !important;
+    }
+    
+    .timeline_year {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .timeline_item .timeline_year {
+        left: 0 !important;
+        right: auto !important;
+    }
+    .timeline_content, .timeline_image_text {
+        text-align: left !important;
+    }
+    #footer_logo, #address{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #timeline_container::after {
+        left: 50%; 
+        margin-left: -1px; 
+    }
+    .timeline_item {
+        width: 90%;
+        margin: 0 auto 60px auto;
+        left: 0 !important;
+        right: 0 !important;
+        text-align: left !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    .timeline_year {
+        position: static;
+        transform: none;
+        font-size: 20px;
+        padding-top: 20px;
+        text-align: center;
+        background-color: #f0f0f0;
+        width: 100%;
+        color: #243B7B;
+    }
+    .timeline_item .timeline_year {
+        right: auto !important;
+        left: auto !important;
+    }
+    .timeline_item::after {
+        left: 50% !important;
+        right: auto !important;
+        margin-left: -11.5px;
+        top: 0;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+    
+    header {
+        height: auto;
+        padding: 10px 5%;
+    }
+    #logo {
+        float: none;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    #main_menu {
+        text-align: center;
+    }
+    #main_menu li{
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    #address li {
+        font-size: 12px;
+    }
+    #active{
+        background-color: #ccc;
+        border: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <nav id="menu">
+            <ul id="main_menu">
+                                <li id="active"><a href="sub1.html">생애</li></a>
+                                <li><a href="sub2.html">작품분석</li></a>
+                                <li><a href="sub3.html">고흐의 세계</li></a>
+                                <li><a href="sub4.html">캔버스</li></a>
+                                <li><a href="sub5.html">To.테오</li></a>
+                        </ul>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <section id="main_contents">
+    <div id="main_text">
+        <h3>고흐의 발자취</h3>
+        <p>빈센트 반 고흐의 삶의 여정을 따라갑니다.</p>
+    </div>
+    <div id="timeline_container">
+        
+        <div class="timeline_item">
+            <div class="timeline_year">1853년</div>
+            <div class="timeline_content">
+                <h4>출생 및 초기 삶</h4>
+                <p>네덜란드에서 출생. 일찍이 상인, 교사, 목사 등 다양한 직업을 전전하며 자신의 길을 모색합니다.</p>
+            </div>
+        </div>
+        
+        <div class="timeline_item image_item">
+            <div class="timeline_year">1880년</div>
+            <div class="timeline_content">
+                <div class="timeline_image_wrap">
+                    <img src="img/1.jpg">
+                    <div class="timeline_image_text">
+                        <h4>화가로서의 시작</h4>
+                        <p>27세의 늦은 나이에 정식으로 그림을 배우기 시작하며, 주로 노동자들의 삶을 담으려고 노력합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline_item">
+            <div class="timeline_year">1885년</div>
+            <div class="timeline_content">
+                <h4>파리 이주</h4>
+                <p>파리로 이주하며 인상파와 신인상파의 영향을 받아 밝은 색채를 받아들입니다. 일본 판화에 심취합니다.</p>
+            </div>
+        </div>
+        
+        <div class="timeline_item">
+            <div class="timeline_year">1886년</div>
+            <div class="timeline_content">
+                        <h4>내면의 화가</h4>
+                        <p>자신만의 방식으로 그림을 발전, 주로 격렬한 색감과 붓질을 주제로 삼기 시작한 시기입니다.</p>
+            </div>
+        </div>
+
+        <div class="timeline_item image_item">
+            <div class="timeline_year">1888년</div>
+            <div class="timeline_content">
+                <div class="timeline_image_wrap">
+                    <img src="img/2.jpg">
+                    <div class="timeline_image_text">
+                        <h4>아를</h4>
+                        <p>화가 공동체를 꿈꾸며 아를로 이주하여 폴 고갱을 초대합니다. 이 시기에 '해바라기' 등 걸작을 남깁니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline_item">
+            <div class="timeline_year">1888년</div>
+            <div class="timeline_content">
+                <h4>귀 자해 사건</h4>
+                <p>고갱과의 다툼 후 자신의 귀를 자르는 사건이 발생하며 정신적인 불안정도가 심화됩니다.</p>
+            </div>
+        </div>
+
+        <div class="timeline_item image_item">
+            <div class="timeline_year">1889년</div>
+            <div class="timeline_content">
+                <div class="timeline_image_wrap">
+                    <img src="img/3.jpg">
+                    <div class="timeline_image_text">
+                        <h4>생 레미 요양원</h4>
+                        <p>스스로 정신과 치료를 선택해 요양원에 입소합니다. '별이 빛나는 밤' 등 가장 강렬한 작품들이 이때 탄생했습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline_item">
+            <div class="timeline_year">1890년</div>
+            <div class="timeline_content">
+                <h4>오베르와 사망</h4>
+                <p>요양원에서 나와 테오 곁으로 돌아와 폴 가셰 박사의 보살핌을 받습니다. 7월 27일 권총 자살을 시도하고 이틀 뒤 사망합니다.</p>
+            </div>
+        </div>
+
+    </div>
+    </section>
+    <footer>
+        <div id="footer_box">
+                        <div id="footer_logo">
+                                <img src="img/logo.png">
+                                <div>Vincent van Gogh THE immortal.</div>
+                        </div>
+                        <ul id="address">
+                                <li>"나는 나의 예술로 사람들을 어루만지고 싶다. 그들이 이렇게 말하길 바란다.<br>
+                                그는 깊이 느끼는 사람이고, 따뜻하고 섬세한 감정을 가진 사람이다."  - 빈센트 반 고흐</li>
+                                <li>&nbsp;</li>
+                                <li>Copyright 2025 Van Gogh THE immortal all rights reserved</li>
+                        </ul>
+                </div>
+    </footer>
+</body>
+</html>

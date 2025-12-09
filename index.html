@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Gogh</title>
+    <style>
+       * {padding: 0;
+          margin: 0;
+}
+.clear {
+    clear: both;
+}
+body {
+    font-family: 'Noto Sans KR';
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+header, footer {
+    max-width: 2160px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 80px 0 80px;
+    box-sizing: border-box;
+}
+
+header {
+    height: 70px;
+}
+
+#logo {
+    float: left;
+    margin: 20px 0 20px 0;
+}
+#menu {
+    float: right;
+    margin: 20px 0 20px 0;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: #020215;
+}
+#main_menu li a:hover {
+    color: #243B7B;
+    font-weight: bold;
+}
+#main_menu li {
+    display: inline;
+    margin: 0 40px 0 40px;
+    font-size: 18px;
+}
+#main_contents {
+    width: 100%;
+    margin: 0 auto;
+}
+footer {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer_logo {
+    float: right;
+    margin-top: 0;
+    text-align: right;
+}
+#address {
+    margin-top: 0;
+    float: left;
+}
+
+
+@media (max-width: 800px) {
+    #main_menu li{
+        margin: 0 15px;
+        font-size: 16px;
+    }
+    #footer_logo{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #address{
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    header {
+        height: auto;
+        padding: 10px 5%;
+    }
+    #logo {
+        float: none;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    #main_menu {
+        text-align: center;
+    }
+    #main_menu li{
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    #address li {
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <nav id="menu">
+            <ul id="main_menu">
+                                <li><a href="sub1.html">생애</li></a>
+                                <li><a href="sub2.html">작품분석</li></a>
+                                <li><a href="sub3.html">고흐의 세계</li></a>
+                                <li><a href="sub4.html">캔버스</li></a>
+                                <li><a href="sub5.html">To.테오</li></a>
+                        </ul>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <section id="main_contents">
+        <div id="figure">
+            <img src="img/background.jpg" width="100%">
+            </div>
+    </section>
+    <footer>
+        <div id="footer_box">
+                        <div id="footer_logo">
+                                <img src="img/logo.png">
+                                <div>Vincent van Gogh THE immortal.</div>
+                        </div>
+                        <ul id="address">
+                                <li>"나는 나의 예술로 사람들을 어루만지고 싶다. 그들이 이렇게 말하길 바란다.<br>
+                                그는 깊이 느끼는 사람이고, 따뜻하고 섬세한 감정을 가진 사람이다."  - 빈센트 반 고흐</li>
+                                <li>&nbsp;</li>
+                                <li>Copyright 2025 Van Gogh THE immortal all rights reserved</li>
+                        </ul>
+                </div>
+    </footer>
+</body>
+</html>

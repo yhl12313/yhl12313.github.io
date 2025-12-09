@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Gogh 작품분석</title>
+    <style>
+       * {padding: 0;
+          margin: 0;
+}
+.clear {
+    clear: both;
+}
+body {
+    font-family: 'Noto Sans KR';
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+header, footer {
+    max-width: 2160px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 80px 0 80px;
+    box-sizing: border-box;
+}
+header {
+    height: 70px;
+    border-bottom: 1px solid #020215;
+}
+footer{
+    border-top: 1px solid #020215;
+}
+
+#logo {
+    float: left;
+    margin: 20px 0 20px 0;
+}
+#menu {
+    float: right;
+    margin: 20px 0 20px 0;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: #020215;
+}
+#main_menu li a:hover {
+    color: #243B7B;
+    font-weight: bold;
+}
+#main_menu li {
+    display: inline;
+    margin: 0 40px 0 40px;
+    font-size: 18px;
+}
+#main_contents {
+    width: 100%;
+    margin: 0 auto;
+}
+#main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+#main_text h3{
+    font-size: 40px;
+}
+#artwork_list {
+    max-width: 1240px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px 0 20px 0;
+}
+.artwork_section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.artwork_section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.artwork_image {
+    flex: 0 0 45%;
+    max-width: 40%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.artwork_image_2 {
+    flex: 0 0 45%;
+    max-width: 30%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.artwork_image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.artwork_image_2 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.artwork_info {
+    width: 700px;
+    padding: 0 30px;
+    margin-right: 30px;
+}
+
+.artwork_info h4 {
+    font-size: 24px;
+    color: #243B7B;
+    margin-bottom: 10px;
+}
+.artwork_info p {
+    font-size: 14px;
+    color: #333;
+}
+.artwork_section:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+.artwork_section:nth-child(odd) .artwork_info {
+    padding: 0 0 0 30px;
+}
+.artwork_section:nth-child(odd) .artwork_image {
+    margin-right: 30px;
+}
+    
+footer {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer_logo {
+    float: right;
+    margin-top: 0;
+    text-align: right;
+}
+#address {
+    margin-top: 0;
+    float: left;
+}
+#active {
+    font-weight: bold;
+    border-bottom: 2px solid #020215;
+}
+
+
+@media (max-width: 800px) {
+    #main_menu li{
+        margin: 0 15px;
+        font-size: 16px;
+    }
+    #footer_logo{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #address{
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #artwork_list {
+        width: 95%;
+    }
+    .artwork_section {
+        flex-direction: column !important;
+        align-items: flex-start;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .artwork_image {
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0 !important;
+    }
+    .artwork_image_2 {
+        flex: none;
+        max-width: 100%;
+        margin-bottom: 15px;
+        margin-right: 0 !important;
+    }
+    
+    .artwork_info {
+        padding: 0;
+        width: auto;
+    }
+    
+    .artwork_info h4 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    header {
+        height: auto;
+        padding: 10px 5%;
+    }
+    #logo {
+        float: none;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    #main_menu {
+        text-align: center;
+    }
+    #main_menu li{
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    #address li {
+        font-size: 12px;
+    }
+    #active{
+        background-color: #ccc;
+        border: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <nav id="menu">
+            <ul id="main_menu">
+                                <li><a href="sub1.html">생애</li></a>
+                                <li id="active"><a href="sub2.html">작품분석</li></a>
+                                <li><a href="sub3.html">고흐의 세계</li></a>
+                                <li><a href="sub4.html">캔버스</li></a>
+                                <li><a href="sub5.html">To.테오</li></a>
+                        </ul>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <section id="main_contents">
+<div id="main_text">
+    <h3>고흐의 대표작</h3>
+    <p>감자 먹는 사람들 | 해바라기 | 자화상 | 별이 빛나는 밤</p>
+        </div>
+    <div id="artwork_list">
+        
+        <div class="artwork_section">
+            <div class="artwork_image">
+                <img src="img/1.jpg">
+            </div>
+            <div class="artwork_info">
+                <h4>감자 먹는 사람들 (1885)</h4>
+                <p><strong>초기 어두운 색채와 농민의 삶</strong></p>
+                <p>네덜란드 누에넌 시기에 제작된 작품으로, 고흐의 초기 사실주의적 접근과 사회적 관심이 두드러집니다.
+                    일부러 어두운 색을 사용하여 농민들의 고된 삶과 그들이 나누는 소박한 식사의 진정성을 강조했습니다.
+                    그의 동생 테오에게 "나는 어둠 속에서 빛을 발견하려 했다"고 편지를 썼습니다.</p>
+            </div>
+        </div>
+        
+        <div class="artwork_section">
+            <div class="artwork_image_2">
+                <img src="img/2.jpg">
+            </div>
+            <div class="artwork_info">
+                <h4>해바라기 (1888)</h4>
+                <p><strong>노란색의 의미와 상징</strong></p>
+                <p>프랑스 아를에서 제작되었으며, "노란 집"을 장식하기 위한 연작 중 하나입니다.
+                    노란색은 고흐에게 행복, 태양, 희망을 상징했습니다. 두꺼운 임파스토 기법을 사용하여
+                    해바라기의 질감과 생명력을 극적으로 표현했습니다.</p>
+            </div>
+        </div>
+
+        <div class="artwork_section">
+            <div class="artwork_image_2">
+                <img src="img/4.jpg">
+            </div>
+            <div class="artwork_info">
+                <h4>자화상 (1889)</h4>
+                <p><strong>고흐의 심리적 변화</strong></p>
+                <p>고흐는 평생 동안 30여 점이 넘는 자화상을 남겼습니다.
+                    이는 그가 모델을 구할 여유가 없었기 때문이기도 하지만, 끊임없이 자신의 내면과 심리 상태를 탐구했음을 의미합니다.
+                     소용돌이치는 배경과 강렬한 시선은 그의 불안정한 정신 상태를 반영합니다.</p>
+            </div>
+        </div>
+        
+        <div class="artwork_section">
+            <div class="artwork_image">
+                <img src="img/3.jpg">
+            </div>
+            <div class="artwork_info">
+                <h4>별이 빛나는 밤 (1889)</h4>
+                <p><strong>소용돌이 치는 고독함</strong></p>
+                <p>생 레미 요양원에 있을 때 그린 작품으로, 실제 풍경보다는 고흐의 내면적인 감정이 투영된 상상의 밤하늘입니다.
+                    역동적인 소용돌이와 푸른색, 노란색의 강렬한 대비는 그의 예술적 절정과 정신적 고통을 동시에 보여줍니다.</p>
+            </div>
+        </div>
+
+    </div>
+         </section>
+    <footer>
+        <div id="footer_box">
+                        <div id="footer_logo">
+                                <img src="img/logo.png">
+                                <div>Vincent van Gogh THE immortal.</div>
+                        </div>
+                        <ul id="address">
+                                <li>"나는 나의 예술로 사람들을 어루만지고 싶다. 그들이 이렇게 말하길 바란다.<br>
+                                그는 깊이 느끼는 사람이고, 따뜻하고 섬세한 감정을 가진 사람이다."  - 빈센트 반 고흐</li>
+                                <li>&nbsp;</li>
+                                <li>Copyright 2025 Van Gogh THE immortal all rights reserved</li>
+                        </ul>
+                </div>
+    </footer>
+</body>
+</html>

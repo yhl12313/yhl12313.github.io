@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van Gogh 고흐의 세계</title>
+    <style>
+       * {padding: 0;
+          margin: 0;
+}
+.clear {
+    clear: both;
+}
+body {
+    font-family: 'Noto Sans KR';
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+li {
+    list-style-type: none;
+}
+header, footer {
+    max-width: 2160px;
+    width: auto;
+    margin: 0 auto;
+    padding: 0 80px 0 80px;
+    box-sizing: border-box;
+}
+header {
+    height: 70px;
+    border-bottom: 1px solid #020215;
+}
+footer{
+    border-top: 1px solid #020215;
+}
+
+#logo {
+    float: left;
+    margin: 20px 0 20px 0;
+}
+#menu {
+    float: right;
+    margin: 20px 0 20px 0;
+}
+#main_menu li a {
+    text-decoration: none;
+    color: #020215;
+}
+#main_menu li a:hover {
+    color: #243B7B;
+    font-weight: bold;
+}
+#main_menu li {
+    display: inline;
+    margin: 0 40px 0 40px;
+    font-size: 18px;
+}
+#main_contents {
+    width: 100%;
+    margin: 0 auto;
+}
+#main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px;
+}
+#main_text h3{
+    font-size: 40px;
+}
+#philosophy_container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 50px auto;
+}
+#philosophy_cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+/* 개별 카드 (칼럼) 스타일 */
+.philosophy_card {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card_image_box {
+    width: 100%;
+    height: 250px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.card_image_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.philosophy_card h4 {
+    font-size: 20px;
+    color: #020215;
+    margin-bottom: 10px;
+    transition: color 0.4s ease;
+}
+
+.philosophy_card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    transition: color 0.4s ease;
+}
+.philosophy_card:hover {
+    background-color: #243B7B;
+    transform: translateY(-3px);
+}
+.philosophy_card:hover h4 { 
+    color: #ffbb00;
+}
+.philosophy_card:hover p {
+    color: white;
+}
+#philosophy_summary {
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+footer {
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#footer_logo {
+    float: right;
+    margin-top: 0;
+    text-align: right;
+}
+#address {
+    margin-top: 0;
+    float: left;
+}
+#active {
+    font-weight: bold;
+    border-bottom: 2px solid #020215;
+}
+
+
+@media (max-width: 800px) {
+    #main_menu li{
+        margin: 0 15px;
+        font-size: 16px;
+    }
+    #footer_logo{
+        float: none;
+        text-align: left;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #address{
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+    }
+    #philosophy_cards {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .philosophy_card {
+        padding: 25px;
+    }
+    
+    #philosophy_container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    header {
+        height: auto;
+        padding: 10px 5%;
+    }
+    #logo {
+        float: none;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    #menu {
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    #main_menu {
+        text-align: center;
+    }
+    #main_menu li{
+        display: block;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    #address li {
+        font-size: 12px;
+    }
+    #active{
+        background-color: #ccc;
+        border: 0;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><a href="index.html"><img src="img/logo.png"></a></div>
+        <nav id="menu">
+            <ul id="main_menu">
+                                <li><a href="sub1.html">생애</li></a>
+                                <li><a href="sub2.html">작품분석</li></a>
+                                <li id="active"><a href="sub3.html">고흐의 세계</li></a>
+                                <li><a href="sub4.html">캔버스</li></a>
+                                <li><a href="sub5.html">To.테오</li></a>
+                        </ul>
+        </nav>
+    </header>
+    <div class="clear"></div>
+    <section id="main_contents">
+        <div id="main_text">
+        <h3>고흐의 철학</h3>
+        <p>고통과 사랑</p>
+    </div>
+        
+    <div id="philosophy_container">
+        
+        <div id="philosophy_cards">
+            
+            <div class="philosophy_card">
+                <div class="card_image_box">
+                    <img src="img/blue.jpg">
+                </div>
+                <h4>노란색과 파란색</h4>
+                <p>노란색은 희망과 광기, 파란색은 영원과 고독을 상징했습니다.
+                    이 두 색의 강렬한 대비는 고흐 작품의 핵심 감정을 시각화하는 역할을 합니다.
+                    그는 색을 단순히 관찰하는 것이 아니라, 자신의 감정을 표현하는 수단으로 사용했습니다.</p>
+            </div>
+
+            <div class="philosophy_card">
+                <div class="card_image_box">
+                    <img src="img/impasto.jpg">
+                </div>
+                <h4>임파스토 기법</h4>
+                <p>물감을 두껍게 덧칠하는 임파스토(Impasto) 기법을 사용했습니다.
+                    이는 작품에 물리적인 질감을 부여하여 고흐의 붓 터치와 에너지, 그리고 작가의 격렬한 감정을 고스란히 전달합니다.
+                    그의 붓 터치는 생동감과 움직임을 만듭니다.</p>
+            </div>
+
+            <div class="philosophy_card">
+                <div class="card_image_box">
+                    <img src="img/cafe.jpg">
+                </div>
+                <h4>후기 인상주의</h4>
+                <p>당시 인상주의가 포착했던 평면적인 빛의 순간적인 인상에서 벗어나,
+                    고흐는 색채와 형태로 개인의 감정과 내면 세계를 표현하는 새로운 길을 열었습니다.
+                    이는 세잔, 고갱과 함께 후기 인상주의 시대를 열었습니다.</p>
+            </div>
+            
+        </div>
+        
+        <div id="philosophy_summary">
+            고흐의 예술은 인간에 대한 깊은 사랑과 동정심, 그리고 그가 겪었던 극심한 고통에서 비롯됩니다.
+            그는 그림을 통해 삶의 본질을 포착하고 고통받는 사람들을 위로하고자 했습니다.
+            그의 작품은 단순히 아름다운 풍경이 아닌,영혼의 절규와 희망의 메시지였습니다.
+        </div>
+    </div>
+    </section>
+    <footer>
+        <div id="footer_box">
+                        <div id="footer_logo">
+                                <img src="img/logo.png">
+                                <div>Vincent van Gogh THE immortal.</div>
+                        </div>
+                        <ul id="address">
+                                <li>"나는 나의 예술로 사람들을 어루만지고 싶다. 그들이 이렇게 말하길 바란다.<br>
+                                그는 깊이 느끼는 사람이고, 따뜻하고 섬세한 감정을 가진 사람이다."  - 빈센트 반 고흐</li>
+                                <li>&nbsp;</li>
+                                <li>Copyright 2025 Van Gogh THE immortal all rights reserved</li>
+                        </ul>
+                </div>
+    </footer>
+</body>
+</html>
