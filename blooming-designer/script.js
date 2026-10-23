@@ -20,6 +20,17 @@ const orbitDuration = 32000;
 let orbitElapsed = 0;
 let orbitFrame = null;
 let previousFrameTime = null;
+// Use the actual browser window height, including desktop windows with browser chrome.
+function fitHeroToViewport() {
+  const hero = collage.parentElement;
+  hero.style.height = window.innerHeight + 'px';
+  const style = getComputedStyle(hero);
+  const availableHeight = Math.max(0, window.innerHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom));
+  const aspect = window.innerWidth <= 760 ? 850 / 1200 : 740 / 1200;
+  collage.style.width = Math.min(hero.clientWidth, availableHeight / aspect) + 'px';
+}
+fitHeroToViewport();
+addEventListener('resize', fitHeroToViewport, { passive: true });
 let orbitWidth = collage.clientWidth;
 let motionReady = false;
 
