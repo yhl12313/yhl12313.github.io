@@ -65,6 +65,9 @@ function loadModel(name,label){
 document.querySelectorAll('.character').forEach(btn=>btn.addEventListener('click',()=>loadModel(btn.dataset.model,btn.textContent.trim())));
 loadModel('chiikawa','치이카와');
 function cast(e){const r=stage.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(pointer,camera);return ray.intersectObjects([...meshes.map(m=>m.mesh),...(mode==='wax'&&wax?wax.targets():[])],false)[0];}
+// Keep mobile long presses inside the playground, without selection or copy UI.
+for(const type of ['contextmenu','selectstart','dragstart'])stage.addEventListener(type,e=>e.preventDefault());
+stage.addEventListener('touchstart',e=>e.preventDefault(),{passive:false});
 stage.addEventListener('pointerdown',e=>{
   if(e.button!==0||!meshes.length||interaction)return;
   const hit=cast(e);if(!hit)return;
@@ -111,6 +114,7 @@ function animate(now){requestAnimationFrame(animate);const dt=Math.min((now-last
   stage.dataset.deformation=maxDist.toFixed(3);renderer.render(scene,camera);
 }
 requestAnimationFrame(animate);
+
 
 
 
