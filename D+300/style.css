@@ -48,3 +48,17 @@ main{max-width:620px;padding:20px 20px 28px;gap:16px}
 .play-area,.play-area *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 #stage,#stage canvas{touch-action:none;-webkit-user-drag:none}
 
+/* Tablet: keep the model and its centered controls in one viewport. */
+@media (min-width:600px) and (max-width:1199px), (min-width:600px) and (pointer:coarse){
+  main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:44px minmax(0,1fr) 144px;align-items:stretch;justify-items:center;width:100%;max-width:none;height:100svh;min-height:0;padding:16px 24px max(16px,env(safe-area-inset-bottom));gap:8px}
+  .characters{grid-column:1;grid-row:1;align-self:stretch;width:min(100%,360px);gap:8px}
+  .character{min-height:44px;padding:6px 12px;font-size:13px}
+  .play-area{grid-column:1;grid-row:2;width:min(100%,880px);height:100%;min-height:0;align-self:stretch}
+  #stage{inset:32px 0 0}
+  .room-top{top:0;right:0;left:0}.room-top button{min-height:32px;font-size:11px}.room-top button svg{width:16px;height:16px}
+  .controls{grid-column:1;grid-row:3;align-self:start;width:min(100%,380px);padding:0}
+  .modes{padding:3px;gap:3px;border-radius:10px}.mode{min-height:58px;padding:6px 4px;gap:3px}
+  .mode-icon{height:26px}.mode-icon svg{width:24px;height:24px}.mode[data-mode=pinch] .mode-icon svg{width:28px;height:28px}.mode strong{font-size:13px}
+  .softness{margin-top:10px;padding-top:8px}.softness label{font-size:12px}.softness output{padding:2px 6px;font-size:11px}.range-row{margin-top:0;gap:10px}.range-row>span{font-size:11px}input[type=range]{height:36px}
+}
+
