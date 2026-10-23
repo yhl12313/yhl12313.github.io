@@ -1,0 +1,5 @@
+Audio reference: https://theasmrworld.com/ko/waxball
+Public asset manifest: https://theasmrworld.com/sounds/grains-manifest.json
+Retrieved at the user's explicit request to extract and match the reference sounds.
+46 waxball recording grains and 12 soft squishy grains. Original audio belongs to its respective creator; this file does not grant a redistribution license.
+Playback and timing implementation in wax-audio.js is independent code.

@@ -1,0 +1,74 @@
+{
+  "waxball": {
+    "soft": [
+      "soft/00.mp3",
+      "soft/01.mp3",
+      "soft/02.mp3",
+      "soft/03.mp3",
+      "soft/04.mp3",
+      "soft/05.mp3",
+      "soft/06.mp3",
+      "soft/07.mp3",
+      "soft/08.mp3",
+      "soft/09.mp3",
+      "soft/10.mp3",
+      "soft/11.mp3"
+    ],
+    "mid": [
+      "mid/00.mp3",
+      "mid/01.mp3",
+      "mid/02.mp3",
+      "mid/03.mp3",
+      "mid/04.mp3",
+      "mid/05.mp3",
+      "mid/06.mp3",
+      "mid/07.mp3",
+      "mid/08.mp3",
+      "mid/09.mp3",
+      "mid/10.mp3",
+      "mid/11.mp3"
+    ],
+    "hard": [
+      "hard/00.mp3",
+      "hard/01.mp3",
+      "hard/02.mp3",
+      "hard/03.mp3",
+      "hard/04.mp3",
+      "hard/05.mp3",
+      "hard/06.mp3",
+      "hard/07.mp3",
+      "hard/08.mp3",
+      "hard/09.mp3",
+      "hard/10.mp3",
+      "hard/11.mp3"
+    ],
+    "burst": [
+      "burst/00.mp3",
+      "burst/01.mp3",
+      "burst/02.mp3",
+      "burst/03.mp3",
+      "burst/04.mp3",
+      "burst/05.mp3",
+      "burst/06.mp3",
+      "burst/07.mp3",
+      "burst/08.mp3",
+      "burst/09.mp3"
+    ]
+  },
+  "squishy": {
+    "soft": [
+      "soft/00.mp3",
+      "soft/01.mp3",
+      "soft/02.mp3",
+      "soft/03.mp3",
+      "soft/04.mp3",
+      "soft/05.mp3",
+      "soft/06.mp3",
+      "soft/07.mp3",
+      "soft/08.mp3",
+      "soft/09.mp3",
+      "soft/10.mp3",
+      "soft/11.mp3"
+    ]
+  }
+}
