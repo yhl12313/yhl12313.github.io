@@ -84,9 +84,12 @@ Promise.all([...collage.querySelectorAll('img')].map(img => img.decode().catch((
 });
 reducedMotion.addEventListener('change', syncOrbitPlayback);
 document.addEventListener('visibilitychange', syncOrbitPlayback);
-new ResizeObserver(() => {
+const orbitResizeObserver = new ResizeObserver(() => {
   orbitWidth = collage.clientWidth;
+  collage.style.setProperty('--hero-width', collage.parentElement.clientWidth + 'px');
   positionOrbit();
-}).observe(collage);
+});
+orbitResizeObserver.observe(collage);
+orbitResizeObserver.observe(collage.parentElement);
 
 
