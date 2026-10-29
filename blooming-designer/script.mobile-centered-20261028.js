@@ -16,7 +16,9 @@ updateNavigation();
 const collage = document.querySelector('.collage');
 const orbitTiles = [...collage.querySelectorAll('.tile')];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const mobileLayout = matchMedia('(max-width: 760px)');
+const mobileLayout = matchMedia('(max-width: 1024px), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2)');
+const compactOrbit = matchMedia('(max-width: 599px) and (orientation: portrait)');
+const segmentedViewport = matchMedia('(horizontal-viewport-segments: 2), (vertical-viewport-segments: 2)');
 const orbitDuration = 32000;
 let orbitElapsed = 0;
 let orbitFrame = null;
@@ -24,21 +26,22 @@ let previousFrameTime = null;
 // Use the actual browser window height, including desktop windows with browser chrome.
 function fitHeroToViewport() {
   const hero = collage.parentElement;
-  if (mobileLayout.matches) {
+  if (compactOrbit.matches && !segmentedViewport.matches) {
     hero.style.removeProperty('height');
     hero.style.removeProperty('overflow');
     collage.style.removeProperty('width');
     collage.style.removeProperty('height');
     return;
   }
-  hero.style.height = window.innerHeight + 'px';
   const style = getComputedStyle(hero);
-  const availableHeight = Math.max(0, window.innerHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom));
+  const viewportHeight = parseFloat(style.getPropertyValue('--hero-viewport-height')) || window.innerHeight;
+  hero.style.height = viewportHeight + 'px';
+  const availableHeight = Math.max(0, viewportHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom));
   collage.style.height = '';
   const aspect = 740 / 1200;
-  const enlargedWidth = Math.min(hero.clientWidth, availableHeight / aspect) * 1.125;
+  const enlargedWidth = Math.min(hero.clientWidth, availableHeight / aspect) * (mobileLayout.matches ? 1 : 1.125);
   collage.style.width = enlargedWidth + 'px';
-  hero.style.height = Math.max(window.innerHeight, enlargedWidth * aspect + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)) + 'px';
+  hero.style.height = Math.max(viewportHeight, enlargedWidth * aspect + parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)) + 'px';
   hero.style.overflow = 'clip';
 }
 fitHeroToViewport();
@@ -76,7 +79,7 @@ function positionOrbit() {
     ? readBloomAngle()
     : 0;
   const angle = bloomAngle - orbitElapsed / orbitDuration * Math.PI * 2;
-  if (mobileLayout.matches) {
+  if (compactOrbit.matches && !segmentedViewport.matches) {
     positionMobileOrbit(reducedMotion.matches ? 0 : angle + Math.PI);
     return;
   }
@@ -128,7 +131,9 @@ Promise.all([...collage.querySelectorAll('img')].map(img => img.decode().catch((
   syncOrbitPlayback();
 });
 reducedMotion.addEventListener('change', syncOrbitPlayback);
-mobileLayout.addEventListener('change', () => { fitHeroToViewport(); syncOrbitPlayback(); });
+mobileLayout.addEventListener('change', () => { fitHeroToViewport(); syncOrbitPlayback(); syncBackToTop(); });
+compactOrbit.addEventListener('change', () => { fitHeroToViewport(); syncOrbitPlayback(); });
+segmentedViewport.addEventListener('change', () => { fitHeroToViewport(); syncOrbitPlayback(); });
 document.addEventListener('visibilitychange', syncOrbitPlayback);
 const orbitResizeObserver = new ResizeObserver(() => {
   orbitWidth = collage.clientWidth;
@@ -145,7 +150,7 @@ const biography = document.querySelector('.about');
 const introduction = biography.querySelector('.introduction');
 const upperPortrait = biography.querySelector('.portrait:first-child');
 function syncBiographyGrid() {
-  if (innerWidth <= 1024) {
+  if (mobileLayout.matches) {
     biography.style.removeProperty('--resume-space');
     return;
   }
