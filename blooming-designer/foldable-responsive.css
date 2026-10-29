@@ -2,12 +2,13 @@
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (max-width: 1024px), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
   :root {
-    --gutter-left: max(clamp(16px, 5vw, 32px), env(safe-area-inset-left, 0px));
-    --gutter-right: max(clamp(16px, 5vw, 32px), env(safe-area-inset-right, 0px));
-    --column-gap: calc((var(--gutter-left) + var(--gutter-right)) / 4);
+    --gutter-left: max(20px, env(safe-area-inset-left, 0px));
+    --gutter-right: max(20px, env(safe-area-inset-right, 0px));
+    --column-gap: 16px;
   }
   .container, .header nav { width: calc(100% - var(--gutter-left) - var(--gutter-right)); max-width: none; margin-left: var(--gutter-left); margin-right: var(--gutter-right); }
   .back-to-top { display: grid; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; }
+  .about, .projects { column-gap: var(--column-gap); }
   .footer-inner { gap: 24px; }
   .contact { min-width: 0; }
   .contact a { overflow-wrap: anywhere; }
@@ -23,7 +24,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .introduction p:first-child { font-size: clamp(14px, 3.25vw, 17px); }
   .introduction p[lang=en] { font-size: clamp(12px, 2.9vw, 15px); }
   .resume { font-size: clamp(12px, 2.85vw, 14px); line-height: 1.65; gap: 10px; }
-  .resume > div { grid-template-columns: minmax(70px, 23.3%) minmax(0, 1fr); gap: 12px; }
+  .resume > div { grid-template-columns: minmax(70px, 23.3%) minmax(0, 1fr); gap: var(--column-gap); }
   .resume dt { max-width: none; }
   .resume dd { gap: 10px; }
 }
@@ -52,7 +53,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .introduction p:first-child { font-size: clamp(14px,1.65vw,16px); line-height: 1.7; }
   .introduction p[lang=en] { max-width: none; font-size: clamp(12px,1.5vw,14px); line-height: 1.65; }
   .resume { margin: 0; font-size: clamp(12px,1.35vw,13px); line-height: 1.65; gap: 12px; }
-  .resume > div { grid-template-columns: minmax(76px,25%) minmax(0,1fr); gap: 12px; }
+  .resume > div { grid-template-columns: minmax(76px,25%) minmax(0,1fr); gap: var(--column-gap); }
   .resume dt { max-width: none; }
   .resume dd { min-width: 0; gap: 10px; }
   .resume dd p { display: block; text-box-trim: none; }
@@ -81,7 +82,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (horizontal-viewport-segments: 2) {
   :root { --hinge-gap: calc(env(viewport-segment-left 1 0, 50vw) - env(viewport-segment-right 0 0, 50vw)); }
   .about, .projects {
-    grid-template-columns: minmax(0,calc(env(viewport-segment-width 0 0,50vw) - 1.25 * var(--gutter-left))) minmax(0,calc(env(viewport-segment-width 1 0,50vw) - 1.25 * var(--gutter-right)));
+    grid-template-columns: minmax(0,calc(env(viewport-segment-width 0 0,50vw) - var(--gutter-left) - var(--column-gap) / 2)) minmax(0,calc(env(viewport-segment-width 1 0,50vw) - var(--gutter-right) - var(--column-gap) / 2));
     column-gap: calc(var(--hinge-gap) + var(--column-gap));
   }
   .identity ul { flex-direction: column; gap: 6px; }
@@ -92,4 +93,5 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .hero .collage.is-orbiting, .hero .collage.is-orbiting .tile { animation: none; }
 }
+
 
