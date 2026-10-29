@@ -56,8 +56,22 @@ function readBloomAngle() {
   return rotation.endsWith('deg') ? value * Math.PI / 180 : value;
 }
 
+function positionMobileBloom() {
+  const angle = reducedMotion.matches ? 0 : Math.max(0, readBloomAngle() + Math.PI);
+  const centerX = collage.clientWidth / 2;
+  const centerY = collage.clientHeight / 2;
+  const cos = Math.cos(angle), sin = Math.sin(angle);
+  orbitTiles.forEach(tile => {
+    const x = tile.offsetLeft + tile.offsetWidth / 2 - centerX;
+    const y = tile.offsetTop + tile.offsetHeight / 2 - centerY;
+    tile.style.setProperty('--mobile-x', snapToPixel(x * cos - y * sin - x) + 'px');
+    tile.style.setProperty('--mobile-y', snapToPixel(x * sin + y * cos - y) + 'px');
+  });
+  return angle > .0001;
+}
+
 function positionOrbit() {
-  if (mobileLayout.matches) return;
+  if (mobileLayout.matches) return positionMobileBloom();
   // Open through a gentle half-turn, then continue counterclockwise.
   const bloomAngle = motionReady && !reducedMotion.matches
     ? readBloomAngle()
@@ -79,6 +93,11 @@ function positionOrbit() {
 }
 
 function animateOrbit(time) {
+  if (mobileLayout.matches) {
+    const opening = positionMobileBloom();
+    orbitFrame = opening ? requestAnimationFrame(animateOrbit) : null;
+    return;
+  }
   if (previousFrameTime !== null) orbitElapsed = (orbitElapsed + time - previousFrameTime) % orbitDuration;
   previousFrameTime = time;
   positionOrbit();
@@ -93,7 +112,7 @@ function syncOrbitPlayback() {
   collage.style.animationPlayState = playState;
   orbitTiles.forEach(tile => { tile.style.animationPlayState = playState; });
   positionOrbit();
-  if (motionReady && !mobileLayout.matches && !reducedMotion.matches && !document.hidden) orbitFrame = requestAnimationFrame(animateOrbit);
+  if (motionReady && !reducedMotion.matches && !document.hidden) orbitFrame = requestAnimationFrame(animateOrbit);
 }
 
 positionOrbit();
@@ -146,11 +165,11 @@ syncBiographyGrid();
 // Follow the viewport after the visitor leaves the top of the page.
 const backToTop = document.querySelector('.back-to-top');
 function syncBackToTop() {
-  const visible = window.scrollY > Math.min(window.innerHeight * .5, 320);
+  backToTop.hidden = !mobileLayout.matches;
+  const visible = mobileLayout.matches && window.scrollY > Math.min(window.innerHeight * .5, 320);
   backToTop.classList.toggle('is-visible', visible);
   backToTop.disabled = !visible;
 }
-backToTop.hidden = false;
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
 });

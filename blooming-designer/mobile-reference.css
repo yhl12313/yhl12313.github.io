@@ -20,32 +20,51 @@
   #about-title { font-size: 4vw; font-weight: 500; line-height: 1.2; }
   .identity ul { position: static; width: auto; max-width: none; margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 2.1vw; font-size: 2.5vw; font-weight: 500; line-height: 1.4; }
   .portraits { display: block; width: 100%; max-width: none; margin: 6.5vw 0 0; }
-  .portrait.profile-photo { display: none; }
-  .portraits .portrait:last-child { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; transform: none; border: 0; font-size: 3.3vw; }
-  .about-right { width: 100%; gap: 7.6vw; }
+  .portraits .portrait.profile-photo { display: block; width: 100%; aspect-ratio: 4 / 5; }
+  .portraits .portrait:last-child { display: none; }
+  .about-right { width: 100%; gap: 8vw; }
   .introduction { width: 100%; max-width: none; gap: 3.2vw; }
   .introduction p:first-child { font-size: 3.25vw; font-weight: 500; line-height: 1.65; word-break: keep-all; overflow-wrap: break-word; }
-  .introduction p[lang=en] { max-width: none; font-size: 2.5vw; line-height: 1.6; }
-  .resume { width: 100%; margin: 0; font-size: 2.4vw; line-height: 1.5; gap: 1.9vw; font-weight: 500; }
+  .introduction p[lang=en] { max-width: none; font-size: 2.9vw; line-height: 1.6; }
+  .resume { width: 100%; margin: 0; font-size: 2.85vw; line-height: 1.6; gap: 1.4vw; font-weight: 500; }
   .resume > div { grid-template-columns: 23.3% minmax(0, 1fr); gap: 2.5%; }
-  .resume dd { gap: 1.9vw; min-width: 0; }
-  .resume dd p { grid-template-columns: 32.5% minmax(0, 1fr); gap: 3%; }
+  .resume dd { gap: 1.4vw; min-width: 0; }
+  .resume dd p { display: block; }
+  .resume dt { max-width: 17vw; }
   .resume dt, .resume dd p { text-box-trim: none; }
   .resume dd span { word-break: keep-all; overflow-wrap: break-word; }
-  .resume time { white-space: nowrap; }
+  .resume time { display: none; }
 }
 
 /* Remains reachable above device safe areas while scrolling. */
-.back-to-top { position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 30; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid #777; border-radius: 50%; background: #fff; color: #111; cursor: pointer; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 180ms ease, background-color 180ms ease, visibility 180ms; }
+.back-to-top { display: none; position: fixed; right: max(24px, env(safe-area-inset-right)); bottom: calc(24px + env(safe-area-inset-bottom)); z-index: 30; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid #777; border-radius: 50%; background: #fff; color: #111; cursor: pointer; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 180ms ease, background-color 180ms ease, visibility 180ms; }
 .back-to-top.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
 .back-to-top:hover { background: #f2f2f2; }
 .back-to-top svg { width: 22px; height: 22px; }
-@media (max-width: 760px) { .back-to-top { right: max(5vw, env(safe-area-inset-right)); bottom: calc(20px + env(safe-area-inset-bottom)); width: 44px; height: 44px; } }
+@media (max-width: 760px) { .back-to-top { display: grid; right: max(5vw, env(safe-area-inset-right)); bottom: calc(20px + env(safe-area-inset-bottom)); width: 44px; height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .back-to-top { transition: none; } }
 
 @media (max-width: 760px) {
   html { scrollbar-width: none; }
   html::-webkit-scrollbar { display: none; }
-  .has-motion .hero .collage .tile { visibility: visible; }
+  .has-motion .hero .collage:not(.is-orbiting) .tile { visibility: hidden; }
 }
 
+
+/* Use the desktop opening clock and stagger, settling on the mobile reference. */
+@media (max-width: 760px) {
+  .hero .collage.is-orbiting { animation: bloom-turn 3.2s linear both; }
+  .hero .collage.is-orbiting .tile {
+    transform: translate3d(var(--mobile-x, 0px), var(--mobile-y, 0px), 0) scale(var(--bloom-scale));
+    transform-origin: center;
+    animation: bloom-petal 800ms cubic-bezier(.22,1,.36,1) var(--bloom-delay) both;
+  }
+  .hero .collage.is-orbiting .tile.is-revealed {
+    transform: translate3d(var(--mobile-x, 0px), var(--mobile-y, 0px), 0);
+    animation: none;
+  }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .hero .collage.is-orbiting, .hero .collage.is-orbiting .tile { animation: none; }
+  .hero .collage.is-orbiting .tile, .hero .collage.is-orbiting .tile.is-revealed { transform: none; }
+}
