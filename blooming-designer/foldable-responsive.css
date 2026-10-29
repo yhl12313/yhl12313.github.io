@@ -4,6 +4,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   :root {
     --gutter-left: max(clamp(16px, 5vw, 32px), env(safe-area-inset-left, 0px));
     --gutter-right: max(clamp(16px, 5vw, 32px), env(safe-area-inset-right, 0px));
+    --column-gap: calc((var(--gutter-left) + var(--gutter-right)) / 4);
   }
   .container, .header nav { width: calc(100% - var(--gutter-left) - var(--gutter-right)); max-width: none; margin-left: var(--gutter-left); margin-right: var(--gutter-right); }
   .back-to-top { display: grid; right: max(20px, env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; }
@@ -38,7 +39,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .hero .collage.is-orbiting .tile.is-revealed { transform: none; animation: none; }
   .hero .collage h1 { position: absolute; left: 50%; top: 47.432432%; bottom: auto; width: var(--hero-width,100%); max-width: none; transform: translateX(-50%); justify-content: space-between; gap: 0; visibility: visible; font-size: clamp(16px, 2.25vw, 22px); z-index: 6; }
   .hero .collage .placeholder { font-size: clamp(11px, 1.7vw, 16px); }
-  .about { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 32px; margin-top: clamp(48px,8vw,80px); min-height: 0; }
+  .about { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: 32px var(--column-gap); margin-top: clamp(48px,8vw,80px); min-height: 0; }
   .about-left { display: contents; }
   .identity { grid-column: 1 / -1; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 24px; min-height: 0; }
   #about-title, #works-title { font-size: clamp(20px,2.5vw,24px); font-weight: 500; line-height: 1.3; }
@@ -59,7 +60,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .resume dd span { overflow-wrap: break-word; word-break: keep-all; }
   .works { display: block; margin-top: 72px; }
   .works h2 { margin-bottom: 28px; }
-  .projects { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 48px 24px; }
+  .projects { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 48px var(--column-gap); }
   .project-meta { font-size: 11px; line-height: 1.4; }
   .project h3 { font-size: 14px; line-height: 1.5; }
   footer { margin-top: 80px; }
@@ -80,8 +81,8 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 @media (horizontal-viewport-segments: 2) {
   :root { --hinge-gap: calc(env(viewport-segment-left 1 0, 50vw) - env(viewport-segment-right 0 0, 50vw)); }
   .about, .projects {
-    grid-template-columns: minmax(0,calc(env(viewport-segment-width 0 0,50vw) - 2 * var(--gutter-left))) minmax(0,calc(env(viewport-segment-width 1 0,50vw) - 2 * var(--gutter-right)));
-    column-gap: calc(var(--hinge-gap) + var(--gutter-left) + var(--gutter-right));
+    grid-template-columns: minmax(0,calc(env(viewport-segment-width 0 0,50vw) - 1.25 * var(--gutter-left))) minmax(0,calc(env(viewport-segment-width 1 0,50vw) - 1.25 * var(--gutter-right)));
+    column-gap: calc(var(--hinge-gap) + var(--column-gap));
   }
   .identity ul { flex-direction: column; gap: 6px; }
 }
