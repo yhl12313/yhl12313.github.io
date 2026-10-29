@@ -29,11 +29,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /* Open foldables, tablets and landscape phones use the full orbit and two columns. */
 @media (min-width: 600px) and (max-width: 1024px), (max-width: 1024px) and (orientation: landscape), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
-  html { scroll-padding-top: calc(80px + env(safe-area-inset-top, 0px)); }
-  .header { display: block; height: calc(60px + env(safe-area-inset-top, 0px)); background: rgba(255,255,255,.94); }
-  .header nav { padding-top: max(8px, env(safe-area-inset-top, 0px)); gap: 24px; font-size: 12px; }
-  .header nav a { min-height: 44px; display: inline-flex; align-items: center; }
-  .hero.container { width: calc(100% - var(--gutter-left) - var(--gutter-right)); height: 100svh; min-height: 0; padding: calc(64px + env(safe-area-inset-top, 0px)) 0 24px; display: flex; align-items: center; justify-content: center; }
+  html { scroll-padding-top: calc(24px + env(safe-area-inset-top, 0px)); }
+  .header { display: none; }
+  .hero.container { width: calc(100% - var(--gutter-left) - var(--gutter-right)); height: 100svh; min-height: 0; padding: calc(24px + env(safe-area-inset-top, 0px)) 0 24px; display: flex; align-items: center; justify-content: center; }
   .hero .collage { position: relative; flex: none; height: auto; aspect-ratio: 1200 / 740; }
   .hero .collage.is-orbiting { animation: bloom-turn 3.2s linear both; }
   .hero .collage.is-orbiting .tile { left: var(--orbit-left); top: var(--orbit-top); width: var(--orbit-width); height: var(--orbit-height); transform: scale(var(--bloom-scale)); transform-origin: center; }
