@@ -1,6 +1,6 @@
 /* Content follows the available viewport, including narrow covers and split windows. */
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-@media (max-width: 1024px), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
+@media (max-width: 1024px), (min-width: 600px) and (max-width: 1366px) and (orientation: portrait), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
   :root {
     --gutter-left: max(20px, env(safe-area-inset-left, 0px));
     --gutter-right: max(20px, env(safe-area-inset-right, 0px));
@@ -30,7 +30,7 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 }
 
 /* Open foldables, tablets and landscape phones use the full orbit and two columns. */
-@media (min-width: 600px) and (max-width: 1024px), (max-width: 1024px) and (orientation: landscape), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
+@media (min-width: 600px) and (max-width: 1024px), (min-width: 600px) and (max-width: 1366px) and (orientation: portrait), (max-width: 1024px) and (orientation: landscape), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2) {
   html { scroll-padding-top: calc(24px + env(safe-area-inset-top, 0px)); }
   .header { display: none; }
   .hero.container { width: calc(100% - var(--gutter-left) - var(--gutter-right)); height: 100svh; min-height: 0; padding: calc(24px + env(safe-area-inset-top, 0px)) 0 24px; display: flex; align-items: center; justify-content: center; }

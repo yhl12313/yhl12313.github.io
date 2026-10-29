@@ -16,7 +16,7 @@ updateNavigation();
 const collage = document.querySelector('.collage');
 const orbitTiles = [...collage.querySelectorAll('.tile')];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const mobileLayout = matchMedia('(max-width: 1024px), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2)');
+const mobileLayout = matchMedia('(max-width: 1024px), (min-width: 600px) and (max-width: 1366px) and (orientation: portrait), (horizontal-viewport-segments: 2), (vertical-viewport-segments: 2)');
 const compactOrbit = matchMedia('(max-width: 599px) and (orientation: portrait)');
 const segmentedViewport = matchMedia('(horizontal-viewport-segments: 2), (vertical-viewport-segments: 2)');
 const orbitDuration = 32000;
