@@ -1,0 +1,159 @@
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-600.ttf') format('truetype');font-weight:600;font-display:swap}
+:root{--ink:#000;--muted:#777;--page:75rem}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:4.5rem}body{margin:0;background:#fff;color:var(--ink);font-family:'Asta Sans',sans-serif;letter-spacing:-.04em}h1,h2,h3,p,ul,dl,dd{margin:0}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}button,a{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:0.125rem solid #000;outline-offset:0.3125rem}.container{width:calc(100% - 5rem);max-width:var(--page);margin-inline:auto}.header{height:3.375rem;position:fixed;inset:0 0 auto;z-index:10;background:transparent}.header nav{width:calc(100% - 5rem);max-width:75rem;margin:auto;display:flex;justify-content:flex-end;gap:2.75rem;padding-top:1.25rem;font-size:0.75rem;line-height:1.2;letter-spacing:-.02em}.header a{color:var(--muted)}.header a.active{color:#000;font-weight:500}.skip-link{position:fixed;top:-6.25rem;left:1.25rem;background:white;padding:0.75rem;z-index:20}.skip-link:focus{top:0.75rem}
+.hero{padding-top:4rem;height:52.125rem}.collage{position:relative;aspect-ratio:1200/740}.tile{position:absolute;width:23.333333%;height:32.432432%;display:block;overflow:hidden}.tile img{width:100%;height:100%;object-fit:cover;display:block}.tile-1{left:60.555833%;top:33.783784%}.tile-2{left:57.333333%;top:6.756757%}.tile-3{left:37.9025%;top:0;border:0.0625rem solid #777}.tile-4{left:19.610833%;top:6.756757%}.tile-5{left:16.110833%;top:33.783784%;background:#f63600}.tile-6{left:19.610833%;top:60.810811%}.tile-7{left:38.333333%;top:67.567568%}.tile-8{left:57.389167%;top:60.810811%}.placeholder{background:linear-gradient(#f5f5f5,#d9d9d9);border:0.0625rem solid #777;display:grid;place-items:center;font-size:0.75rem;font-weight:400;line-height:1.2}.collage h1{position:absolute;top:47.432432%;left:0;width:100%;display:flex;justify-content:space-between;pointer-events:none;font-size:1.28rem;font-weight:500;line-height:1.2;letter-spacing:-.04em}
+h2{font-size:1.5rem;font-weight:600;line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}.about{margin-top:8.125rem;display:grid;grid-template-columns:36.875rem 24.125rem;justify-content:space-between;min-height:43.75rem}.identity{display:flex;align-items:flex-start;position:relative}.identity h2{white-space:nowrap}.identity ul{padding:0;list-style:none;display:flex;justify-content:space-between;position:absolute;left:18.4375rem;width:22.5625rem;font-weight:500;font-size:0.625rem;line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}.portraits{display:grid;grid-template-columns:1fr 1fr;margin-top:5.8125rem}.portrait{aspect-ratio:1}.portrait:first-child{grid-column:2}.portrait:last-child{grid-column:1}.about-right{display:flex;flex-direction:column;gap:17.5rem}.introduction{max-width:22.9375rem;display:flex;flex-direction:column;gap:1.75rem;line-height:1.6}.introduction p:first-child{font-size:0.875rem;font-weight:500;text-box-trim:trim-both;text-box-edge:cap alphabetic;word-break:keep-all}.introduction p[lang=en]{font-size:0.75rem;color:var(--muted);max-width:19.8125rem}.resume{font-size:0.625rem;font-weight:500;line-height:1.6;display:flex;flex-direction:column;gap:1rem}.resume>div{display:grid;grid-template-columns:5.0625rem 1fr;gap:1.25rem}.resume dt,.resume dd p{text-box-trim:trim-both;text-box-edge:cap alphabetic}.resume dd{display:flex;flex-direction:column;gap:1rem}.resume dd p{display:grid;grid-template-columns:5.125rem 1fr;gap:1.25rem}.resume time{white-space:nowrap}.resume dd span{word-break:keep-all}
+.works{margin-top:10rem;display:grid;grid-template-columns:24.1875rem minmax(0,49.507375rem);gap:1.25rem}.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.25rem;row-gap:7.5rem}.project{min-width:0;scroll-margin-top:5rem}.project-image{display:block;width:100%;aspect-ratio:386.059/299.819;padding:0;border:0;overflow:hidden;background:#f5f5f5}.project-image.placeholder{display:grid;border:0.0625rem solid #777;background:linear-gradient(#f5f5f5,#d9d9d9)}.project-image img{display:block;width:100%;height:100%;object-fit:cover}.project-image.realistic img{object-fit:cover;object-position:bottom}.project-meta{margin-top:0.75rem;display:flex;justify-content:space-between;gap:1.25rem;color:var(--muted);font-size:0.625rem;font-weight:500;line-height:.711;text-box-trim:trim-both;text-box-edge:cap alphabetic}.project h3{font-size:0.875rem;font-weight:400;line-height:1.6;margin-top:0.5rem;text-box-trim:trim-both;text-box-edge:cap alphabetic}footer{border-top:0.0625rem solid #f0f0f0;margin-top:12.5rem;min-height:11.25rem;font-size:0.875rem;font-weight:500;line-height:1.6}.footer-inner{display:flex;justify-content:space-between;padding-top:1.875rem}.contact{display:flex;justify-content:space-between;width:24.125rem}.contact>div{text-align:right}.behance{display:block;color:var(--muted);text-decoration:underline;margin-top:0.5rem}
+@media(min-width:1281px){.hero{height:52.125rem}}
+@media(min-width:761px) and (max-width:1230px){.hero{height:auto;padding-bottom:1.875rem}.about{grid-template-columns:49.2% 32.2%;min-height:38.75rem}.identity ul{left:50%;width:61.2%}.portraits{margin-top:4.75rem}.about-right{gap:11.25rem}.resume>div{grid-template-columns:4.25rem 1fr;gap:0.625rem}.resume dd p{grid-template-columns:4.375rem 1fr;gap:0.625rem}.works{grid-template-columns:32.25% 1fr}.collage h1{font-size:clamp(0.8rem,1.6vw,1.28rem)}}
+@media(max-width:760px){html{scroll-padding-top:4.5rem}.container{width:calc(100% - 2.5rem)}.header nav{width:calc(100% - 2.5rem);gap:1.75rem;padding-top:1.125rem}.hero{height:auto;padding-top:4.5rem;padding-bottom:1.875rem}.collage{aspect-ratio:1200/850}.collage h1{top:90%;font-size:0.96rem}.tile{height:28.235294%}.tile-1,.tile-5{top:29.411765%}.tile-2,.tile-4{top:5.882353%}.tile-6,.tile-8{top:52.941176%}.tile-7{top:58.823529%}.placeholder{font-size:0.625rem}.about{margin-top:6.25rem;display:flex;flex-direction:column;gap:3rem;min-height:0}.identity{display:block}.identity h2{font-size:1.375rem}.identity ul{position:static;width:100%;max-width:22.5625rem;margin-top:1.5rem;font-size:0.6875rem}.portraits{margin-top:2rem;max-width:36.875rem}.about-right{gap:3.5rem}.introduction{max-width:100%}.introduction p[lang=en]{max-width:22.5rem}.resume{font-size:0.6875rem;gap:1.375rem}.resume>div{grid-template-columns:5.625rem 1fr;gap:0.75rem}.resume dd p{grid-template-columns:5.3125rem 1fr;gap:0.75rem}.works{margin-top:6.25rem;display:block}.works h2{margin-bottom:2.25rem}.projects{row-gap:3rem;column-gap:1rem}.project-meta{font-size:0.5625rem;gap:0.5rem}.project h3{font-size:0.75rem;line-height:1.5}.project-image{aspect-ratio:386.059/299.819}footer{margin-top:6.25rem;min-height:12.5rem;font-size:0.75rem}.footer-inner{gap:2rem;flex-direction:column;padding-block:1.75rem}.contact{width:100%;max-width:24.125rem}}
+@media(max-width:420px){.projects{grid-template-columns:1fr;row-gap:2.5rem}.project-meta{font-size:0.625rem}.project h3{font-size:0.875rem}.resume>div{grid-template-columns:4.875rem 1fr;gap:0.75rem}.resume dd p{grid-template-columns:4.875rem 1fr;gap:0.5rem}.resume{font-size:0.625rem}.collage h1{font-size:0.88rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* The cards orbit together; their artwork always stays upright. */
+.hero{position:relative}
+.has-motion .collage:not(.is-orbiting) .tile{visibility:hidden}
+@property --bloom-turn{syntax:'<angle>';initial-value:0rad;inherits:false}
+@property --bloom-scale{syntax:'<number>';initial-value:1;inherits:false}
+.collage.is-orbiting{animation:bloom-turn 3.2s linear both}
+.collage.is-orbiting .tile{left:0;top:0;width:var(--orbit-width);height:var(--orbit-height);transform:translate3d(var(--orbit-left),var(--orbit-top),0) scale(var(--bloom-scale));will-change:transform;animation:bloom-petal 800ms cubic-bezier(.22,1,.36,1) var(--bloom-delay) both}
+/* Restrained bloom: no scale overshoot, with a gentle counterclockwise opening. */
+@keyframes bloom-turn{0%{--bloom-turn:0rad}5%{animation-timing-function:cubic-bezier(.4,0,.2,1);--bloom-turn:0rad}100%{--bloom-turn:-3.141593rad}}
+@keyframes bloom-petal{from{--bloom-scale:0}to{--bloom-scale:1}}
+@media(prefers-reduced-motion:reduce){.collage.is-orbiting,.collage.is-orbiting .tile{animation:none}.collage.is-orbiting{--bloom-turn:0rad}.collage.is-orbiting .tile{--bloom-scale:1;will-change:auto}}
+
+/* Give the biography and work captions room to read on touch screens. */
+@media(min-width:761px) and (max-width:1024px){
+  .about{grid-template-columns:1fr;gap:4rem;min-height:0}
+  .about-left{max-width:36.875rem}
+  .identity ul{left:18.4375rem;width:22.5625rem}
+  .about-right{gap:4rem;max-width:42.5rem}
+  .introduction{max-width:35rem}
+  .introduction p[lang=en]{max-width:27.5rem}
+  .resume{font-size:0.75rem;gap:1.5rem}
+  .resume>div{grid-template-columns:7.5rem 1fr;gap:1.25rem}
+  .resume dd p{grid-template-columns:7.5rem 1fr;gap:1.25rem}
+  .works{display:block}
+  .works>h2{margin-bottom:2.25rem}
+  .projects{row-gap:4.5rem}
+  .project-meta{font-size:0.6875rem;line-height:1.4}
+}
+@media(max-width:760px){
+  .about-right{gap:3rem}
+  .resume{font-size:0.75rem;gap:1.5rem}
+  .resume>div{grid-template-columns:5.125rem minmax(0,1fr);gap:0.75rem}
+  .resume dd p{grid-template-columns:5.5rem minmax(0,1fr);gap:0.75rem}
+  .resume dd{gap:1.25rem}
+  .introduction{max-width:35rem}
+  .project-meta{font-size:0.6875rem;line-height:1.4}
+  .project h3{font-size:0.875rem;line-height:1.5}
+}
+@media(max-width:600px){.projects{grid-template-columns:1fr;row-gap:2.5rem}}
+@media(max-width:380px){
+  .resume{font-size:0.6875rem}
+  .resume>div{grid-template-columns:4.375rem minmax(0,1fr);gap:0.625rem}
+  .resume dd p{grid-template-columns:5rem minmax(0,1fr);gap:0.5rem}
+}
+
+
+
+
+
+
+
+
+/* Preserve the 1280px composition; scale layout, typography and spacing together above it. */
+@media (min-width:1281px){:root{font-size:calc(100vw / 80)}}
+
+/* Fit the entire orbit within the visible first section on wide or short screens. */
+.hero{height:100svh;padding-block:4.5rem 1.5rem;display:flex;align-items:center;justify-content:center}
+.collage{flex:none;width:min(100%,calc((100svh - 6rem) * 1200 / 740))}
+.collage h1{left:50%;width:var(--hero-width,100%);transform:translateX(-50%)}
+@media(max-width:760px){.collage{width:min(100%,calc((100svh - 6rem) * 1200 / 850))}}
+
+/* Cap typography at its 1920px size while keeping the layout fluid. */
+@media(min-width:1921px){body{font-size:24px}.header nav{font-size:18px}.placeholder{font-size:18px}.collage h1{font-size:30.72px}h2{font-size:36px}.identity ul{font-size:15px}.introduction p:first-child{font-size:21px}.introduction p[lang=en]{font-size:18px}.resume{font-size:15px}.project-meta{font-size:15px}.project h3{font-size:21px}footer{font-size:21px}}
+
+/* Reference composition: one left-aligned portrait and a dark closing section. */
+.portraits{display:block;width:50%}
+.portrait{width:100%}
+footer{background:#000;color:#fff;border-top:0;min-height:9rem;margin-top:15.625rem}
+.behance{color:#bdbdbd}
+@media(min-width:1025px){.about{margin-top:12.5rem;min-height:48.75rem}}
+@media(max-width:1024px){.portraits{width:50%;max-width:18.4375rem}footer{margin-top:8rem}}
+@media(max-width:760px){.portraits{width:65%;max-width:18.4375rem}footer{min-height:12.5rem;margin-top:6.25rem}}
+
+/* Two touching squares follow the reference's upper-right / lower-left composition. */
+.portraits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:35rem;max-width:100%;gap:0}
+.portrait{width:100%;aspect-ratio:1}
+.portrait:first-child{grid-column:2;grid-row:1}
+.portrait:last-child{grid-column:1;grid-row:2}
+
+/* Overlap the meeting corner by one pixel to avoid subpixel rendering seams. */
+.portrait:last-child{transform:translate(1px,-1px)}
+.portrait.profile-photo{border:1px solid #777;overflow:hidden}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Image frames have no visible stroke. */
+.tile,.placeholder,.project-image.placeholder,.portrait.profile-photo{border:0}
+
+/* Updated reference: field labels and complementary diagonal portrait ratios. */
+.portraits{width:38.5rem;align-items:start}
+.portrait:first-child{aspect-ratio:4/5}
+.portrait:last-child{aspect-ratio:11/10}
+@media(min-width:1025px){
+  .about{grid-template-columns:minmax(0,38.5rem) 24.125rem;margin-top:11rem;min-height:53.5rem}
+  .identity ul{left:19.25rem;width:19.5rem}
+  .about-right{gap:24rem}
+  footer{margin-top:11.5rem}
+}
+
+/* Keep the 1280px resume alignment even after typography reaches its size cap. */
+@media(min-width:1025px){.about-right{gap:0}.resume{margin-top:var(--resume-space,24rem)}}
+
+/* Match hero cards to the Works thumbnail aspect ratio. */
+.tile{height:auto;aspect-ratio:386.059/299.819}
+
+/* Section headings share the hero title's size, weight and tracking at every breakpoint. */
+#about-title,#works-title{font-size:1.28rem;font-weight:500;letter-spacing:-.04em}
+@media(min-width:761px) and (max-width:1230px){#about-title,#works-title{font-size:clamp(.8rem,1.6vw,1.28rem)}}
+@media(max-width:760px){#about-title,#works-title{font-size:.96rem}}
+@media(max-width:420px){#about-title,#works-title{font-size:.88rem}}
+@media(min-width:1921px){#about-title,#works-title{font-size:30.72px}}
+
+/* Paint cards at their actual size rather than retaining scaled GPU textures. */
+.collage.is-orbiting .tile{left:var(--orbit-left);top:var(--orbit-top);transform:scale(var(--bloom-scale));will-change:auto}
+.collage.is-orbiting .tile.is-revealed{transform:none;animation:none}
+.tile img{image-rendering:auto}
+@media(prefers-reduced-motion:reduce){.collage.is-orbiting .tile{transform:none}}
+
+/* Mobile: angled cards pass around a cropped circular track. */
+@media(max-width:760px){
+  .hero{padding-block:4.5rem 1.5rem}
+  .collage{aspect-ratio:auto}
+  .collage.is-orbiting .tile{border-radius:3px;transform:rotate(var(--orbit-rotation,0rad)) scale(var(--bloom-scale))}
+  .collage.is-orbiting .tile.is-revealed{transform:rotate(var(--orbit-rotation,0rad))}
+  .collage h1{top:auto;bottom:0;z-index:2}
+  .about{margin-top:5rem;gap:2.5rem}
+  .identity{display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem}
+  .identity ul{position:static;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:.75rem;width:auto;margin:0;font-size:.75rem;line-height:1.5}
+  .portraits{display:block;width:100%;max-width:22rem;margin:2rem auto 0}
+  .portrait:first-child{width:100%;aspect-ratio:4/5}
+  .portrait:last-child{display:none}
+  .about-right{gap:3rem}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){.collage.is-orbiting .tile{transform:rotate(var(--orbit-rotation,0rad))}}
+
+/* Keep the mobile title centered over the carousel while the hero is in view. */
+@media(max-width:760px){
+  .collage h1{position:fixed;left:50%;top:50%;bottom:auto;width:max-content;max-width:calc(100% - 2.5rem);justify-content:center;gap:.35em;transform:translate(-50%,-50%);visibility:hidden;z-index:3}
+  .hero.is-title-pinned .collage h1{visibility:visible}
+  .identity{flex-direction:row;justify-content:space-between;align-items:flex-start;gap:1rem}
+  .identity ul{flex:none;max-width:none}
+}
+
+/* Make the activity year explicit on mobile, foldable and tablet displays. */
+.activity-year{display:none}
+@media(max-width:1024px),(hover:none) and (pointer:coarse){.activity-year{display:inline}}
