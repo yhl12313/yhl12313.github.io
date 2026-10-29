@@ -56,10 +56,11 @@ function readBloomAngle() {
   return rotation.endsWith('deg') ? value * Math.PI / 180 : value;
 }
 
-function positionMobileBloom() {
-  const angle = reducedMotion.matches ? 0 : Math.max(0, readBloomAngle() + Math.PI);
-  const centerX = collage.clientWidth / 2;
-  const centerY = collage.clientHeight / 2;
+function positionMobileOrbit(angle) {
+  // The mobile composition shows the right side of a ring cropped by the viewport.
+  // Orbit each artwork's center; scale the reveal around that same center.
+  const centerX = collage.clientWidth * -.03;
+  const centerY = collage.clientWidth * .875;
   const cos = Math.cos(angle), sin = Math.sin(angle);
   orbitTiles.forEach(tile => {
     const x = tile.offsetLeft + tile.offsetWidth / 2 - centerX;
@@ -67,16 +68,18 @@ function positionMobileBloom() {
     tile.style.setProperty('--mobile-x', snapToPixel(x * cos - y * sin - x) + 'px');
     tile.style.setProperty('--mobile-y', snapToPixel(x * sin + y * cos - y) + 'px');
   });
-  return angle > .0001;
 }
 
 function positionOrbit() {
-  if (mobileLayout.matches) return positionMobileBloom();
   // Open through a gentle half-turn, then continue counterclockwise.
   const bloomAngle = motionReady && !reducedMotion.matches
     ? readBloomAngle()
     : 0;
   const angle = bloomAngle - orbitElapsed / orbitDuration * Math.PI * 2;
+  if (mobileLayout.matches) {
+    positionMobileOrbit(reducedMotion.matches ? 0 : angle + Math.PI);
+    return;
+  }
   const width = snapToPixel(orbitWidth * 280 / 1200);
   const height = snapToPixel(width * 299.819 / 386.059);
   collage.style.setProperty('--orbit-width', width + 'px');
@@ -88,16 +91,11 @@ function positionOrbit() {
     const top = orbitWidth * 370 / 1200 + Math.sin(phase) * orbitWidth * 250 / 1200 - height / 2;
     tile.style.setProperty('--orbit-left', (snapToPixel(bounds.left + left) - bounds.left) + 'px');
     tile.style.setProperty('--orbit-top', (snapToPixel(bounds.top + top) - bounds.top) + 'px');
-    tile.style.transformOrigin = `${50 - Math.cos(phase) * 50}% ${50 - Math.sin(phase) * 50}%`;
+    tile.style.transformOrigin = '50% 50%';
   });
 }
 
 function animateOrbit(time) {
-  if (mobileLayout.matches) {
-    const opening = positionMobileBloom();
-    orbitFrame = opening ? requestAnimationFrame(animateOrbit) : null;
-    return;
-  }
   if (previousFrameTime !== null) orbitElapsed = (orbitElapsed + time - previousFrameTime) % orbitDuration;
   previousFrameTime = time;
   positionOrbit();
