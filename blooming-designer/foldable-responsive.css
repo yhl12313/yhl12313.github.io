@@ -95,3 +95,9 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 }
 
 
+
+/* Align the resume and portrait bottoms on open folds and tablets. */
+@media (min-width:600px) and (max-width:1024px), (min-width:600px) and (max-width:1366px) and (orientation:portrait), (max-width:1024px) and (orientation:landscape), (horizontal-viewport-segments:2), (vertical-viewport-segments:2) {
+  .portraits { align-self:end; }
+  .about-right { align-self:stretch; justify-content:space-between; }
+}
