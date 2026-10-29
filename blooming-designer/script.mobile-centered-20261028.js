@@ -16,6 +16,7 @@ updateNavigation();
 const collage = document.querySelector('.collage');
 const orbitTiles = [...collage.querySelectorAll('.tile')];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const mobileLayout = matchMedia('(max-width: 760px)');
 const orbitDuration = 32000;
 let orbitElapsed = 0;
 let orbitFrame = null;
@@ -23,15 +24,16 @@ let previousFrameTime = null;
 // Use the actual browser window height, including desktop windows with browser chrome.
 function fitHeroToViewport() {
   const hero = collage.parentElement;
+  if (mobileLayout.matches) {
+    hero.style.removeProperty('height');
+    hero.style.removeProperty('overflow');
+    collage.style.removeProperty('width');
+    collage.style.removeProperty('height');
+    return;
+  }
   hero.style.height = window.innerHeight + 'px';
   const style = getComputedStyle(hero);
   const availableHeight = Math.max(0, window.innerHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom));
-  if (window.innerWidth <= 760) {
-    collage.style.width = hero.clientWidth + 'px';
-    collage.style.height = availableHeight + 'px';
-    hero.style.overflow = 'clip';
-    return;
-  }
   collage.style.height = '';
   const aspect = 740 / 1200;
   const enlargedWidth = Math.min(hero.clientWidth, availableHeight / aspect) * 1.125;
@@ -55,30 +57,24 @@ function readBloomAngle() {
 }
 
 function positionOrbit() {
+  if (mobileLayout.matches) return;
   // Open through a gentle half-turn, then continue counterclockwise.
   const bloomAngle = motionReady && !reducedMotion.matches
     ? readBloomAngle()
     : 0;
   const angle = bloomAngle - orbitElapsed / orbitDuration * Math.PI * 2;
-  const mobile = window.innerWidth <= 760;
-  const width = snapToPixel(mobile ? Math.min(orbitWidth * .54, 240) : orbitWidth * 280 / 1200);
+  const width = snapToPixel(orbitWidth * 280 / 1200);
   const height = snapToPixel(width * 299.819 / 386.059);
   collage.style.setProperty('--orbit-width', width + 'px');
   collage.style.setProperty('--orbit-height', height + 'px');
   const bounds = collage.getBoundingClientRect();
   orbitTiles.forEach((tile, index) => {
     const phase = angle - index * Math.PI / 4;
-    const mobileRadius = Math.min(Math.max(0, bounds.height - 80) * .29, orbitWidth * .9);
-    const left = mobile
-      ? -orbitWidth * .18 + Math.cos(phase) * mobileRadius - width / 2
-      : orbitWidth / 2 + Math.cos(phase) * orbitWidth * 266.666667 / 1200 - width / 2;
-    const top = mobile
-      ? (bounds.height - 60) / 2 + Math.sin(phase) * mobileRadius - height / 2
-      : orbitWidth * 370 / 1200 + Math.sin(phase) * orbitWidth * 250 / 1200 - height / 2;
-    tile.style.setProperty('--orbit-rotation', (mobile ? phase : 0) + 'rad');
+    const left = orbitWidth / 2 + Math.cos(phase) * orbitWidth * 266.666667 / 1200 - width / 2;
+    const top = orbitWidth * 370 / 1200 + Math.sin(phase) * orbitWidth * 250 / 1200 - height / 2;
     tile.style.setProperty('--orbit-left', (snapToPixel(bounds.left + left) - bounds.left) + 'px');
     tile.style.setProperty('--orbit-top', (snapToPixel(bounds.top + top) - bounds.top) + 'px');
-    tile.style.transformOrigin = mobile ? '50% 50%' : `${50 - Math.cos(phase) * 50}% ${50 - Math.sin(phase) * 50}%`;
+    tile.style.transformOrigin = `${50 - Math.cos(phase) * 50}% ${50 - Math.sin(phase) * 50}%`;
   });
 }
 
@@ -97,7 +93,7 @@ function syncOrbitPlayback() {
   collage.style.animationPlayState = playState;
   orbitTiles.forEach(tile => { tile.style.animationPlayState = playState; });
   positionOrbit();
-  if (motionReady && !reducedMotion.matches && !document.hidden) orbitFrame = requestAnimationFrame(animateOrbit);
+  if (motionReady && !mobileLayout.matches && !reducedMotion.matches && !document.hidden) orbitFrame = requestAnimationFrame(animateOrbit);
 }
 
 positionOrbit();
@@ -115,6 +111,7 @@ Promise.all([...collage.querySelectorAll('img')].map(img => img.decode().catch((
   syncOrbitPlayback();
 });
 reducedMotion.addEventListener('change', syncOrbitPlayback);
+mobileLayout.addEventListener('change', () => { fitHeroToViewport(); syncOrbitPlayback(); });
 document.addEventListener('visibilitychange', syncOrbitPlayback);
 const orbitResizeObserver = new ResizeObserver(() => {
   orbitWidth = collage.clientWidth;
@@ -146,13 +143,17 @@ addEventListener('resize', syncBiographyGrid, { passive: true });
 document.fonts.ready.then(syncBiographyGrid);
 syncBiographyGrid();
 
-// Pin the mobile title only while the hero crosses the screen center.
-function syncMobileHeroTitle() {
-  const hero = collage.parentElement;
-  const bounds = hero.getBoundingClientRect();
-  const center = innerHeight / 2;
-  hero.classList.toggle('is-title-pinned', innerWidth <= 760 && bounds.top <= center && bounds.bottom >= center);
+// Follow the viewport after the visitor leaves the top of the page.
+const backToTop = document.querySelector('.back-to-top');
+function syncBackToTop() {
+  const visible = window.scrollY > Math.min(window.innerHeight * .5, 320);
+  backToTop.classList.toggle('is-visible', visible);
+  backToTop.disabled = !visible;
 }
-addEventListener('scroll', syncMobileHeroTitle, { passive: true });
-addEventListener('resize', syncMobileHeroTitle, { passive: true });
-syncMobileHeroTitle();
+backToTop.hidden = false;
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+});
+addEventListener('scroll', syncBackToTop, { passive: true });
+addEventListener('resize', syncBackToTop, { passive: true });
+syncBackToTop();
