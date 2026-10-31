@@ -12,9 +12,48 @@
   <link rel="stylesheet" href="foldable-responsive.css?v=resume-bottom-20261029">
   <link rel="stylesheet" href="thumbnail-bloom-20261031.css">
   <link rel="stylesheet" href="mobile-arc-restored-20261031.css">
-  <script src="script.mobile-restored-20261031.js" defer></script>
+  <style>
+    .bloom-onboarding{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#000;animation:bloom-intro-exit 2800ms linear both}
+    .bloom-onboarding svg{display:block;width:clamp(120px,9.4vw,240px);height:auto;overflow:visible}
+    .bloom-onboarding path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:bloom-intro-draw 900ms cubic-bezier(.22,.61,.36,1) both;animation-delay:calc(100ms + var(--petal)*160ms)}
+    @keyframes bloom-intro-draw{to{stroke-dashoffset:0}}
+    @keyframes bloom-intro-exit{0%,89%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+    @media(prefers-reduced-motion:reduce){.bloom-onboarding{animation-duration:600ms}.bloom-onboarding path{animation:none;stroke-dashoffset:0}}
+  </style>
+  <script src="script.onboarding-20261031.js" defer></script>
 </head>
 <body>
+  <div class="bloom-onboarding" aria-hidden="true">
+    <svg viewBox="0 0 320 320" focusable="false">
+      <path pathLength="100" style="--petal:0" transform="rotate(0 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:1" transform="rotate(45 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:2" transform="rotate(90 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:3" transform="rotate(135 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:4" transform="rotate(180 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:5" transform="rotate(225 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:6" transform="rotate(270 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <path pathLength="100" style="--petal:7" transform="rotate(315 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+    </svg>
+  </div>
+  <script>
+    // A fixed overlay leaves document geometry and reload restoration intact.
+    window.bloomOnboardingReady = new Promise(resolve => {
+      const overlay = document.querySelector('.bloom-onboarding');
+      performance.mark('bloom:onboarding:start');
+      let complete = false;
+      const finish = () => {
+        if (complete) return;
+        complete = true;
+        overlay.remove();
+        performance.mark('bloom:onboarding:end');
+        resolve();
+      };
+      overlay.addEventListener('animationend', event => {
+        if (event.target === overlay) finish();
+      });
+      setTimeout(finish, matchMedia('(prefers-reduced-motion: reduce)').matches ? 650 : 2900);
+    });
+  </script>
   <a class="skip-link" href="#works">작품으로 바로가기</a>
   <header class="header"><nav aria-label="메인 메뉴">
     <a href="#bloom" class="active" aria-current="location">Bloom</a>
