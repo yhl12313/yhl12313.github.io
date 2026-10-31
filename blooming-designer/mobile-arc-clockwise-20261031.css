@@ -1,0 +1,18 @@
+/* Restore the original cropped ring and staggered reveal on portrait phones only. */
+.hero.is-phone-arc .collage.is-orbiting{animation:bloom-turn 3.2s linear both}
+.hero.is-phone-arc .collage.is-orbiting .tile{
+  transform:translate3d(var(--mobile-x,0px),var(--mobile-y,0px),0) scale(var(--bloom-scale));
+  transform-origin:center;
+  animation:bloom-petal 800ms cubic-bezier(.22,1,.36,1) var(--bloom-delay) both;
+}
+.hero.is-phone-arc .collage.is-orbiting .tile.is-revealed{
+  transform:translate3d(var(--mobile-x,0px),var(--mobile-y,0px),0);
+  animation:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero.is-phone-arc .collage.is-orbiting,.hero.is-phone-arc .collage.is-orbiting .tile{animation:none}
+  .hero.is-phone-arc .collage.is-orbiting .tile,.hero.is-phone-arc .collage.is-orbiting .tile.is-revealed{transform:none}
+}
+
+/* Continue the onboarding flower’s clockwise turn through the mobile opening. */
+@keyframes bloom-turn{0%{--bloom-turn:0rad}5%{animation-timing-function:cubic-bezier(.4,0,.2,1);--bloom-turn:0rad}100%{--bloom-turn:3.141593rad}}
