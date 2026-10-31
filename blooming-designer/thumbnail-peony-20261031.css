@@ -1,0 +1,12 @@
+/* One shared center opens into eight thumbnail petals. */
+.hero .collage.is-orbiting{animation:none}
+.hero .collage.is-orbiting .tile,
+.hero .collage.is-orbiting .tile.is-revealed{
+  animation:none;
+  transform:translate(var(--mobile-x,0px),var(--mobile-y,0px)) perspective(900px) rotate3d(var(--petal-axis-x,1),var(--petal-axis-y,0),0,var(--petal-fold,0deg)) rotate(var(--petal-turn,0deg)) scale(var(--petal-scale,1));
+  transform-origin:50% 50%;
+  will-change:auto;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .collage.is-orbiting .tile{opacity:1;transform:translate(var(--mobile-x,0px),var(--mobile-y,0px))}
+}
