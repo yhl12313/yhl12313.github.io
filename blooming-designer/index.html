@@ -13,26 +13,27 @@
   <link rel="stylesheet" href="thumbnail-bloom-20261031.css">
   <link rel="stylesheet" href="mobile-arc-restored-20261031.css">
   <style>
-    .bloom-onboarding{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#000;animation:bloom-intro-exit 2800ms linear both}
-    .bloom-onboarding svg{display:block;width:clamp(120px,9.4vw,240px);height:auto;overflow:visible}
-    .bloom-onboarding path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:bloom-intro-draw 900ms cubic-bezier(.22,.61,.36,1) both;animation-delay:calc(100ms + var(--petal)*160ms)}
-    @keyframes bloom-intro-draw{to{stroke-dashoffset:0}}
-    @keyframes bloom-intro-exit{0%,89%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
-    @media(prefers-reduced-motion:reduce){.bloom-onboarding{animation-duration:600ms}.bloom-onboarding path{animation:none;stroke-dashoffset:0}}
+    .bloom-onboarding{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#000;animation:bloom-intro-push 500ms cubic-bezier(.76,0,.24,1) 2100ms both;will-change:transform}
+    .bloom-onboarding svg{display:block;width:clamp(120px,9.4vw,240px);height:auto;overflow:visible;transform-origin:50% 50%;animation:bloom-intro-spin 2100ms cubic-bezier(.16,1,.3,1) both}
+    .bloom-onboarding path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;transform-origin:160px 160px;animation:bloom-intro-open 1380ms cubic-bezier(.16,1,.3,1) both;animation-delay:calc(60ms + var(--petal)*90ms)}
+    @keyframes bloom-intro-open{0%{stroke-dashoffset:100;transform:rotate(-38deg) scale(.12,.04)}55%{stroke-dashoffset:26}100%{stroke-dashoffset:0;transform:rotate(0) scale(1)}}
+    @keyframes bloom-intro-spin{from{transform:rotate(-110deg)}to{transform:rotate(90deg)}}
+    @keyframes bloom-intro-push{from{transform:translate3d(0,0,0);visibility:visible}to{transform:translate3d(0,-100%,0);visibility:hidden}}
+    @media(prefers-reduced-motion:reduce){.bloom-onboarding{animation-duration:150ms;animation-delay:350ms}.bloom-onboarding svg{animation:none}.bloom-onboarding path{animation:none;stroke-dashoffset:0;transform:none}}
   </style>
   <script src="script.onboarding-20261031.js" defer></script>
 </head>
 <body>
   <div class="bloom-onboarding" aria-hidden="true">
     <svg viewBox="0 0 320 320" focusable="false">
-      <path pathLength="100" style="--petal:0" transform="rotate(0 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:1" transform="rotate(45 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:2" transform="rotate(90 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:3" transform="rotate(135 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:4" transform="rotate(180 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:5" transform="rotate(225 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:6" transform="rotate(270 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
-      <path pathLength="100" style="--petal:7" transform="rotate(315 160 160)" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/>
+      <g transform="rotate(0 160 160)"><path pathLength="100" style="--petal:0" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(45 160 160)"><path pathLength="100" style="--petal:1" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(90 160 160)"><path pathLength="100" style="--petal:2" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(135 160 160)"><path pathLength="100" style="--petal:3" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(180 160 160)"><path pathLength="100" style="--petal:4" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(225 160 160)"><path pathLength="100" style="--petal:5" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(270 160 160)"><path pathLength="100" style="--petal:6" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(315 160 160)"><path pathLength="100" style="--petal:7" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
     </svg>
   </div>
   <script>
@@ -48,6 +49,10 @@
         performance.mark('bloom:onboarding:end');
         resolve();
       };
+      // Begin the existing hero as the black panel pushes upward.
+      overlay.addEventListener('animationstart', event => {
+        if (event.target === overlay) resolve();
+      });
       overlay.addEventListener('animationend', event => {
         if (event.target === overlay) finish();
       });
