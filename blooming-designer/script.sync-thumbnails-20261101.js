@@ -66,22 +66,30 @@ function petalProgress(tile, index) {
   return open;
 }
 
-function readMobileOpeningAngle() {
-  const value = getComputedStyle(collage).getPropertyValue('--bloom-turn').trim();
-  const number = parseFloat(value) || 0;
-  return value.endsWith('deg') ? number * Math.PI / 180 : number;
-}
+// Keep neighboring cards on one evenly spaced ellipse, as on desktop.
 function positionMobileOrbit(angle) {
   const centerX = collage.clientWidth * -.03;
   const centerY = collage.clientWidth * .875;
-  const cos = Math.cos(angle), sin = Math.sin(angle);
+  // Read all layout values before writing transforms to avoid per-card reflows.
+  const frames = orbitTiles.map(tile => {
+    const style = getComputedStyle(tile);
+    return {
+      left: parseFloat(style.left), top: parseFloat(style.top),
+      width: parseFloat(style.width), height: parseFloat(style.height)
+    };
+  });
+  const radiusX = frames[0].width * 266.666667 / 280;
+  const radiusY = frames[0].width * 250 / 280;
+  const step = Math.PI * 2 / orbitTiles.length;
   orbitTiles.forEach((tile, index) => {
-    tile.style.visibility = motionReady && (reducedMotion.matches || bloomElapsed > index * 70) ? 'visible' : 'hidden';
-    tile.style.opacity = '1';
-    const x = tile.offsetLeft + tile.offsetWidth / 2 - centerX;
-    const y = tile.offsetTop + tile.offsetHeight / 2 - centerY;
-    tile.style.setProperty('--mobile-x', snapToPixel(x * cos - y * sin - x) + 'px');
-    tile.style.setProperty('--mobile-y', snapToPixel(x * sin + y * cos - y) + 'px');
+    const open = petalProgress(tile, index);
+    const frame = frames[index];
+    const phase = angle - index * step;
+    const left = centerX + Math.cos(phase) * radiusX * open - frame.width / 2;
+    const top = centerY + Math.sin(phase) * radiusY * open - frame.height / 2;
+    // Fractional translations keep the track continuous on high-density displays.
+    tile.style.setProperty('--mobile-x', (left - frame.left).toFixed(3) + 'px');
+    tile.style.setProperty('--mobile-y', (top - frame.top).toFixed(3) + 'px');
   });
 }
 
@@ -91,7 +99,7 @@ function positionOrbit() {
   const openingTurn = -Math.PI * .4 * Math.pow(1 - opening, 2);
   const angle = openingTurn + orbitElapsed / orbitDuration * Math.PI * 2;
   if (compactOrbit.matches && !segmentedViewport.matches) {
-    positionMobileOrbit(reducedMotion.matches ? 0 : readMobileOpeningAngle() + orbitElapsed / orbitDuration * Math.PI * 2 + Math.PI);
+    positionMobileOrbit(angle);
     return;
   }
   const width = snapToPixel(orbitWidth * 280 / 1200);
