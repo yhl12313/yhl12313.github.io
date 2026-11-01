@@ -71,18 +71,3 @@
   .hero .collage.is-orbiting .tile, .hero .collage.is-orbiting .tile.is-revealed { transform: none; }
 }
 
-/* Phone cards use the same content width as the single-column Works grid. */
-@media (max-width: 599px) and (orientation: portrait) {
-  .hero.is-phone-arc {
-    --phone-thumbnail-width: calc(100vw - var(--gutter-left, 20px) - var(--gutter-right, 20px));
-    --phone-thumbnail-growth: calc(var(--phone-thumbnail-width) - 59.6vw);
-  }
-  .hero.is-phone-arc .collage .tile {
-    width: var(--phone-thumbnail-width);
-    height: auto;
-    aspect-ratio: var(--thumbnail-aspect);
-    /* Keep the existing card centers on their circular track as cards grow. */
-    margin-left: calc(var(--phone-thumbnail-growth) / -2);
-    margin-top: calc(var(--phone-thumbnail-growth) * 299.819 / 386.059 / -2);
-  }
-}
