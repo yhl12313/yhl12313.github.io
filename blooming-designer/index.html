@@ -51,6 +51,7 @@
     window.bloomOnboardingReady = new Promise(resolve => {
       const overlay = document.querySelector('.bloom-onboarding');
       const curtain = overlay.querySelector('.bloom-onboarding-curtain');
+      const flower = overlay.querySelector('.bloom-onboarding-flower');
       const aperture = overlay.querySelector('.bloom-intro-aperture');
       const rotation = overlay.querySelector('.bloom-flower-rotation');
       const petalGroups = Array.from(rotation.children);
@@ -107,7 +108,9 @@
       const render = now => {
         if (complete) return;
         const elapsed = now - started;
-        renderFlower(elapsed);
+        // Hide the separate flower layer before the iris exposes any hero pixels.
+        flower.style.visibility = elapsed >= irisStart ? 'hidden' : 'visible';
+        if (elapsed < irisStart) renderFlower(elapsed);
         const p = Math.max(0, Math.min(1, (elapsed - irisStart) / irisDuration));
         const opening = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
         aperture.setAttribute('r', String(radius * opening));
