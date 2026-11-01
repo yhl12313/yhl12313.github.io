@@ -7,64 +7,86 @@
   <title>Blooming Designer — 이승연</title>
   <script src="scroll-restoration-20261031.js"></script>
   <script>document.documentElement.classList.add('has-motion');</script>
-  <link rel="stylesheet" href="styles.activity-years-20261029.css?v=background-white-20261101">
-  <link rel="stylesheet" href="mobile-reference.css?v=20261029-4">
-  <link rel="stylesheet" href="foldable-responsive.css?v=resume-bottom-20261029">
+  <link rel="stylesheet" href="styles.activity-years-20261029.css?v=tablet-onboarding-20261101">
+  <link rel="stylesheet" href="mobile-reference.css?v=tablet-onboarding-20261101">
+  <link rel="stylesheet" href="foldable-responsive.css?v=tablet-onboarding-20261101">
   <link rel="stylesheet" href="thumbnail-bloom-20261031.css">
   <link rel="stylesheet" href="mobile-arc-clockwise-20261031.css">
   <style>
-    @property --intro-aperture{syntax:"<length>";initial-value:0px;inherits:false}
-    .bloom-onboarding{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;background:#000;--intro-aperture:0px;-webkit-mask-image:radial-gradient(circle at center,transparent calc(var(--intro-aperture) - 1px),#000 var(--intro-aperture));mask-image:radial-gradient(circle at center,transparent calc(var(--intro-aperture) - 1px),#000 var(--intro-aperture));animation:bloom-intro-iris 760ms cubic-bezier(.65,0,.35,1) 1560ms both}
-    .bloom-onboarding svg{display:block;width:clamp(120px,9.4vw,240px);height:auto;overflow:visible;shape-rendering:geometricPrecision}
-    .bloom-onboarding path{fill:none;stroke:#fff;stroke-width:1.25;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;shape-rendering:geometricPrecision}
-    .bloom-onboarding .bloom-line-base{stroke-opacity:.2;stroke-dasharray:none}
+    .bloom-onboarding{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;overflow:hidden}
+    .bloom-onboarding-curtain{position:absolute;inset:0;display:block;width:100%;height:100%}
+    .bloom-onboarding-flower{position:relative;display:block;width:clamp(120px,9.4vw,240px);height:auto;overflow:visible;shape-rendering:geometricPrecision}
+    .bloom-onboarding path{fill:none;stroke:#fff;stroke-width:1.25;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+    .bloom-onboarding .bloom-line-base{stroke-opacity:.2}
     .bloom-onboarding .bloom-line-ink{stroke-opacity:1}
-    @keyframes bloom-intro-iris{from{--intro-aperture:0px;visibility:visible}to{--intro-aperture:var(--intro-radius,75vmax);visibility:hidden}}
     .has-motion .collage:not(.is-orbiting) .tile{visibility:hidden}
     .hero .collage .tile-2,#project-sync .project-image{border:1px solid #f9f9f9}
-    @media(prefers-reduced-motion:reduce){.bloom-onboarding{animation-duration:150ms;animation-delay:350ms}.bloom-onboarding svg{animation:none}.bloom-onboarding path{stroke-dashoffset:0}}
   </style>
   <script src="script.sync-thumbnails-20261101.js" defer></script>
 </head>
 <body>
   <div class="bloom-onboarding" aria-hidden="true">
-    <svg viewBox="0 0 320 320" focusable="false" shape-rendering="geometricPrecision">
+    <svg class="bloom-onboarding-curtain" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" focusable="false" preserveAspectRatio="none">
+      <defs><mask id="bloom-intro-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%" style="mask-type:luminance">
+        <rect width="100%" height="100%" fill="#fff"/>
+        <circle class="bloom-intro-aperture" cx="50%" cy="50%" r="0" fill="#000"/>
+      </mask></defs>
+      <rect width="100%" height="100%" fill="#000" mask="url(#bloom-intro-mask)"/>
+    </svg>
+    <svg class="bloom-onboarding-flower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" focusable="false" shape-rendering="geometricPrecision">
       <g class="bloom-flower-rotation">
-      <g transform="rotate(0 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:0" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:0" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(45 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:1" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:1" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(90 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:2" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:2" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(135 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:3" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:3" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(180 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:4" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:4" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(225 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:5" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:5" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(270 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:6" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:6" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
-      <g transform="rotate(315 160 160)"><path class="bloom-line-base" pathLength="100" style="--petal:7" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" pathLength="100" style="--petal:7" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(0 160 160)"><path class="bloom-line-base" style="--petal:0" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:0" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(45 160 160)"><path class="bloom-line-base" style="--petal:1" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:1" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(90 160 160)"><path class="bloom-line-base" style="--petal:2" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:2" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(135 160 160)"><path class="bloom-line-base" style="--petal:3" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:3" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(180 160 160)"><path class="bloom-line-base" style="--petal:4" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:4" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(225 160 160)"><path class="bloom-line-base" style="--petal:5" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:5" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(270 160 160)"><path class="bloom-line-base" style="--petal:6" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:6" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
+      <g transform="rotate(315 160 160)"><path class="bloom-line-base" style="--petal:7" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/><path class="bloom-line-ink" style="--petal:7" d="M160 160 C123 160 123 40 160 40 C197 40 197 160 160 160 Z"/></g>
       </g>
     </svg>
   </div>
   <script>
-    // A fixed overlay leaves document geometry and reload restoration intact.
+    // Use one painted SVG timeline on every browser, including iPad WebKit.
     window.bloomOnboardingReady = new Promise(resolve => {
       const overlay = document.querySelector('.bloom-onboarding');
-      const fitAperture = () => overlay.style.setProperty('--intro-radius',
-        (Math.hypot(overlay.clientWidth, overlay.clientHeight) / 2 + 1) + 'px');
-      fitAperture();
-      addEventListener('resize', fitAperture, {passive:true});
-      performance.mark('bloom:onboarding:start');
-
-      // Animate vector geometry, not a scaled compositor texture.
+      const curtain = overlay.querySelector('.bloom-onboarding-curtain');
+      const aperture = overlay.querySelector('.bloom-intro-aperture');
       const rotation = overlay.querySelector('.bloom-flower-rotation');
-      const petalGroups = [...rotation.children];
+      const petalGroups = Array.from(rotation.children);
       const reducedIntro = matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const started = performance.now();
-      let flowerFrame;
+      const irisStart = reducedIntro ? 350 : 1560;
+      const irisDuration = reducedIntro ? 150 : 760;
+      const releaseAt = reducedIntro ? 420 : 1900;
+      const duration = irisStart + irisDuration;
       const controls = [[160,160],[123,160],[123,40],[160,40],[197,40],[197,160],[160,160]];
       const ease = p => 1 - Math.pow(1 - p, 3);
-      const renderFlower = now => {
-        const elapsed = reducedIntro ? 2320 : now - started;
-        const turn = -110 + 200 * (1 - Math.pow(1 - Math.min(1, elapsed / 2320), 2));
+      let radius = 0, frame, started, complete = false, released = false;
+      const fitAperture = () => {
+        const width = overlay.clientWidth, height = overlay.clientHeight;
+        curtain.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+        radius = Math.hypot(width, height) / 2 + 2;
+      };
+      const release = () => {
+        if (released) return;
+        released = true;
+        resolve();
+      };
+      const finish = () => {
+        if (complete) return;
+        complete = true;
+        cancelAnimationFrame(frame);
+        removeEventListener('resize', fitAperture);
+        overlay.remove();
+        performance.mark('bloom:onboarding:end');
+        release();
+      };
+      const renderFlower = elapsed => {
+        const flowerTime = reducedIntro ? 2320 : elapsed;
+        const turn = -110 + 200 * (1 - Math.pow(1 - Math.min(1, flowerTime / 2320), 2));
         rotation.setAttribute('transform', 'rotate(' + turn + ' 160 160)');
         petalGroups.forEach((group, index) => {
-          const p = Math.max(0, Math.min(1, (elapsed - 40 - index * 70) / 1000));
+          const p = Math.max(0, Math.min(1, (flowerTime - 40 - index * 70) / 1000));
           const open = ease(p), angle = (-38 * (1 - open)) * Math.PI / 180;
           const sx = .12 + .88 * open, sy = .04 + .96 * open;
           const points = controls.map(([x,y]) => {
@@ -76,28 +98,35 @@
           const base = group.children[0], ink = group.children[1];
           base.setAttribute('d', d);
           ink.setAttribute('d', d);
-          ink.setAttribute('stroke-dashoffset', String(100 * (1 - open)));
+          // Actual path units avoid WebKit differences in pathLength normalization.
+          const length = ink.getTotalLength();
+          ink.style.strokeDasharray = length + ' ' + length;
+          ink.style.strokeDashoffset = String(length * (1 - open));
         });
-        if (!reducedIntro && elapsed < 2320 && overlay.isConnected) flowerFrame = requestAnimationFrame(renderFlower);
       };
-      renderFlower(started);
-
-      let complete = false;
-      const finish = () => {
+      const render = now => {
         if (complete) return;
-        complete = true;
-        cancelAnimationFrame(flowerFrame);
-        removeEventListener('resize', fitAperture);
-        overlay.remove();
-        performance.mark('bloom:onboarding:end');
-        resolve();
+        const elapsed = now - started;
+        renderFlower(elapsed);
+        const p = Math.max(0, Math.min(1, (elapsed - irisStart) / irisDuration));
+        const opening = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+        aperture.setAttribute('r', String(radius * opening));
+        if (elapsed >= releaseAt) release();
+        if (elapsed >= duration) finish();
+        else frame = requestAnimationFrame(render);
       };
-      // Start the thumbnails at the reference’s open-circle moment.
-      setTimeout(resolve, matchMedia('(prefers-reduced-motion: reduce)').matches ? 420 : 1900);
-      overlay.addEventListener('animationend', event => {
-        if (event.target === overlay) finish();
+      fitAperture();
+      addEventListener('resize', fitAperture, {passive:true});
+      renderFlower(0);
+      // Begin after the first painted frame, rather than during stylesheet loading.
+      frame = requestAnimationFrame(() => {
+        frame = requestAnimationFrame(now => {
+          started = now;
+          performance.mark('bloom:onboarding:start');
+          setTimeout(finish, reducedIntro ? 650 : 2450);
+          render(now);
+        });
       });
-      setTimeout(finish, matchMedia('(prefers-reduced-motion: reduce)').matches ? 650 : 2450);
     });
   </script>
   <a class="skip-link" href="#works">작품으로 바로가기</a>
