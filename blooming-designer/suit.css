@@ -55,3 +55,27 @@ h1 span{letter-spacing:-.06em}
   .project-facts{grid-template-columns:minmax(0,1fr) minmax(110px,.7fr);gap:20px}
   .project-prototype{margin-top:24px;padding-top:16px;min-height:70px}
 }
+
+/* Keep the reference's 1280 × 900 composition on desktop. */
+@media(min-width:1025px){
+ :root{font-size:calc(100vw / 80)}
+ .project-page{min-height:max(100svh,70.3125vw)}
+ .project-overview{padding-bottom:3.75rem}
+}
+/* A separate image and black project section on phones and folded displays. */
+@media(max-width:1024px){
+ .project-page{display:block;min-height:100svh;background:#000}
+ .project-cover{position:relative;z-index:auto;top:auto;left:auto;width:100%;height:auto;min-height:0;aspect-ratio:1280 / 900;object-fit:cover;object-position:center}
+ .project-header{z-index:2}
+ .project-overview{position:relative;margin:0;padding:40px max(24px,env(safe-area-inset-right)) calc(48px + env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left));background:#000}
+ .overview-grid{flex-direction:column;gap:40px}
+ .project-introduction,.project-details{flex:auto;width:100%;max-width:none}
+ .description-ko,.description-en{max-width:none}
+ h1{font-size:28px;margin-bottom:32px}
+ .project-facts{grid-template-columns:minmax(0,1fr) minmax(110px,.7fr)}
+}
+.project-prototype{padding:14px 12px;margin-inline:-12px;transition:background-color 180ms ease,color 180ms ease}
+.project-prototype:hover,.project-prototype:focus-visible{background:#fff;color:#000;opacity:1}
+.project-prototype:hover .prototype-label,.project-prototype:focus-visible .prototype-label{color:#444}
+.project-prototype:hover img,.project-prototype:focus-visible img{filter:invert(1)}
+@media(prefers-reduced-motion:reduce){.project-prototype{transition:none}}
