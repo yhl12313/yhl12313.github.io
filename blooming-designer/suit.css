@@ -1,0 +1,57 @@
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-400.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-500.ttf') format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:'SUIT';src:url('assets/suit-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+:root{font-size:clamp(16px,1.25vw,24px);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:#686868;color:#fff;font-family:'Asta Sans',sans-serif;font-weight:500;letter-spacing:-.04em}
+h1,p,dl,dd{margin:0}
+a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+a:focus-visible{outline:2px solid currentColor;outline-offset:6px}
+.project-page{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:100vh;min-height:100svh;overflow:clip}
+.project-cover{position:absolute;z-index:-2;left:0;top:-10.444444%;display:block;width:100%;height:110.444444%;object-fit:cover;object-position:center center}
+.project-header{position:absolute;inset:0 0 auto;padding:1.25rem 2.5rem;font-size:.75rem;font-weight:400;line-height:1.2;letter-spacing:-.02em}
+.back-link{display:inline-flex;align-items:center;min-height:24px;padding-block:2px}
+.project-overview{margin-top:auto;padding:2.6875rem 2.5rem 3.75rem;background:linear-gradient(transparent,rgba(0,0,0,.5));}
+h1{font-family:'SUIT','Asta Sans',sans-serif;font-size:1.75rem;font-weight:700;line-height:1.6;letter-spacing:-.02em;text-box-trim:trim-both;text-box-edge:cap alphabetic;margin-bottom:2.75rem}
+h1 span{letter-spacing:-.06em}
+.overview-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:3rem}
+.project-introduction{flex:0 1 26.25rem;display:flex;flex-direction:column;gap:1.5rem;line-height:1.6}
+.project-introduction p{text-box-trim:trim-both;text-box-edge:cap alphabetic;overflow-wrap:break-word}
+.description-ko{max-width:23.6105rem;font-size:.875rem}
+.description-en{max-width:21.5846rem;font-size:.625rem;letter-spacing:-.02em;color:#ddd}
+.project-details{flex:0 0 17.8125rem;font-size:.875rem;line-height:1.6}
+.project-facts{display:grid;grid-template-columns:minmax(0,183fr) minmax(0,82fr);gap:1.25rem}
+.project-facts>div{display:flex;flex-direction:column;gap:.5rem}
+.project-facts dt,.prototype-label{font-size:.625rem;color:#ddd;line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+.project-facts dd{text-box-trim:trim-both;text-box-edge:cap alphabetic;white-space:nowrap}
+.fact-type{grid-column:1;grid-row:1 / 3}
+.fact-output{grid-column:2;grid-row:1}
+.fact-term{grid-column:2;grid-row:2}
+.project-prototype{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem;padding-top:.75rem;border-top:1px solid #fff}
+.prototype-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+.prototype-row img{flex:none;display:block}
+@media(hover:hover){.back-link:hover,.project-prototype:hover{opacity:.75}}
+@media(max-width:1023px){
+  .project-header{padding:20px max(24px,env(safe-area-inset-left))}
+  .project-overview{padding:44px max(24px,env(safe-area-inset-right)) 48px max(24px,env(safe-area-inset-left))}
+  .overview-grid{gap:32px}
+  .project-introduction{flex-basis:50%}
+  .description-ko{font-size:14px}
+  .description-en{font-size:12px}
+  .project-details{flex-basis:240px;font-size:14px}
+  .project-facts dt,.prototype-label{font-size:11px}
+}
+@media(max-width:700px){
+  .project-page{min-height:100svh}
+  .project-cover{top:0;height:78svh;min-height:440px;object-position:49% center}
+  .project-header{padding:16px max(20px,env(safe-area-inset-left));font-size:14px}
+  .back-link{min-height:44px}
+  .project-overview{margin-top:55svh;padding:48px max(20px,env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));background:linear-gradient(transparent,#686868 180px)}
+  h1{font-size:28px;line-height:1.35;margin-bottom:32px}
+  .overview-grid{flex-direction:column;gap:40px}
+  .project-introduction,.project-details{flex:auto;width:100%;max-width:none}
+  .project-introduction{gap:24px}
+  .description-ko,.description-en{max-width:none}
+  .project-facts{grid-template-columns:minmax(0,1fr) minmax(110px,.7fr);gap:20px}
+  .project-prototype{margin-top:24px;padding-top:16px;min-height:70px}
+}
