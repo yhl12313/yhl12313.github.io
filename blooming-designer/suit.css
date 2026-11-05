@@ -18,11 +18,11 @@ h1 span{letter-spacing:-.06em}
 .project-introduction{flex:0 1 26.25rem;display:flex;flex-direction:column;gap:1.5rem;line-height:1.6}
 .project-introduction p{text-box-trim:trim-both;text-box-edge:cap alphabetic;overflow-wrap:break-word}
 .description-ko{max-width:23.6105rem;font-size:.875rem}
-.description-en{max-width:21.5846rem;font-size:.625rem;letter-spacing:-.02em;color:#ddd}
+.description-en{max-width:21.5846rem;font-size:.625rem;letter-spacing:-.02em;color:#bbbbbb}
 .project-details{flex:0 0 17.8125rem;font-size:.875rem;line-height:1.6}
 .project-facts{display:grid;grid-template-columns:minmax(0,183fr) minmax(0,82fr);gap:1.25rem}
 .project-facts>div{display:flex;flex-direction:column;gap:.5rem}
-.project-facts dt,.prototype-label{font-size:.625rem;color:#ddd;line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+.project-facts dt,.prototype-label{font-size:.625rem;color:#bbbbbb;line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}
 .project-facts dd{text-box-trim:trim-both;text-box-edge:cap alphabetic;white-space:nowrap}
 .fact-type{grid-column:1;grid-row:1 / 3}
 .fact-output{grid-column:2;grid-row:1}
@@ -76,7 +76,7 @@ h1 span{letter-spacing:-.06em}
 }
 .project-prototype{padding:14px 12px;margin-inline:-12px;transition:background-color 180ms ease,color 180ms ease}
 .project-prototype:hover,.project-prototype:focus-visible{background:#fff;color:#000;opacity:1}
-.project-prototype:hover .prototype-label,.project-prototype:focus-visible .prototype-label{color:#444}
+.project-prototype:hover .prototype-label,.project-prototype:focus-visible .prototype-label{color:#bbbbbb}
 .project-prototype:hover img,.project-prototype:focus-visible img{filter:invert(1)}
 @media(prefers-reduced-motion:reduce){.project-prototype{transition:none}}
 
