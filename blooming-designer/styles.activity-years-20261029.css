@@ -157,3 +157,6 @@ footer{background:#000;color:#fff;border-top:0;min-height:9rem;margin-top:15.625
 /* Make the activity year explicit on mobile, foldable and tablet displays. */
 .activity-year{display:none}
 @media(max-width:1024px),(hover:none) and (pointer:coarse){.activity-year{display:inline}}
+
+/* Keep the second award on the shared date/content baseline on desktop. */
+@media(min-width:1025px) and (hover:hover) and (pointer:fine){.resume .award-entry{align-items:baseline}.resume .award-entry time{grid-column:1}.resume .award-entry span{grid-column:2;white-space:nowrap}}
