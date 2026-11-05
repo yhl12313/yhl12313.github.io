@@ -26,3 +26,7 @@
 }
 @media(max-width:360px){.reading-grid{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){.project-prototype{transition:none}}
+
+/* Match the main page's fluid heading sizing, capped at the 1280px desktop size. */
+h1,.editorial-row h3{font-size:clamp(16px,1.6vw,20px)}
+@media(max-width:599px) and (orientation:portrait){h1,.editorial-row h3{font-size:clamp(16px,4vw,20px)}}
