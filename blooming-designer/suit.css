@@ -79,3 +79,6 @@ h1 span{letter-spacing:-.06em}
 .project-prototype:hover .prototype-label,.project-prototype:focus-visible .prototype-label{color:#444}
 .project-prototype:hover img,.project-prototype:focus-visible img{filter:invert(1)}
 @media(prefers-reduced-motion:reduce){.project-prototype{transition:none}}
+
+@font-face{font-family:'SUIT';src:url('assets/suit-medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@media(max-width:1024px){#project-title{font-size:20px;font-weight:500}}
