@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "file": "suit-life-poster.webp",
+      "source": "Poster Mockup_15-2.png",
+      "width": 4000,
+      "height": 3000,
+      "encoding": "WebP quality 94"
+    },
+    {
+      "file": "suit-motion-poster.webp",
+      "source": "SUIT cover motion frame at 2 seconds",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "videos": [
+    {
+      "file": "suit-cover-motion.webm",
+      "source": "과제6_22361073_이승연_한1_커버모션.mp4",
+      "width": 1920,
+      "height": 1080,
+      "duration": 6,
+      "frameRate": 30,
+      "videoCodec": "VP9",
+      "audioCodec": "Opus"
+    }
+  ]
+}
