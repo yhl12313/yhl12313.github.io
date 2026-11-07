@@ -1,0 +1,13 @@
+/* Zoom the image only, preserving the hero's orbit and thumbnail frames. */
+.hero .tile > img,.projects .project-image > img{
+ transform:scale(1);
+ transform-origin:center;
+ transition:transform 350ms cubic-bezier(.22,1,.36,1);
+}
+@media(hover:hover) and (pointer:fine){
+ .hero .tile:hover > img,.projects .project-image:hover > img{transform:scale(1.04)}
+}
+.hero a.tile:focus-visible > img,.projects a.project-image:focus-visible > img{transform:scale(1.04)}
+@media(prefers-reduced-motion:reduce){
+ .hero .tile > img,.projects .project-image > img{transition:none}
+}
