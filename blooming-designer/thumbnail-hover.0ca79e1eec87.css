@@ -1,0 +1,19 @@
+/* Leave thumbnails in normal image rendering whenever they are not zoomed. */
+.hero .tile > img,.projects .project-image > img{
+ display:block;width:100%;height:100%;object-fit:cover;
+ image-rendering:auto;filter:none;transform:none;will-change:auto;
+ transform-origin:center;transition:transform 350ms cubic-bezier(.22,1,.36,1);
+}
+/* Release the opening scale after it reaches one, retaining the same orbit. */
+.hero .collage.is-orbiting.is-bloom-open .tile,
+.hero .collage.is-orbiting.is-bloom-open .tile.is-revealed{
+ transform:translate(var(--mobile-x,0px),var(--mobile-y,0px));
+ will-change:auto;
+}
+@media(hover:hover) and (pointer:fine){
+ .hero .tile:hover > img,.projects .project-image:hover > img{transform:scale(1.04)}
+}
+.hero a.tile:focus-visible > img,.projects a.project-image:focus-visible > img{transform:scale(1.04)}
+@media(prefers-reduced-motion:reduce){
+ .hero .tile > img,.projects .project-image > img{transition:none}
+}
