@@ -1,0 +1,2 @@
+/* Match the main navigation: 12px through 1280px, scaling to 18px at 1920px. */
+.project-header{font-size:clamp(12px,.9375vw,18px)}
