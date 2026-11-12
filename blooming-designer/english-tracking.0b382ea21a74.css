@@ -1,0 +1,2 @@
+/* Apply -1% tracking only to text composed entirely in English. */
+body [data-english-only]{letter-spacing:-.01em!important}
