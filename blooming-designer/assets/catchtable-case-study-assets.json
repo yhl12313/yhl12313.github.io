@@ -146,5 +146,24 @@
       "height": 105,
       "bytes": 3778
     }
-  ]
+  ],
+  "fidelityRevision": {
+    "frame": "316:1636",
+    "designWidth": 1280,
+    "stylesheet": "catchtable-case-study.figma1280-20261114.css",
+    "fonts": [
+      "catchtable-asta-variable.woff2",
+      "catchtable-wanted-case.woff2"
+    ],
+    "additionalAssets": [
+      "catchtable-error-crop.webp",
+      "catchtable-connector-left-bottom.svg",
+      "catchtable-connector-left-long.svg",
+      "catchtable-connector-left-short.svg",
+      "catchtable-connector-right.svg",
+      "catchtable-research-arrow.svg",
+      "catchtable-dots-old.svg",
+      "catchtable-dots-new.svg"
+    ]
+  }
 }
