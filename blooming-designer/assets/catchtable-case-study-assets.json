@@ -165,5 +165,49 @@
       "catchtable-dots-old.svg",
       "catchtable-dots-new.svg"
     ]
-  }
+  },
+  "researchChartExports": [
+    {
+      "path": "assets/catchtable-research-mentions-590.webp",
+      "nodeId": "327:4125",
+      "width": 590,
+      "height": 440,
+      "bytes": 8534
+    },
+    {
+      "path": "assets/catchtable-research-mentions-1180.webp",
+      "nodeId": "327:4125",
+      "width": 1180,
+      "height": 880,
+      "bytes": 14582
+    },
+    {
+      "path": "assets/catchtable-research-mentions-2360.webp",
+      "nodeId": "327:4125",
+      "width": 2360,
+      "height": 1760,
+      "bytes": 25084
+    },
+    {
+      "path": "assets/catchtable-research-keywords-590.webp",
+      "nodeId": "327:4215",
+      "width": 590,
+      "height": 440,
+      "bytes": 9624
+    },
+    {
+      "path": "assets/catchtable-research-keywords-1180.webp",
+      "nodeId": "327:4215",
+      "width": 1180,
+      "height": 880,
+      "bytes": 17494
+    },
+    {
+      "path": "assets/catchtable-research-keywords-2360.webp",
+      "nodeId": "327:4215",
+      "width": 2360,
+      "height": 1760,
+      "bytes": 31084
+    }
+  ]
 }

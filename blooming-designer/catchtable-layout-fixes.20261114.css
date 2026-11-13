@@ -1,0 +1,14 @@
+/* Preserve Figma's trimmed text boxes and let long content grow the overview. */
+.catchtable-detail .overview{height:auto;min-height:18.75rem;padding-bottom:2.8125rem}
+@media(min-width:1025px){
+ .overview h1{line-height:1.6;letter-spacing:-.02em;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+ .overview .project-facts dt,.overview .project-facts dd,.overview .caption,.overview .prototype-name{line-height:1.6;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+ .overview .project-facts{grid-template-rows:auto auto;row-gap:1.25rem}
+ .overview .project-prototype{padding-top:.75rem}
+ .overview .prototype-name{display:block}
+ .overview .prototype-row svg{width:.625rem;height:.625rem}
+}
+.research-export{margin:0;min-width:0;align-self:start}
+.research-export img{display:block;width:100%;height:auto;aspect-ratio:590/440}
+@media(max-width:1024px){.catchtable-detail .overview{min-height:0;padding-bottom:48px}}
+@media(max-width:800px){.research-grid{grid-template-columns:1fr;height:auto}}
