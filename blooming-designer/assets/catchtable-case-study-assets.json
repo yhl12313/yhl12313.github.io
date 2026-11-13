@@ -1,0 +1,150 @@
+{
+  "figmaFile": "0z52pnQS5cwVMssinjbvd8",
+  "figmaFrame": "316:1636",
+  "images": [
+    {
+      "path": "assets/catchtable-as-is.webp",
+      "width": 364,
+      "height": 2454,
+      "bytes": 404358
+    },
+    {
+      "path": "assets/catchtable-benchmark-naver.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 28582
+    },
+    {
+      "path": "assets/catchtable-benchmark-opentable.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 2966
+    },
+    {
+      "path": "assets/catchtable-benchmark-poing.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 3874
+    },
+    {
+      "path": "assets/catchtable-benchmark-resy.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 1884
+    },
+    {
+      "path": "assets/catchtable-benchmark-tabling.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 6738
+    },
+    {
+      "path": "assets/catchtable-benchmark-tock.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 3120
+    },
+    {
+      "path": "assets/catchtable-components.webp",
+      "width": 1280,
+      "height": 498,
+      "bytes": 154308
+    },
+    {
+      "path": "assets/catchtable-cover.webp",
+      "width": 2560,
+      "height": 1440,
+      "bytes": 218382
+    },
+    {
+      "path": "assets/catchtable-icons.webp",
+      "width": 1111,
+      "height": 159,
+      "bytes": 10930
+    },
+    {
+      "path": "assets/catchtable-issue-brands.webp",
+      "width": 414,
+      "height": 77,
+      "bytes": 7854
+    },
+    {
+      "path": "assets/catchtable-issue-filters.webp",
+      "width": 414,
+      "height": 118,
+      "bytes": 10358
+    },
+    {
+      "path": "assets/catchtable-issue-nested.webp",
+      "width": 414,
+      "height": 271,
+      "bytes": 26436
+    },
+    {
+      "path": "assets/catchtable-issue-save.webp",
+      "width": 61,
+      "height": 62,
+      "bytes": 486
+    },
+    {
+      "path": "assets/catchtable-issue-services.webp",
+      "width": 414,
+      "height": 379,
+      "bytes": 46648
+    },
+    {
+      "path": "assets/catchtable-issue-status.webp",
+      "width": 414,
+      "height": 342,
+      "bytes": 103302
+    },
+    {
+      "path": "assets/catchtable-overview-food.webp",
+      "width": 1024,
+      "height": 684,
+      "bytes": 58474
+    },
+    {
+      "path": "assets/catchtable-persona-host.webp",
+      "width": 516,
+      "height": 616,
+      "bytes": 57610
+    },
+    {
+      "path": "assets/catchtable-persona-spontaneous.webp",
+      "width": 516,
+      "height": 616,
+      "bytes": 40438
+    },
+    {
+      "path": "assets/catchtable-positioning-map.webp",
+      "width": 900,
+      "height": 878,
+      "bytes": 26158
+    },
+    {
+      "path": "assets/catchtable-positioning-table.webp",
+      "width": 1018,
+      "height": 732,
+      "bytes": 27806
+    },
+    {
+      "path": "assets/catchtable-service-booking.webp",
+      "width": 96,
+      "height": 111,
+      "bytes": 4258
+    },
+    {
+      "path": "assets/catchtable-service-reservation.webp",
+      "width": 95,
+      "height": 111,
+      "bytes": 4780
+    },
+    {
+      "path": "assets/catchtable-service-waitlist.webp",
+      "width": 92,
+      "height": 105,
+      "bytes": 3778
+    }
+  ]
+}
