@@ -209,5 +209,43 @@
       "height": 1760,
       "bytes": 31084
     }
-  ]
+  ],
+  "responsiveTypography": {
+    "anchors": {
+      "1024": [
+        16,
+        12,
+        10
+      ],
+      "1280": [
+        28,
+        16,
+        12
+      ],
+      "1440": [
+        28,
+        16,
+        12
+      ],
+      "1920": [
+        28,
+        20,
+        14
+      ],
+      "2560": [
+        40,
+        20,
+        14
+      ]
+    },
+    "order": [
+      "title",
+      "koreanBody",
+      "englishBody"
+    ],
+    "interpolation": "nearest integer pixel; anchor-size fallback without CSS round()",
+    "paragraphs": "preserve authored breaks; wrap within each paragraph",
+    "designSystemHeadingNode": "367:1560",
+    "designSystemBoardNode": "358:2342"
+  }
 }
