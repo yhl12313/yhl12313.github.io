@@ -218,12 +218,12 @@
         10
       ],
       "1280": [
-        28,
+        20,
         16,
         12
       ],
       "1440": [
-        28,
+        20,
         16,
         12
       ],
@@ -246,6 +246,7 @@
     "interpolation": "nearest integer pixel; anchor-size fallback without CSS round()",
     "paragraphs": "preserve authored breaks; wrap within each paragraph",
     "designSystemHeadingNode": "367:1560",
-    "designSystemBoardNode": "358:2342"
+    "designSystemBoardNode": "358:2342",
+    "stylesheet": "catchtable-type-system.465b4d810388.css"
   }
 }

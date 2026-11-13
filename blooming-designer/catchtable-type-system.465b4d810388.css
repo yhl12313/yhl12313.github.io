@@ -1,0 +1,105 @@
+@font-face{font-family:'Asta Case';src:url('assets/catchtable-asta-type.woff2') format('woff2');font-weight:100 900;font-display:swap}
+/* Integer fallback sizes also work in browsers without CSS round(). */
+.catchtable-detail{--ct-title:16px;--ct-ko:12px;--ct-en:10px;--detail-title:var(--ct-title);--detail-ko:var(--ct-ko);--detail-en:var(--ct-en);--detail-meta:var(--ct-en);font-size:var(--ct-ko)}
+@media(min-width:1280px){.catchtable-detail{--ct-title:20px;--ct-ko:16px;--ct-en:12px}}
+@media(min-width:1920px){.catchtable-detail{--ct-title:28px;--ct-ko:20px;--ct-en:14px}}
+@media(min-width:2560px){.catchtable-detail{--ct-title:40px;--ct-ko:20px;--ct-en:14px}}
+@supports(font-size:round(nearest,1px,1px)){
+ @media(min-width:1024px) and (max-width:1279.99px){.catchtable-detail{--ct-title:round(nearest,1.5625vw,1px);--ct-ko:round(nearest,calc(1.5625vw - 4px),1px);--ct-en:round(nearest,calc(.78125vw + 2px),1px)}}
+ @media(min-width:1440px) and (max-width:1919.99px){.catchtable-detail{--ct-title:round(nearest,calc(1.6666666667vw - 4px),1px);--ct-ko:round(nearest,calc(.8333333333vw + 4px),1px);--ct-en:round(nearest,calc(.4166666667vw + 6px),1px)}}
+ @media(min-width:1920px) and (max-width:2559.99px){.catchtable-detail{--ct-title:round(nearest,calc(1.875vw - 8px),1px)}}
+}
+.catchtable-detail h1,.catchtable-detail h2,.catchtable-detail h3,.catchtable-detail .case-number{font-size:var(--ct-title);word-break:keep-all;overflow-wrap:break-word}
+.catchtable-detail .issue-title{align-items:baseline}
+.catchtable-detail .issue-title h3{min-width:0}
+.catchtable-detail .case-number{flex:none}
+.catchtable-detail .project-header{font-size:12px}
+@media(min-width:1920px){.catchtable-detail .project-header{font-size:18px}}
+@supports(font-size:round(nearest,1px,1px)){.catchtable-detail .project-header{font-size:round(nearest,clamp(12px,.9375vw,18px),1px)}}
+.catchtable-detail .bilingual p:not([lang=en]),.catchtable-detail .overview-intro>p:not([lang=en]),.catchtable-detail .persona-copy p:not(.persona-label),.catchtable-detail .benchmark-card ul,.catchtable-detail .benchmark-card .case-source,.catchtable-detail .project-details{font-size:var(--ct-ko)}
+.catchtable-detail .bilingual p[lang=en],.catchtable-detail .overview-intro>p[lang=en],.catchtable-detail .case-label,.catchtable-detail .case-source,.catchtable-detail .caption,.catchtable-detail .project-facts dt,.catchtable-detail .persona-label,.catchtable-detail .detail-footer{font-size:var(--ct-en)}
+.catchtable-detail .bilingual p,.catchtable-detail .overview-intro>p,.catchtable-detail .persona-copy p{line-height:1.6;word-break:keep-all;overflow-wrap:break-word}
+.catchtable-detail .bilingual p[lang=en],.catchtable-detail .overview-intro>p[lang=en]{word-break:normal;text-wrap:pretty}
+/* Text measures scale with the specified type, preserving the source's paragraphs. */
+.catchtable-detail .overview-intro{font-size:var(--ct-ko);width:min(50%,30em);max-width:100%}
+.catchtable-detail .overview-intro>p:first-child{width:100%;max-width:28.756em}
+.catchtable-detail .overview-intro>p[lang=en]{width:100%;max-width:34.5353em}
+.catchtable-detail .case-intro-copy{width:min(100%,max(calc(var(--ct-ko)*34.219),calc(var(--ct-en)*47.9067)))}
+.catchtable-detail .case-intro h2{white-space:normal}
+.catchtable-detail .case-intro .bilingual>p:first-child{width:100%;max-width:31.0205em}
+.catchtable-detail .case-heading .bilingual{max-width:100%;width:min(100%,max(calc(var(--ct-ko)*29.5425),calc(var(--ct-en)*45.3217)))}
+.catchtable-detail #background .case-heading .bilingual>p:first-child{max-width:29.5425em}
+.catchtable-detail #problem .case-heading{width:min(100%,max(calc(var(--ct-ko)*30.762),calc(var(--ct-en)*43.0667)))}
+.catchtable-detail #problem .case-heading h2,.catchtable-detail .issue-card h3,.catchtable-detail .direction-top h3{white-space:normal;text-wrap:balance}
+/* Narrative sections grow with their text rather than clipping at Figma's fixed heights. */
+.catchtable-detail #background,.catchtable-detail #persona,.catchtable-detail #direction,.catchtable-detail #benchmarking,.catchtable-detail .case-heading,.catchtable-detail #background .case-heading,.catchtable-detail #problem .case-heading,.catchtable-detail #persona .case-heading,.catchtable-detail #benchmarking .case-heading,.catchtable-detail .benchmark-grid,.catchtable-detail .case-insight,.catchtable-detail .type-system-grid{height:auto;min-height:0}
+.catchtable-detail .research-grid{height:auto}
+.catchtable-detail #background .case-heading{margin-bottom:3.75rem}
+.catchtable-detail #persona .case-heading{margin-bottom:5rem}
+.catchtable-detail .persona-card{height:auto;min-height:38.5rem}
+.catchtable-detail .persona-copy{gap:1rem}
+.catchtable-detail .direction-top{gap:1rem;align-items:baseline}
+.catchtable-detail .direction-card{min-height:0}
+.catchtable-detail .benchmark-grid{grid-template-rows:auto auto}
+.catchtable-detail .benchmark-card{min-height:0}
+.catchtable-detail .case-insight .bilingual{max-width:100%}
+.catchtable-detail .case-insight .bilingual>p:first-child{font-size:var(--ct-ko)}
+/* Cap text measures as displays grow; authored breaks remain part of the HTML. */
+@media(min-width:1025px){
+ .catchtable-detail .project-details{width:max(17.8125rem,20.3571em)}
+ .catchtable-detail .issue-card .bilingual>p:not([lang=en]){max-width:var(--copy-ko,22.1429em)}
+ .catchtable-detail .issue-card .bilingual>p[lang=en]{max-width:var(--copy-en,31em)}
+ .issue-01{--copy-ko:22.7029em;--copy-en:31.784em}
+ .issue-03{--copy-ko:19.9249em}
+ .issue-04{--copy-ko:20.5em;--copy-en:28.7em}
+ .issue-05{--copy-ko:22.5249em;--copy-en:31.5348em}
+ .issue-07{--copy-ko:17em;--copy-en:23.8em}
+}
+.catchtable-detail .problem-analysis{height:max(153.333rem,calc(136.8544rem + 28em))}
+.catchtable-detail .case-positioning{height:auto;min-height:60rem}
+.catchtable-detail .case-positioning .case-heading{margin-bottom:8rem}
+.catchtable-detail .positioning-grid{position:relative;left:auto;top:auto}
+/* Current sub-5: left aligned section title, then 120px to the system board. */
+.catchtable-detail .case-design-system .case-heading{text-align:left;height:auto;margin:0 var(--gutter) 7.5rem}
+.catchtable-detail .case-design-system .case-heading .editorial-row{display:block}
+.catchtable-detail .case-design-system .case-label{margin-bottom:2rem}
+.catchtable-detail .semantic-palette .color-swatch>span:first-child{text-transform:uppercase}
+.catchtable-detail .color-swatch,.catchtable-detail .neutral-palette .color-swatch,.catchtable-detail .semantic-palette .color-swatch,.catchtable-detail .semantic-palette .color-swatch>span:last-child{font-size:var(--ct-en)}
+/* App type specimens retain their illustrated hierarchy, independent of narrative type. */
+.catchtable-detail{--app-brand:43px;--app-line:27px;--app-heading:16px;--app-title:13px;--app-body1:11px;--app-body2:9px;--app-label:8px;--app-caption:7px}
+@supports(font-size:round(nearest,1px,1px)){
+ .catchtable-detail{--app-brand:round(nearest,clamp(28px,3.333333333vw,85px),1px);--app-line:round(nearest,clamp(16px,2.083333333vw,53px),1px);--app-heading:round(nearest,clamp(12px,1.25vw,32px),1px);--app-title:round(nearest,clamp(11px,1.041666667vw,27px),1px);--app-body1:round(nearest,clamp(10px,.8333333333vw,21px),1px);--app-body2:round(nearest,clamp(9px,.7291666667vw,19px),1px);--app-label:round(nearest,clamp(8px,.625vw,16px),1px);--app-caption:round(nearest,clamp(7px,.5208333333vw,13px),1px)}
+}
+.catchtable-detail .wanted-specimen h3{font-size:var(--app-brand)}
+.catchtable-detail .wanted-specimen p{font-size:var(--app-line);line-height:1.2;white-space:nowrap}
+.catchtable-detail .type-token-table thead{font-size:var(--app-title)}
+.catchtable-detail .type-token-table tbody tr:nth-child(1){font-size:var(--app-heading)!important}
+.catchtable-detail .type-token-table tbody tr:nth-child(2){font-size:var(--app-title)!important}
+.catchtable-detail .type-token-table tbody tr:nth-child(3){font-size:var(--app-body1)!important}
+.catchtable-detail .type-token-table tbody tr:nth-child(4){font-size:var(--app-body2)!important}
+.catchtable-detail .type-token-table tbody tr:nth-child(5){font-size:var(--app-label)!important}
+.catchtable-detail .type-token-table tbody tr:nth-child(6){font-size:var(--app-caption)!important}
+.catchtable-detail .type-system-grid{align-items:start}
+.catchtable-detail .icon-sheet{margin-top:5rem}
+@media(max-width:1024px){
+ .catchtable-detail .problem-analysis{height:auto}
+ .catchtable-detail .case-heading .editorial-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .catchtable-detail .case-positioning{min-height:0}
+ .catchtable-detail .case-positioning .case-heading{margin-bottom:4rem}
+ .catchtable-detail .positioning-grid{margin-top:0}
+ .catchtable-detail .persona-card{min-height:616px}
+ .catchtable-detail .case-design-system .case-heading{margin-inline:0;margin-bottom:80px}
+ .catchtable-detail .wanted-specimen p{white-space:normal;word-break:keep-all}
+ .catchtable-detail .type-system-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media(max-width:600px){
+ .catchtable-detail .overview-intro{width:100%}
+ .catchtable-detail .persona-columns{grid-template-columns:1fr}
+ .catchtable-detail .case-heading .editorial-row{grid-template-columns:1fr}
+ .catchtable-detail .benchmark-grid{grid-template-rows:auto}
+ .catchtable-detail .type-system-grid{grid-template-columns:1fr}
+ .catchtable-detail .case-design-system .case-heading{margin-bottom:64px}
+ .catchtable-detail .type-token-table thead{font-size:12px}
+ .catchtable-detail .color-swatch{overflow-wrap:normal;font-size:10px}
+ .catchtable-detail .semantic-palette .color-swatch,.catchtable-detail .semantic-palette .color-swatch>span:last-child{font-size:9px}
+}
