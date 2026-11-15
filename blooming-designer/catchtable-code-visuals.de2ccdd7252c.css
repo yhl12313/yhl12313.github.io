@@ -1,0 +1,11 @@
+/* Native design coordinates keep each coded diagram in its original slot. */
+@font-face {font-family:'CATCHTABLE UI';src:url('assets/catchtable-wanted-full.woff2') format('woff2');font-weight:100 900;font-display:swap}
+.catchtable-detail .code-visual {display:block;width:100%;height:auto;max-width:none;overflow:visible;isolation:isolate}
+.catchtable-detail .code-visual .visual-copy {margin:0;padding:0;box-sizing:border-box;overflow:visible;word-break:normal;text-transform:none}
+.catchtable-detail .research-grid .code-visual {aspect-ratio:590/440}
+.catchtable-detail .positioning-grid>figure {min-width:0}
+.catchtable-detail .icon-sheet>.code-visual {aspect-ratio:1110.4/158.4}
+.catchtable-detail .case-components>.code-visual {aspect-ratio:1280/498}
+@media(max-width:600px) {
+ .catchtable-detail .icon-sheet>.code-visual,.catchtable-detail .case-components>.code-visual {width:680px;max-width:none}
+}
