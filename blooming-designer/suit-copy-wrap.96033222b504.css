@@ -1,0 +1,23 @@
+/* Figma wraps Hangul at character boundaries, including inside Korean words. */
+body:not(.catchtable-detail) .bilingual p[data-figma-text] {
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+/* Preserve source line lengths instead of enlarging them with the root rem size. */
+@media (min-width:1024px) {
+  body:not(.catchtable-detail) .bilingual p[data-figma-text] {
+    max-width:min(100%,var(--figma-copy-measure,100%)) !important;
+  }
+  .reading-grid article>p[data-figma-text],
+  .line-height-grid article>p[data-figma-text] {
+    max-width:min(100%,var(--figma-copy-measure,100%));
+  }
+}
+/* The source line-height examples use zero tracking. */
+.line-height-grid article>p[data-figma-text] {letter-spacing:0}
+@media (min-width:1280px) {
+  .weight-copy {
+    grid-template-columns:minmax(0,calc(var(--detail-ko) * 20.357143)) minmax(0,1fr);
+    padding-right:0;
+  }
+}
