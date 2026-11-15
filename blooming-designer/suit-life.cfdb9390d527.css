@@ -1,0 +1,20 @@
+@font-face{font-family:'Asta Sans';src:url('assets/asta-sans-variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+.life-story{width:49.166667%;margin:7.747375rem 0 0 33.916667%}
+.life-dissolve{position:relative;isolation:isolate;width:100%;aspect-ratio:4/3;overflow:hidden;margin:0;background:#d6d9d6}
+.life-dissolve .life-slide{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 600ms ease;pointer-events:none}
+.life-dissolve .life-original{opacity:1;transform:translateY(10%) rotate(1.98deg) scale(1.247)}
+.life-dissolve .life-slide.is-visible{opacity:1}
+.life-story .life-caption{width:88.10969%;margin:1.25rem 0 0;transition:opacity 600ms ease,transform 600ms ease,visibility 600ms}
+.life-story.life-ready .life-caption{opacity:0;visibility:hidden;transform:translateY(18px)}
+.life-story.life-copy-visible .life-caption{opacity:1;visibility:visible;transform:translateY(0)}
+.life-story .life-caption .body-copy-reveal{opacity:1;transform:none;transition:none}
+@media(max-width:1023px){.life-story{width:100%;margin:var(--section-space) 0 0}.life-story .life-caption{width:100%;margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.life-dissolve .life-slide,.life-story .life-caption{transition:none}.life-story.life-ready .life-caption{transform:none}}
+
+/* Source frames 274:606, 274:583 and 274:585 at the 1280px design width. */
+@media(min-width:1024px){
+.weight-detail{grid-template-columns:49.166667% 41.166667%;column-gap:5.666666%;align-items:start}
+.weight-copy{grid-template-columns:minmax(0,257fr) minmax(0,237fr);gap:0;padding:0;min-height:0;margin-top:7.3125rem}
+.weight-copy-bold{width:min(17.8125rem,calc(100% + 1.75rem))}
+.weight-copy-medium{width:min(16.193039rem,calc(100% + 3rem));padding-top:13.625rem}
+}
