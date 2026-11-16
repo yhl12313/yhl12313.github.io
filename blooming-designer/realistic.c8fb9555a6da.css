@@ -20,5 +20,3 @@
 @media(prefers-reduced-motion:reduce){.reading-reveal{opacity:1;translate:none;transition:none}}
 /* Original Section 1 typography states; reserve the expanded height throughout. */
 @media(min-width:768px){.type-poster{position:relative;font-size:6.25vw;height:3.6em;gap:var(--type-gap,1em)}.type-poster .copy{font-size:inherit;line-height:1.3;height:1.3em;flex:none;letter-spacing:var(--type-spacing,2.69em)}}
-.type-motion-toggle{position:absolute;right:var(--gutter);top:0;display:grid;place-items:center;width:44px;height:44px;padding:13px;border:0;background:transparent;color:#777;cursor:pointer}
-.type-motion-toggle[hidden]{display:none}.type-motion-toggle svg{width:18px;height:18px}.type-play-icon{display:none}.type-motion-paused .type-pause-icon{display:none}.type-motion-paused .type-play-icon{display:block}.type-motion-toggle:hover{color:#000}.type-motion-toggle:focus-visible{outline:1px solid currentColor;outline-offset:2px}
