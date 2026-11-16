@@ -7,7 +7,20 @@
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,cross=reduced?0:600;
  const first=600,firstDone=first+cross,second=firstDone+1200,secondDone=second+cross,third=secondDone+1200,last=third+cross;
  let visible=false,started=false,elapsed=0,previous=0,step=0,done=false;
- story.classList.add('life-ready','life-copy-visible');story.dataset.lifeStep='original';
+ story.classList.add('life-ready');story.dataset.lifeStep='original';
+ const caption=story.querySelector('.life-caption'),copyViewport=matchMedia('(min-width:768px)'),copyPreference=matchMedia('(prefers-reduced-motion: reduce)');
+ let copyShown=false;
+ const captionObserver=new IntersectionObserver(entries=>{
+  const entry=entries[0];
+  if(entry.isIntersecting&&entry.intersectionRect.height>=Math.min(entry.boundingClientRect.height*.2,innerHeight*.15))showCopy();
+ },{threshold:[0,.1,.2,.4,1],rootMargin:'0px 0px -6% 0px'});
+ function showCopy(){copyShown=true;story.classList.add('life-copy-visible');story.dataset.lifeCopy='visible';captionObserver.disconnect();}
+ function syncCopy(){
+  if(copyShown)return;
+  if(!copyViewport.matches||copyPreference.matches){showCopy();return;}
+  story.classList.remove('life-copy-visible');story.dataset.lifeCopy='pending';captionObserver.observe(caption);
+ }
+ copyViewport.addEventListener('change',syncCopy);copyPreference.addEventListener('change',syncCopy);syncCopy();
  function draw(now){
   if(done)return;
   if(previous&&visible&&!document.hidden)elapsed+=Math.min(now-previous,100);
