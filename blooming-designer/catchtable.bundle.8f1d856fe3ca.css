@@ -989,3 +989,31 @@ main>section{scroll-margin-top:4rem}
 
 /* Cover raster edge antialiasing with one continuous shared callout border. */
 .diagram-highlight-connected::before{content:"";position:absolute;z-index:1;left:-2px;top:0;bottom:0;width:4px;background:#ff511a;pointer-events:none}
+
+/* The final layout remains authored in the page; only its entrance is animated. */
+.ct-reference-motion .ct-motion-item{animation-delay:var(--ct-motion-delay,0ms);animation-fill-mode:both;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+.ct-reference-motion .ct-motion-fade{opacity:0}
+.ct-reference-motion .ct-motion-fade.ct-motion-played{animation-name:ct-reference-fade;animation-duration:650ms}
+.ct-reference-motion .ct-motion-copy{opacity:0;transform:translateY(12px)}
+.ct-reference-motion .ct-motion-copy.ct-motion-played{animation-name:ct-reference-copy;animation-duration:650ms}
+.ct-reference-motion .ct-motion-bar{opacity:0;transform:scaleY(0);transform-box:fill-box;transform-origin:center bottom}
+.ct-reference-motion .ct-motion-bar.ct-motion-played{animation-name:ct-reference-bar;animation-duration:950ms}
+.ct-reference-motion .ct-motion-line{opacity:0;clip-path:inset(0 100% 0 0)}
+.ct-reference-motion .ct-motion-line.ct-motion-played{animation-name:ct-reference-line;animation-duration:550ms}
+.ct-reference-motion .ct-motion-axis-y{clip-path:inset(50% 0 50% 0)}
+.ct-reference-motion .ct-motion-axis-x{clip-path:inset(0 50% 0 50%)}
+.ct-reference-motion .ct-motion-axis-y.ct-motion-played,.ct-reference-motion .ct-motion-axis-x.ct-motion-played{animation-name:ct-reference-line;animation-duration:750ms}
+.ct-reference-motion .ct-motion-marker{transform:translate(-190.4767px,120.8238px)}
+.ct-reference-motion .ct-motion-marker.ct-motion-played{animation-name:ct-reference-marker;animation-duration:1100ms}
+.ct-reference-motion .positioning-grid::after{opacity:0;transition:opacity 650ms ease}
+.ct-reference-motion .positioning-grid.ct-position-played::after{opacity:1}
+@keyframes ct-reference-fade{from{opacity:0}to{opacity:1}}
+@keyframes ct-reference-copy{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ct-reference-bar{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
+@keyframes ct-reference-line{to{opacity:1;clip-path:inset(0)}}
+@keyframes ct-reference-marker{from{transform:translate(-190.4767px,120.8238px)}to{transform:translate(0,0)}}
+@media(prefers-reduced-motion:reduce){
+ .ct-reference-motion .ct-motion-item{animation:none!important;opacity:1!important;clip-path:none!important}
+ .ct-reference-motion .ct-motion-copy,.ct-reference-motion .ct-motion-marker,.ct-reference-motion .ct-motion-bar{transform:none!important}
+ .ct-reference-motion .positioning-grid::after{opacity:1;transition:none}
+}
