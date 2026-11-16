@@ -2,18 +2,18 @@
 (() => {
  const story=document.querySelector('.life-story');
  if(!story)return;
- const figure=story.querySelector('.life-dissolve'),slides=[...figure.querySelectorAll('.life-slide')],caption=story.querySelector('.life-caption');
+ const figure=story.querySelector('.life-dissolve'),slides=[...figure.querySelectorAll('.life-slide')];
  if(!('IntersectionObserver' in window)){slides.at(-1).classList.add('is-visible');story.classList.add('life-copy-visible');return;}
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,cross=reduced?0:600;
  const first=600,firstDone=first+cross,second=firstDone+1200,secondDone=second+cross,third=secondDone+1200,last=third+cross;
  let visible=false,started=false,elapsed=0,previous=0,step=0,done=false;
- story.classList.add('life-ready');caption.setAttribute('aria-hidden','true');story.dataset.lifeStep='original';
+ story.classList.add('life-ready','life-copy-visible');story.dataset.lifeStep='original';
  function draw(now){
   if(done)return;
   if(previous&&visible&&!document.hidden)elapsed+=Math.min(now-previous,100);
   previous=now;
   if(elapsed>=first&&step<1){slides[1].classList.add('is-visible');story.dataset.lifeStep='1-transition';step=1;}
-  if(elapsed>=firstDone&&!story.classList.contains('life-copy-visible')){story.classList.add('life-copy-visible');caption.removeAttribute('aria-hidden');story.dataset.lifeStep='1';}
+  if(elapsed>=firstDone&&step===1)story.dataset.lifeStep='1';
   if(elapsed>=second&&step<2){slides[2].classList.add('is-visible');story.dataset.lifeStep='2-transition';step=2;}
   if(elapsed>=secondDone&&step===2)story.dataset.lifeStep='2';
   if(elapsed>=third&&step<3){slides[3].classList.add('is-visible');story.dataset.lifeStep='3-transition';step=3;}
