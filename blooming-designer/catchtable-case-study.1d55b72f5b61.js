@@ -59,9 +59,8 @@
   axes.forEach((axis,i)=>prepare(axis,i?'ct-motion-axis-x':'ct-motion-axis-y',700));
   prepare(previous,'ct-motion-fade',1450);
   prepare(marker,'ct-motion-marker',1250);
-  once(positioning,()=>{
-   positioning.classList.add('ct-position-played');figures.forEach(play);axes.forEach(play);play(previous);play(marker);
-  });
+  once(figures[0],()=>{positioning.classList.add('ct-position-played');play(figures[0]);});
+  once(figures[1],()=>{play(figures[1]);axes.forEach(play);play(previous);play(marker);});
  }
  document.body.classList.add('ct-reference-motion');
  preference.addEventListener('change',event=>{
