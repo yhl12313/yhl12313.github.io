@@ -1,0 +1,7 @@
+/* Keep the full native transparent bezel above the recording. */
+@media(min-width:768px){
+ [data-source-node="444:2109"]{isolation:isolate}
+ [data-source-node="444:2110"]{z-index:1!important}
+ [data-source-node="444:2111"]{z-index:10!important;mask-image:none!important;-webkit-mask-image:none!important;pointer-events:none}
+ [data-source-node="444:2109"]>.service-island{display:none}
+}
