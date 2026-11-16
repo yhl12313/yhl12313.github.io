@@ -986,3 +986,6 @@ main>section{scroll-margin-top:4rem}
 /* catchtable-palette-weight.83e3cf4504ec.css */
 .catchtable-detail .color-swatch,.catchtable-detail .color-swatch>span,.catchtable-detail .primary-palette .color-swatch>span,.catchtable-detail .secondary-palette .color-swatch>span{font-family:"Asta Sans",sans-serif;font-weight:500;font-synthesis:none}
 
+
+/* Cover raster edge antialiasing with one continuous shared callout border. */
+.diagram-highlight-connected::before{content:"";position:absolute;z-index:1;left:-2px;top:0;bottom:0;width:4px;background:#ff511a;pointer-events:none}
