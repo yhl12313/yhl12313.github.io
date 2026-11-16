@@ -170,19 +170,3 @@ let topFrame=0;function queueTop(){if(topFrame)return;topFrame=requestAnimationF
 })();
 
 ;
-(() => {
- const media=matchMedia('(min-width:768px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const targets=[...document.querySelectorAll('#service .service-copy-stack')].filter(t=>!t.parentElement.closest('.service-copy-stack'));
- const nearby=document.querySelector('[data-source-node="443:2083"]');
- const dining=document.querySelector('[data-source-node="443:2101"]');
- const scenes=[nearby,dining].filter(Boolean),played=new WeakSet();
- const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  if(!entry.isIntersecting||entry.intersectionRect.height<Math.min(entry.boundingClientRect.height*.2,innerHeight*.22))return;
-  entry.target.classList.add('service-motion-played');played.add(entry.target);observer.unobserve(entry.target);
- }),{threshold:[0,.1,.2,.3,.5,1],rootMargin:'0px 0px -6% 0px'});
- function prepare(){
-  if(!media.matches||reduced.matches){observer.disconnect();[...targets,...scenes].forEach(t=>t.classList.remove('service-motion-ready'));return}
-  [...targets,...scenes].forEach(t=>{if(played.has(t))return;t.classList.add('service-motion-ready');observer.observe(t)});
- }
- media.addEventListener('change',prepare);reduced.addEventListener('change',prepare);prepare();
-})();

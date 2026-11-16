@@ -3,24 +3,5 @@
  [data-source-node="443:1971"]{translate:0 calc(100vw / 1280)}
  [data-source-node="443:1972"]{top:0!important}
 }
-
-@media(min-width:768px) and (prefers-reduced-motion:no-preference){
- .service-copy-stack.service-motion-ready{opacity:0;transform:translateY(18px)}
- .service-copy-stack.service-motion-played{opacity:1;transform:none;transition:opacity 650ms ease,transform 650ms cubic-bezier(.22,1,.36,1)}
- .service-motion-overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:4}
- .service-motion-overlay .service-trace{fill:none;stroke:#ff511a;stroke-width:1;vector-effect:non-scaling-stroke}
- .service-motion-overlay .service-trace-dot{fill:#ff8b6a}
- .service-filter-focus{position:absolute;left:1.1%;top:20.15%;width:46.55%;height:4.89%;display:flex;align-items:center;gap:1.5%;padding:0 1.1%;background:#fff;border-bottom:1px solid #eee;z-index:5;pointer-events:none;font-family:'CATCHTABLE UI',sans-serif;font-weight:500;font-size:round(nearest,1.09375vw,1px);white-space:nowrap}
- .service-filter-focus span{flex-shrink:0;border:1px solid #ddd;border-radius:999px;padding:.23em 1em;color:#ddd;line-height:1.4}
- .service-filter-focus .is-active{border-color:#ff5900;color:#ff5900;background:#ffdcc9}
- .service-motion-ready .service-filter-focus{opacity:0;transform:scaleX(.68);transform-origin:left center}
- .service-motion-played .service-filter-focus{opacity:1;transform:scaleX(1);transition:transform 600ms cubic-bezier(.22,1,.36,1) 180ms,opacity 250ms ease 180ms}
- .service-motion-ready .service-focus-box,.service-motion-ready .service-trace-dot{opacity:0}
- .service-motion-played .service-focus-box,.service-motion-played .service-trace-dot{opacity:1;transition:opacity 220ms ease 550ms}
- .service-motion-ready .service-explainer-line{stroke-dasharray:1;stroke-dashoffset:1}
- .service-motion-played .service-explainer-line{stroke-dashoffset:0;transition:stroke-dashoffset 750ms cubic-bezier(.22,1,.36,1) 650ms}
- [data-source-node="443:2083"].service-motion-ready [data-source-node="443:1985"]{opacity:0;transform:translateY(8px)}
- [data-source-node="443:2083"].service-motion-played [data-source-node="443:1985"]{opacity:1;transform:none;transition:opacity 400ms ease 1400ms,transform 400ms ease 1400ms}
-}
-.service-motion-overlay,.service-filter-focus{display:none}
-@media(min-width:768px) and (prefers-reduced-motion:no-preference){.service-motion-overlay{display:block}.service-filter-focus{display:flex}}
+/* Match the final poster/footer adjacency in sub-5; retain mobile layout. */
+@media(min-width:768px){.catchtable-detail .detail-footer{margin-top:0}}
