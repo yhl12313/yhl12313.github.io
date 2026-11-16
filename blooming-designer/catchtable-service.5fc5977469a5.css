@@ -1,0 +1,27 @@
+@font-face{font-family:'Asta Service';src:url('assets/catchtable-service-asta.woff2') format('woff2');font-weight:100 900;font-display:swap}
+/* Completed Figma sub-5 service scenes. Mobile keeps its prior page. */
+.catchtable-service-complete{display:none}
+@media(min-width:768px){
+ .catchtable-service-complete{display:block;margin-top:calc(100vw * 120 / 1280)}
+ .ct-final-mobile{display:none!important}
+ .service-mockup{width:100%;margin:0}
+ .service-mockup>img{display:block;width:100%;height:auto}
+ .service-scene-wrap{width:var(--scene-width);margin-left:var(--scene-left);margin-top:calc(100vw * var(--scene-gap) / 1280)}
+ .service-scene{position:relative;width:100%;margin:0;isolation:isolate}
+ .service-layer{position:absolute;box-sizing:border-box;margin:0;max-width:none;min-width:0}
+ .service-asset{display:block}
+ .service-copy{font-family:'Asta Service','Asta Case',sans-serif;line-height:1.6;letter-spacing:-.04em;word-break:keep-all;overflow-wrap:normal}
+ .service-copy-title{font-size:var(--detail-title);line-height:1.3}
+ .service-copy-ko{font-size:var(--detail-ko)}
+ .service-copy-en{font-size:var(--detail-en);letter-spacing:-.01em;word-break:normal}
+ .service-copy[lang=en]{letter-spacing:-.01em}
+ .service-copy-stack{display:flex;flex-direction:column;gap:max(12px,calc(100vw * var(--copy-gap) / 1280));height:auto!important}
+ .service-copy-stack>.service-layer{position:relative;left:auto!important;top:auto!important;height:auto!important;flex-shrink:0}
+ .service-video{display:block;background:#fff}
+ [data-source-node="444:2110"]{--video-radius:2.265625vw}
+ .service-island{position:absolute;left:36.3%;top:4.65%;width:27.1%;height:3.45%;border-radius:999px;background:#050505;z-index:3}
+ .service-island:after{content:'';position:absolute;right:10%;top:30%;width:10%;aspect-ratio:1;border-radius:50%;background:#0c192c}
+}
+@media(min-width:768px) and (max-width:1023px){
+ .service-copy-title{font-size:16px}.service-copy-ko{font-size:11px}.service-copy-en{font-size:9px}
+}
