@@ -95,7 +95,6 @@ let topFrame=0;function queueTop(){if(topFrame)return;topFrame=requestAnimationF
   images.forEach((image,i)=>{
    image.style.setProperty('--component-gather-x',positions[i].x+'px');
    image.style.setProperty('--component-gather-y',positions[i].y+'px');
-   image.style.setProperty('--component-spread-delay',(i%5*22)+'ms');
   });
  }
  function finish(){
@@ -105,7 +104,7 @@ let topFrame=0;function queueTop(){if(topFrame)return;topFrame=requestAnimationF
   images.forEach(image=>{
    image.style.removeProperty('--component-gather-x');
    image.style.removeProperty('--component-gather-y');
-   image.style.removeProperty('--component-spread-delay');
+ 
   });
   board.dataset.componentsMotion=played?'settled':'static';
  }
