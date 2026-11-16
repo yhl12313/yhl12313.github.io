@@ -1017,3 +1017,18 @@ main>section{scroll-margin-top:4rem}
  .ct-reference-motion .ct-motion-copy,.ct-reference-motion .ct-motion-marker,.ct-reference-motion .ct-motion-bar{transform:none!important}
  .ct-reference-motion .positioning-grid::after{opacity:1;transition:none}
 }
+
+@media(min-width:768px) and (prefers-reduced-motion:no-preference){
+ .ct-components-ready>img{
+  transform:translate(var(--component-gather-x,0px),var(--component-gather-y,0px)) scale(.72);
+  transform-origin:center;
+ }
+ .ct-components-ready.ct-components-spreading>img{
+  animation:ct-component-spread 1200ms cubic-bezier(.22,1,.36,1) var(--component-spread-delay,0ms) both;
+  will-change:transform;
+ }
+ @keyframes ct-component-spread{
+  from{transform:translate(var(--component-gather-x,0px),var(--component-gather-y,0px)) scale(.72)}
+  to{transform:translate(0,0) scale(1)}
+ }
+}

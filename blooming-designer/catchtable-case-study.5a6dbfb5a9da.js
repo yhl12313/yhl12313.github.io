@@ -69,3 +69,64 @@
   document.querySelectorAll('.case-reveal').forEach(target=>target.classList.add('is-visible'));
  });
 })();
+
+/* Gather and spread the existing individual exports, on tablet/desktop only. */
+(() => {
+ const board=document.querySelector('[data-individual-frame="358:2341"]');
+ if(!board||!('IntersectionObserver' in window))return;
+ const images=[...board.querySelectorAll('img')];
+ const tablet=matchMedia('(min-width:768px)');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ let observer,resizeObserver,holdTimer,finishTimer,played=false;
+ let lastWidth=0,lastHeight=0;
+ const enabled=()=>tablet.matches&&!reduced.matches;
+ function measure(){
+  lastWidth=board.clientWidth;lastHeight=board.clientHeight;
+  images.forEach((image,i)=>{
+   const x=lastWidth*.5-image.offsetLeft-image.offsetWidth*.5+(i%3-1)*lastWidth*.006;
+   const y=lastHeight*.5-image.offsetTop-image.offsetHeight*.5+(Math.floor(i/3)%3-1)*lastHeight*.012;
+   image.style.setProperty('--component-gather-x',x+'px');
+   image.style.setProperty('--component-gather-y',y+'px');
+   image.style.setProperty('--component-spread-delay',(i%5*22)+'ms');
+  });
+ }
+ function finish(){
+  clearTimeout(holdTimer);clearTimeout(finishTimer);
+  observer?.disconnect();resizeObserver?.disconnect();
+  board.classList.remove('ct-components-ready','ct-components-spreading');
+  images.forEach(image=>{
+   image.style.removeProperty('--component-gather-x');
+   image.style.removeProperty('--component-gather-y');
+   image.style.removeProperty('--component-spread-delay');
+  });
+  board.dataset.componentsMotion=played?'settled':'static';
+ }
+ function prepare(){
+  if(!enabled()){finish();return;}
+  if(played||board.classList.contains('ct-components-ready'))return;
+  measure();board.classList.add('ct-components-ready');board.dataset.componentsMotion='gathered';
+  observer=new IntersectionObserver(entries=>{
+   const entry=entries[0];
+   if(!entry.isIntersecting||entry.intersectionRect.height<Math.min(entry.boundingClientRect.height*.28,innerHeight*.3))return;
+   played=true;observer.disconnect();
+   Promise.allSettled(images.map(image=>image.decode())).then(()=>{
+    if(!enabled()||!board.classList.contains('ct-components-ready'))return;
+    holdTimer=setTimeout(()=>{
+     board.classList.add('ct-components-spreading');board.dataset.componentsMotion='spreading';
+     finishTimer=setTimeout(finish,1300);
+    },450);
+   });
+  },{threshold:[0,.15,.25,.28,.3,.4,.6,1],rootMargin:'0px 0px -8% 0px'});
+  observer.observe(board);
+  if('ResizeObserver' in window){
+   resizeObserver=new ResizeObserver(()=>{
+    if(Math.abs(board.clientWidth-lastWidth)<1&&Math.abs(board.clientHeight-lastHeight)<1)return;
+    if(played)finish();else measure();
+   });
+   resizeObserver.observe(board);
+  }
+ }
+ tablet.addEventListener('change',prepare);
+ reduced.addEventListener('change',prepare);
+ prepare();
+})();
