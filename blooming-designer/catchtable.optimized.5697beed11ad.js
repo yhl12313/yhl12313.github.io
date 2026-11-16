@@ -139,4 +139,50 @@ let topFrame=0;function queueTop(){if(topFrame)return;topFrame=requestAnimationF
 })();
 
 ;
-(()=>{const media=matchMedia('(min-width:768px)');const videos=[...document.querySelectorAll('.service-video')],visible=new Set();function update(v){if(media.matches&&!document.hidden&&visible.has(v)){if(!v.getAttribute('src')){v.src=v.dataset.src;v.load()}if(!v.ended)v.play().catch(()=>{})}else v.pause()}const io=new IntersectionObserver(entries=>{entries.forEach(({target,isIntersecting,intersectionRatio})=>{if(isIntersecting&&intersectionRatio>=.25)visible.add(target);else visible.delete(target);update(target)})},{threshold:[0,.25]});videos.forEach(v=>io.observe(v));document.addEventListener('visibilitychange',()=>videos.forEach(update));media.addEventListener('change',()=>videos.forEach(update))})();
+(() => {
+ const media=matchMedia('(min-width:768px)');
+ const videos=[...document.querySelectorAll('.service-video')],visible=new Set(),states=new WeakMap();
+ const active=v=>media.matches&&!document.hidden&&visible.has(v);
+ function clear(state){if(state.timer!==null){clearTimeout(state.timer);state.timer=null}}
+ function update(v){
+  const state=states.get(v);
+  if(!active(v)){clear(state);v.pause();return}
+  if(!v.getAttribute('src')){v.src=v.dataset.src;v.load()}
+  if(v.ended){
+   if(state.deadline===null)state.deadline=performance.now()+3000;
+   v.dataset.replay='waiting';
+   if(state.timer===null)state.timer=setTimeout(()=>{
+    state.timer=null;if(!active(v))return;
+    state.deadline=null;v.currentTime=0;v.dataset.replay='playing';v.play().catch(()=>{});
+   },Math.max(0,state.deadline-performance.now()));
+  }else{v.dataset.replay='playing';v.play().catch(()=>{})}
+ }
+ videos.forEach(v=>{
+  states.set(v,{timer:null,deadline:null});
+  v.addEventListener('ended',()=>{const s=states.get(v);clear(s);s.deadline=performance.now()+3000;update(v)});
+ });
+ const io=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting,intersectionRatio})=>{
+  if(isIntersecting&&intersectionRatio>=.25)visible.add(target);else visible.delete(target);update(target);
+ }),{threshold:[0,.25]});
+ videos.forEach(v=>io.observe(v));
+ document.addEventListener('visibilitychange',()=>videos.forEach(update));
+ media.addEventListener('change',()=>videos.forEach(update));
+})();
+
+;
+(() => {
+ const media=matchMedia('(min-width:768px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)');
+ const targets=[...document.querySelectorAll('#service .service-copy-stack')].filter(t=>!t.parentElement.closest('.service-copy-stack'));
+ const nearby=document.querySelector('[data-source-node="443:2083"]');
+ const dining=document.querySelector('[data-source-node="443:2101"]');
+ const scenes=[nearby,dining].filter(Boolean),played=new WeakSet();
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(!entry.isIntersecting||entry.intersectionRect.height<Math.min(entry.boundingClientRect.height*.2,innerHeight*.22))return;
+  entry.target.classList.add('service-motion-played');played.add(entry.target);observer.unobserve(entry.target);
+ }),{threshold:[0,.1,.2,.3,.5,1],rootMargin:'0px 0px -6% 0px'});
+ function prepare(){
+  if(!media.matches||reduced.matches){observer.disconnect();[...targets,...scenes].forEach(t=>t.classList.remove('service-motion-ready'));return}
+  [...targets,...scenes].forEach(t=>{if(played.has(t))return;t.classList.add('service-motion-ready');observer.observe(t)});
+ }
+ media.addEventListener('change',prepare);reduced.addEventListener('change',prepare);prepare();
+})();
