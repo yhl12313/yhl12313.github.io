@@ -44,3 +44,70 @@
   function queueRebuild(){cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(rebuild)}
   addEventListener('resize',queueRebuild,{passive:true});desktop.addEventListener('change',rebuild);reduced.addEventListener('change',rebuild);rebuild();
 })();
+
+;(()=>{
+// Source states: Figma 459:708 / 459:709. Time is in milliseconds.
+const TYPE_HOLD=1200,TYPE_MOVE=1600,TYPE_CYCLE=2*(TYPE_HOLD+TYPE_MOVE);
+function extremeEase(x){
+  if(x<=0)return 0;if(x>=1)return 1;
+  // Exact inverse of cubic-bezier(1,0,0,1): x=.5+4*(u-.5)^3.
+  const u=.5+Math.cbrt((x-.5)/4);
+  return u*u*(3-2*u);
+}
+function typeMotionAt(time){
+  const t=((time%TYPE_CYCLE)+TYPE_CYCLE)%TYPE_CYCLE;
+  let amount=0,cohesion=false,phase='dispersion-hold',progress=0;
+  if(t>=TYPE_HOLD&&t<TYPE_HOLD+TYPE_MOVE){
+    phase='contract';progress=(t-TYPE_HOLD)/TYPE_MOVE;
+    amount=extremeEase(progress);cohesion=progress>=.5;
+  }else if(t>=TYPE_HOLD+TYPE_MOVE&&t<2*TYPE_HOLD+TYPE_MOVE){
+    phase='cohesion-hold';amount=1;cohesion=true;
+  }else if(t>=2*TYPE_HOLD+TYPE_MOVE){
+    phase='expand';progress=(t-2*TYPE_HOLD-TYPE_MOVE)/TYPE_MOVE;
+    amount=1-extremeEase(progress);cohesion=progress<.5;
+  }
+  return {phase,progress,amount,spacing:2.69-2.73*amount,gap:1-amount,
+    title:cohesion?'응집':'분산',caption:cohesion?'메워지는틈':'벌어지는틈'};
+}
+
+const typeStage=document.querySelector('.type-poster');
+if(typeStage){
+  const title=typeStage.querySelector('[data-type-line="title"]');
+  const caption=typeStage.querySelector('[data-type-line="caption"]');
+  const toggle=typeStage.querySelector('.type-motion-toggle');
+  const mq=matchMedia('(min-width:768px)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
+  let elapsed=0,last=null,raf=0,visible=false,paused=false,fontsReady=false;
+  function paint(time){
+    const state=typeMotionAt(time);
+    typeStage.style.setProperty('--type-spacing',state.spacing+'em');
+    typeStage.style.setProperty('--type-gap',state.gap+'em');
+    if(title.textContent!==state.title){title.textContent=state.title;caption.textContent=state.caption}
+    typeStage.dataset.motionPhase=state.phase;
+    typeStage.dataset.motionTime=Math.round(time%TYPE_CYCLE);
+  }
+  function frame(now){
+    raf=0;if(last!==null)elapsed+=now-last;last=now;paint(elapsed);
+    raf=requestAnimationFrame(frame);
+  }
+  function sync(){
+    cancelAnimationFrame(raf);raf=0;last=null;
+    const enabled=mq.matches&&!reduce.matches;
+    toggle.hidden=!enabled;
+    if(!enabled){paint(0);return}
+    if(visible&&!document.hidden&&!paused&&fontsReady)raf=requestAnimationFrame(frame);
+  }
+  toggle.addEventListener('click',()=>{
+    paused=!paused;
+    toggle.setAttribute('aria-pressed',String(paused));
+    toggle.setAttribute('aria-label',paused?'타이포 모션 재생':'타이포 모션 일시정지');
+    typeStage.classList.toggle('type-motion-paused',paused);sync();
+  });
+  new IntersectionObserver(entries=>{
+    visible=entries[0].isIntersecting&&entries[0].intersectionRatio>=.15;sync();
+  },{threshold:[0,.15]}).observe(typeStage);
+  document.addEventListener('visibilitychange',sync);
+  mq.addEventListener('change',sync);reduce.addEventListener('change',sync);
+  document.fonts.ready.then(()=>{fontsReady=true;sync()});paint(0);sync();
+}
+
+})();
