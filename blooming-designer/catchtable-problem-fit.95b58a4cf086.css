@@ -1,0 +1,22 @@
+/* Preserve the complete desktop critique composition on smaller screens. */
+@media(max-width:1279px){
+.problem-fit{width:100%;position:relative;overflow:visible}
+.catchtable-detail .problem-fit .problem-analysis{position:relative;display:block;width:70.334rem;height:max(153.333rem,calc(136.8544rem + 28em));margin:0;transform:scale(var(--problem-scale,1));transform-origin:top left;--ct-ko:14px;--ct-en:12px;--detail-ko:14px;--detail-en:12px}
+.problem-fit .as-is-phone{display:block;position:absolute;left:23.1116rem;top:0;width:22.7083rem}
+.problem-fit .as-is-phone img{height:153.333rem;width:100%;border-radius:1.6667rem}
+.problem-fit .diagram-highlight,.problem-fit .diagram-connector,.problem-fit .diagram-error-crop{display:block;position:absolute}
+.problem-fit .as-is-mobile,.problem-fit .issue-card .issue-visual{display:none}
+.problem-fit .issues-list{display:contents}
+.catchtable-detail .problem-fit .issue-card{position:absolute;border:0;padding:0;width:19.375rem}
+.problem-fit .issue-title{gap:.5rem;margin-bottom:.5rem;align-items:baseline}
+.catchtable-detail .problem-fit .issue-card h3{font-size:20px;white-space:normal}
+.catchtable-detail .problem-fit .issue-card .bilingual>p:not([lang=en]){font-size:14px}
+.catchtable-detail .problem-fit .issue-card .bilingual>p[lang=en]{font-size:12px}
+.catchtable-detail .problem-fit .issue-01{left:0;top:18.4057rem;width:19.865rem}
+.catchtable-detail .problem-fit .issue-02{left:50.625rem;top:31.1669rem}
+.catchtable-detail .problem-fit .issue-03{left:50.625rem;top:47.4169rem}
+.catchtable-detail .problem-fit .issue-04{left:0;top:82.3544rem;width:17.9375rem}
+.catchtable-detail .problem-fit .issue-05{left:50.625rem;top:86.4169rem;width:19.7093rem}
+.catchtable-detail .problem-fit .issue-06{left:50.625rem;top:110.4794rem}
+.catchtable-detail .problem-fit .issue-07{left:0;top:136.8544rem;width:14.875rem}
+}
