@@ -1,0 +1,42 @@
+.catchtable-mobile-service{display:none}
+@media(max-width:767px){
+ .catchtable-mobile-service{display:block;margin-top:80px}
+ .mobile-service-mockup{margin:0}
+ .mobile-service-mockup img{display:block;width:100%;height:auto}
+ .mobile-service-section{margin-top:80px;padding:0 20px;scroll-margin-top:64px}
+ .mobile-service-copy{margin-bottom:40px}
+ .mobile-service-copy .service-layer{position:static!important;width:auto!important;height:auto!important;margin:0;max-width:100%!important;white-space:normal!important}
+ .mobile-service-copy .service-copy-stack{display:flex;flex-direction:column;gap:24px}
+ .mobile-service-copy .service-copy-stack .service-copy-stack{gap:12px}
+ .mobile-service-copy .service-copy-title{font-size:20px;line-height:1.4;word-break:keep-all}
+ .mobile-service-copy .service-copy-ko{font-size:14px;line-height:1.6;word-break:keep-all}
+ .mobile-service-copy .service-copy-en{font-size:12px;line-height:1.6;letter-spacing:-.01em}
+ .mobile-service-copy .service-authored-line{display:inline;white-space:normal}
+ .mobile-service-copy .service-authored-line:not(:last-child)::after{content:' '}
+ .mobile-service-compare{display:grid;grid-template-columns:.64fr 1fr;gap:24px;align-items:center;width:100%;max-width:560px;margin-inline:auto}
+ #mobile-service-443-2081 .mobile-service-compare{padding-right:32px}
+ .mobile-service-compare figure{margin:0;min-width:0}
+ .mobile-service-compare figcaption{width:max-content;margin:0 auto 16px;padding:3px 12px;border-radius:999px;color:white;background:#777;font-size:10px;line-height:1.6;letter-spacing:-.01em}
+ .mobile-service-compare figure:last-child figcaption{background:#ff511a}
+ .mobile-service-art{position:relative;width:100%;isolation:isolate}
+ .mobile-service-art .service-layer{position:absolute;box-sizing:border-box;margin:0;max-width:none;min-width:0}
+ .mobile-service-art>.service-layer{left:0!important;top:0!important;width:100%!important;height:100%!important}
+ .mobile-service-art img,.mobile-service-art video{display:block}
+ .mobile-service-art .service-copy{font-family:'Asta Service','Asta Case',sans-serif;font-size:clamp(7px,1.8vw,12px);line-height:1.4;letter-spacing:-.04em}
+ .mobile-service-art [data-mobile-node="444:2110"]{z-index:1!important;border-radius:8.4648% / 3.9067%!important}
+ .mobile-service-art [data-mobile-node="444:2111"]{z-index:10!important;mask-image:none!important;-webkit-mask-image:none!important;pointer-events:none}
+ .mobile-service-art .service-island{display:none}
+ .mobile-service-art [data-mobile-node="443:1954"]{border-radius:999px!important}
+ .mobile-service-art [data-mobile-node="443:2087"],.mobile-service-art [data-mobile-node="443:2094"]{display:none}
+ .mobile-service-recommendation{width:68%;max-width:300px;margin:40px auto 0}
+ .mobile-service-status{width:70%;max-width:280px;margin:40px auto 0}
+ .mobile-service-status .service-copy{font-size:clamp(9px,2.5vw,14px)}
+ .mobile-service-status [data-mobile-node="443:1987"],.mobile-service-status [data-mobile-node="443:1988"],.mobile-service-status [data-mobile-node="443:1989"],.mobile-service-status [data-mobile-node="443:1990"],.mobile-service-status [data-mobile-node="443:1991"]{border-radius:999px!important}
+ .mobile-service-ending{margin-top:80px}
+ .mobile-service-ending .service-scene{position:relative;width:100%;margin:0;isolation:isolate}
+ .mobile-service-ending .service-layer{position:absolute;margin:0;max-width:none}
+ .mobile-service-ending .service-asset{display:block}
+ .mobile-service-ending .service-copy-title{font-size:clamp(6px,1.1vw,10px);line-height:1.3;white-space:nowrap!important}
+ .catchtable-detail .ct-final-mobile{display:none}
+ .catchtable-detail .detail-footer{margin-top:0}
+}
