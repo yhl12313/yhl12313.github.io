@@ -20,3 +20,4 @@
 @media(prefers-reduced-motion:reduce){.reading-reveal{opacity:1;translate:none;transition:none}}
 /* Original Section 1 typography states; reserve the expanded height throughout. */
 @media(min-width:768px){.type-poster{position:relative;font-size:6.25vw;height:3.6em;gap:var(--type-gap,1em)}.type-poster .copy{font-size:inherit;line-height:1.3;height:1.3em;flex:none;letter-spacing:var(--type-spacing,2.69em)}}
+.realistic-detail .site-footer{font-family:'Realistic Asta',sans-serif}
