@@ -55,3 +55,4 @@
   .realistic-detail .hero img{width:100%;height:100%;object-fit:cover}
   .overview .project-name,.overview .project-label{font-weight:500}
 }
+@media (min-width:1025px){.overview .intro .bilingual{display:flex;flex-direction:column;gap:1.875vw}.overview .intro .bilingual>p{margin:0}}
