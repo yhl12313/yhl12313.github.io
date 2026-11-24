@@ -1,0 +1,57 @@
+/* Sub-7 overview: preserve the source text measures and compact facts grid. */
+.overview h1{text-box-trim:none}
+.overview .intro{align-items:flex-start}
+.overview .intro>.bilingual{width:30em;max-width:calc(76.25% - 40px)}
+.overview .intro .ko{width:28.6811em;max-width:100%}
+.overview .intro .en{width:28.1093em;max-width:100%}
+.overview aside dl{grid-template-columns:minmax(0,183fr) minmax(0,82fr)}
+.overview aside dl>div{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.overview dt,.overview dd,.overview .project-source small,.overview .project-name{text-box-trim:trim-both;text-box-edge:cap alphabetic}
+.overview dd{margin-top:0}
+.overview .project-source{display:flex;flex-direction:column;gap:8px}
+.overview .project-source small{display:block}
+.overview .project-source .project-name{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:0;font-weight:400}
+.overview .project-source .project-label{margin:0;text-box-trim:trim-both;text-box-edge:cap alphabetic}
+.overview .project-arrow{width:11px;height:11px;flex:none}
+@media(min-width:2560px){
+ .overview .intro{margin-top:88px}
+ .overview .bilingual{gap:48px}
+ .overview dt,.overview .project-source small{font-size:14px}
+ .overview aside dl{gap:40px}
+ .overview aside dl>div{gap:16px}
+ .overview .project-source{margin-top:40px;padding-top:24px;gap:16px}
+ .overview .project-arrow{width:22px;height:22px}
+}
+@media(max-width:767px){
+ .overview .intro>.bilingual{width:100%;max-width:100%}
+ .overview aside dl{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+
+/* detail opening: large-resolution scaling shared with catchtable.html (1rem = 1.25vw at >=1025px) */
+:root{--open-title:20px;--open-ko:14px;--open-en:12px;--open-meta:12px}
+@media (min-width:1025px) and (max-width:1279px){:root{--open-meta:10px}}
+@media (min-width:2560px){:root{--open-title:32px;--open-ko:20px;--open-en:14px;--open-meta:14px}}
+@media (min-width:1025px){
+  body>header{padding:1.5625vw 3.125vw;font-size:clamp(12px,.9375vw,18px);font-size:round(clamp(12px,.9375vw,18px),1px);font-weight:400;line-height:1.6;letter-spacing:-.02em}
+  body>header>a{display:inline-flex;align-items:center;min-height:24px;font-size:inherit;font-weight:400;line-height:1.6}
+  main>img.hero{display:block;width:100%;height:56.25vw;object-fit:cover}
+  .overview.pad{padding:3.359375vw 3.125vw 3.515625vw;min-height:23.4375vw;height:auto}
+  .overview #project-title{font-size:var(--open-title);font-weight:700;line-height:1.6;letter-spacing:-.02em;text-box:cap alphabetic;margin:0 0 3.4375vw}
+  .overview .intro .ko{font-size:var(--open-ko);line-height:1.6}
+  .overview .intro .en{font-size:var(--open-en);line-height:1.6}
+  .overview .intro aside{width:max(22.265625vw,20.3571em);flex:none;font-size:var(--open-ko)}
+  .overview .intro aside dl{display:grid;grid-template-columns:minmax(0,183fr) minmax(0,82fr);row-gap:1.5625vw;column-gap:1.5625vw}
+  .overview .intro aside dl>div{display:flex;flex-direction:column;gap:.625vw}
+  .overview .intro aside dt{font-size:var(--open-meta);line-height:1.6;letter-spacing:-.01em;color:#bbb;text-box:cap alphabetic}
+  .overview .intro aside dd{margin:0;font-size:var(--open-ko);line-height:1.6;letter-spacing:-.01em;white-space:nowrap;text-box:cap alphabetic}
+  .overview .project-source{display:flex;flex-direction:column;gap:.625vw;border-top:1px solid #000;margin-top:1.5625vw;padding:.9375vw 0 0}
+  .overview .project-source small{font-size:var(--open-meta);line-height:1.6;letter-spacing:-.01em;color:#bbb;text-box:cap alphabetic}
+  .overview .project-name{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:0;font-size:var(--open-ko);font-weight:500;line-height:1.6;text-box:cap alphabetic}
+  .overview .project-arrow{width:.78125vw;height:.78125vw;flex:none}
+}
+@media (min-width:1025px){
+  .overview .prototype-text,.project-overview .prototype-text{line-height:1.6;text-box:cap alphabetic}
+  .realistic-detail .hero{height:56.25vw;overflow:hidden}
+  .realistic-detail .hero img{width:100%;height:100%;object-fit:cover}
+  .overview .project-name,.overview .project-label{font-weight:500}
+}
