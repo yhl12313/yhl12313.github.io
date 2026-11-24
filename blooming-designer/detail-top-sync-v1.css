@@ -1,0 +1,22 @@
+/* detail-top-sync-v1: align every detail page opening (header, title, facts, prototype link) to suit.html */
+@media (min-width:1024px){
+  :root{--sync-meta:10px}
+}
+@media (min-width:1280px){ :root{--sync-meta:12px} }
+@media (min-width:1920px){ :root{--sync-meta:14px} }
+@media (min-width:1024px){
+  body>header,body .project-header{padding:1.5625vw var(--gutter,45px)!important;font-size:clamp(12px,.9375vw,18px)!important;font-weight:400!important;line-height:1.6!important;letter-spacing:-.02em!important}
+  body>header>a,body .project-header>a{display:inline-flex;align-items:center;min-height:24px;font-size:inherit!important;font-weight:400!important;line-height:1.6!important;letter-spacing:-.01em!important}
+  .catchtable-detail .cover-image{aspect-ratio:16/9;height:auto;object-fit:cover}
+  .project-overview,.catchtable-detail #project-overview,body>main>section.overview.pad{padding-top:3.359375vw!important;padding-bottom:3.75vw!important;min-height:23.4375vw}
+  #project-title{font-weight:700!important;line-height:1.6!important;letter-spacing:-.02em!important;text-box-trim:trim-both;text-box-edge:cap alphabetic;margin:0 0 3.4375vw!important}
+  .project-overview dl>div,#project-overview dl>div,.overview.pad aside dl>div{display:flex;flex-direction:column;gap:.625vw}
+  .project-overview dt,#project-overview dt,.overview.pad aside dt,
+  .project-overview .meta-label,#project-overview .caption,.overview.pad .project-source small{font-size:var(--sync-meta)!important;line-height:1.6!important;letter-spacing:-.01em!important;color:#bbb;text-box-trim:none}
+  .project-overview dd,#project-overview dd,.overview.pad aside dd{margin:0!important;font-size:14px;line-height:1.6!important;letter-spacing:-.01em!important;text-box-trim:none}
+  .prototype-link,#project-overview .project-prototype,.overview.pad .project-source{display:flex!important;flex-direction:column;gap:.625vw;border-top:1px solid #000;margin-top:1.5625vw!important;padding:.9375vw 0!important}
+  .prototype-link .prototype-name,.prototype-link .prototype-name *,#project-overview .prototype-row *,.overview.pad .project-name *,#project-overview .prototype-row,.overview.pad .project-name{margin:0!important;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:500!important;line-height:1.6!important;letter-spacing:-.04em!important;text-box-trim:none}
+  .project-overview dl,#project-overview dl,.overview.pad aside dl{row-gap:1.5625vw!important;column-gap:1.5625vw!important}
+  .project-overview .project-facts,.overview.pad aside{width:22.265625vw!important;flex:none}
+}
+
