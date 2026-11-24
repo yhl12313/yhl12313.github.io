@@ -1,1 +1,0 @@
-(()=>{const sync=()=>{document.documentElement.style.setProperty('--scale-viewport',document.documentElement.clientWidth+'px')};sync();addEventListener('resize',sync,{passive:true});addEventListener('load',sync);document.fonts.ready.then(sync)})();
