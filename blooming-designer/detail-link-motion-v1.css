@@ -1,0 +1,4 @@
+/* Shared project link motion, matching SUIT. */
+.project-prototype:hover .prototype-row img,.project-prototype:focus-visible .prototype-row img,.project-prototype:hover .prototype-row svg,.project-prototype:focus-visible .prototype-row svg,.prototype-link:hover svg,.prototype-link:focus-visible svg,.project-source:hover .project-arrow,.project-source:focus-visible .project-arrow{animation:detail-arrow-float 1.2s ease-in-out infinite}
+@keyframes detail-arrow-float{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
+@media(prefers-reduced-motion:reduce){.project-prototype .prototype-row img,.project-prototype .prototype-row svg,.prototype-link svg,.project-source .project-arrow{animation:none!important;transform:none!important}}
