@@ -56,3 +56,5 @@
   .overview .project-name,.overview .project-label{font-weight:500}
 }
 @media (min-width:1025px){.overview .intro .bilingual{display:flex;flex-direction:column;gap:1.875vw}.overview .intro .bilingual>p{margin:0}}
+
+body>header{transition:opacity .3s ease,visibility .3s}body.film-playing>header{opacity:0;visibility:hidden;pointer-events:none}
