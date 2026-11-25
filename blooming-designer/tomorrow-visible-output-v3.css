@@ -24,3 +24,8 @@ h1,h2{text-box-trim:trim-both;text-box-edge:cap alphabetic}
 
 /* Mobile film: 16:9 with 80px top/bottom spacing */
 @media(max-width:767px){.film-scroll{height:auto;padding:80px 0}.film-stage{position:static;height:auto;display:block;overflow:visible}.film-stage video,.film-stage iframe{width:100%;height:auto;aspect-ratio:16/9}}
+
+/* Back to top (same as other detail pages) */
+.back-to-top{position:fixed;right:var(--gutter);bottom:24px;width:44px;height:44px;display:grid;place-items:center;border:1px solid #000;border-radius:50%;background:#fff;color:#000;padding:10px;cursor:pointer;z-index:25;opacity:0;pointer-events:none;transition:opacity .2s}
+.back-to-top.is-visible{opacity:1;pointer-events:auto}
+.back-to-top svg{width:100%;height:100%}
