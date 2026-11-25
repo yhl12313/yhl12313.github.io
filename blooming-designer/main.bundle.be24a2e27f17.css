@@ -16,7 +16,6 @@ h2{font-size:1.5rem;font-weight:600;line-height:1.6;text-box-trim:trim-both;text
 
 /* The cards orbit together; their artwork always stays upright. */
 .hero{position:relative}
-.has-motion .collage:not(.is-orbiting) .tile{visibility:hidden}
 @property --bloom-turn{syntax:'<angle>';initial-value:0rad;inherits:false}
 @property --bloom-scale{syntax:'<number>';initial-value:1;inherits:false}
 .collage.is-orbiting{animation:bloom-turn 3.2s linear both}
@@ -43,7 +42,6 @@ h2{font-size:1.5rem;font-weight:600;line-height:1.6;text-box-trim:trim-both;text
   .project-meta{font-size:0.6875rem;line-height:1.4}
 }
 @media(max-width:760px){
-  .about-right{gap:3rem}
   .resume{font-size:0.75rem;gap:1.5rem}
   .resume>div{grid-template-columns:5.125rem minmax(0,1fr);gap:0.75rem}
   .resume dd p{grid-template-columns:5.5rem minmax(0,1fr);gap:0.75rem}
