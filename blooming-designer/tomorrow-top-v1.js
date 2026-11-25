@@ -1,0 +1,1 @@
+(()=>{const b=document.querySelector('.tomorrow-top');if(!b)return;const update=()=>{b.hidden=scrollY<600};b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));addEventListener('scroll',update,{passive:true});update()})();
