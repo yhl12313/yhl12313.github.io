@@ -63,16 +63,8 @@
  .catchtable-detail .problem-fit .issue-card .bilingual>p{max-width:none!important;word-break:keep-all}
  .catchtable-detail .problem-fit .issue-card .bilingual>p:not([lang=en]){font-size:14px!important;line-height:1.6;color:#333!important}
  .catchtable-detail .problem-fit .issue-card .bilingual>p[lang=en]{font-size:12px!important;line-height:1.6;color:#aaa!important}
- /* Service: AS IS / TO BE swipe cards */
- .mobile-service-compare,#mobile-service-443-2081 .mobile-service-compare{display:flex!important;align-items:flex-start;gap:20px;max-width:none!important;width:auto!important;margin:0 -20px!important;padding:8px 20px 4px!important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
- .mobile-service-compare::-webkit-scrollbar{display:none}
- .mobile-service-compare figure{flex:0 0 60%;scroll-snap-align:start}
- .mobile-service-compare figure:last-child{flex-basis:78%}
- .mobile-service-compare figcaption{font-size:12px!important;padding:4px 14px!important;margin-bottom:20px!important}
- .mobile-service-compare::after{content:'';flex:0 0 4px}
- .mobile-service-section .mobile-service-copy{margin-bottom:28px!important}
- .mobile-service-section .mobile-service-copy::after{content:"좌우로 넘겨 AS IS / TO BE 비교 →";display:block;margin-top:20px;font-size:12px;line-height:1.6;color:#ff5900;letter-spacing:-.01em}
- .mobile-service-recommendation{width:84%!important;max-width:340px!important;margin-top:48px!important}
+ /* Service: AS IS / TO BE captions */
+ .mobile-service-compare figcaption{font-size:12px!important;padding:4px 14px!important}
  /* Status legend: chips */
  .mobile-service-status{width:auto!important;max-width:none!important;margin:40px 0 0!important}
  .mobile-service-status .mobile-service-art{aspect-ratio:auto!important}
@@ -84,7 +76,7 @@
  .mobile-service-status .service-copy{font-size:13px!important;line-height:1.4!important;white-space:nowrap}
 }
 
-/* ===== Mobile: no horizontal scrolling, vertical only ===== */
+/* ===== Mobile: AS IS / TO BE stacked vertically ===== */
 @media(max-width:767px){
  .mobile-service-compare,#mobile-service-443-2081 .mobile-service-compare{display:flex!important;flex-direction:column;align-items:center;gap:56px;overflow:visible!important;scroll-snap-type:none!important;margin:0 auto!important;padding:0!important;width:100%!important;max-width:none!important}
  .mobile-service-compare::after{content:none!important}
