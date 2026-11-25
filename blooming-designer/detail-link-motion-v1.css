@@ -2,3 +2,17 @@
 .project-prototype:hover .prototype-row img,.project-prototype:focus-visible .prototype-row img,.project-prototype:hover .prototype-row svg,.project-prototype:focus-visible .prototype-row svg,.prototype-link:hover svg,.prototype-link:focus-visible svg,.project-source:hover .project-arrow,.project-source:focus-visible .project-arrow{animation:detail-arrow-float 1.2s ease-in-out infinite}
 @keyframes detail-arrow-float{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-3px)}}
 @media(prefers-reduced-motion:reduce){.project-prototype .prototype-row img,.project-prototype .prototype-row svg,.prototype-link svg,.project-source .project-arrow{animation:none!important;transform:none!important}}
+
+/* Large-screen type scale: +2px body / +4px title per breakpoint (1920, 2560) */
+@media(min-width:1920px){:root,body{--detail-title:24px!important;--open-title:24px!important;--ct-title:24px!important;--title:24px!important;--detail-ko:16px!important;--open-ko:16px!important;--ct-ko:16px!important;--body:16px!important;--detail-en:14px!important;--open-en:14px!important;--ct-en:14px!important;--english:14px!important;--detail-meta:14px!important;--open-meta:14px!important;--detail-nav:14px!important}}
+@media(min-width:2560px){:root,body{--detail-title:28px!important;--open-title:28px!important;--ct-title:28px!important;--title:28px!important;--detail-ko:18px!important;--open-ko:18px!important;--ct-ko:18px!important;--body:18px!important;--detail-en:16px!important;--open-en:16px!important;--ct-en:16px!important;--english:16px!important;--detail-meta:16px!important;--open-meta:16px!important;--detail-nav:16px!important}}
+@media(min-width:1281px){
+ .catchtable-detail .issue-card .bilingual>p[lang=en]{max-width:25.833em!important}
+ .catchtable-detail .issue-01 .bilingual>p[lang=en]{max-width:26.487em!important}
+ .catchtable-detail .issue-04 .bilingual>p[lang=en]{max-width:23.917em!important}
+ .catchtable-detail .issue-05 .bilingual>p[lang=en]{max-width:26.279em!important}
+ .catchtable-detail .issue-07 .bilingual>p[lang=en]{max-width:19.833em!important}
+ .catchtable-detail .direction-card .bilingual>p[lang=en]{max-width:28.35em}
+ .catchtable-detail .overview-intro{min-width:calc(var(--open-en,12px) * 34.6)}
+ .story .ko{max-width:28.311em!important}.story .en{max-width:38.288em!important}.intro .ko{max-width:28.681em}
+}
