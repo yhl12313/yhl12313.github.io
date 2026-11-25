@@ -17,3 +17,7 @@ h1,h2{text-box-trim:trim-both;text-box-edge:cap alphabetic}
 .output-grid img,.output-grid img.reveal{opacity:1;transform:none;transition:none;animation:none}
 
 .youtube-film{display:block;border:0}.output-grid img{content-visibility:visible}body{font-synthesis:none}
+
+/* Mobile: credits in a single column, film keeps 16:9 */
+@media(max-width:767px){.credits{display:flex;flex-direction:column;gap:32px}.credits>div:nth-child(n){width:100%}.environment-links{display:flex;flex-direction:column;gap:0}.environment-links p{white-space:normal}.environment-links p+p{margin-top:0}.credits p{white-space:normal}.film-scroll{height:150vh}.film-stage video,.film-stage iframe{width:calc(90% + 10% * var(--progress,0));height:auto;aspect-ratio:16/9}}
+@media(min-width:768px){.environment-links{grid-template-columns:max-content max-content}}
