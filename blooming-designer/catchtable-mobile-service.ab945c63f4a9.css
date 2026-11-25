@@ -40,3 +40,46 @@
  .catchtable-detail .ct-final-mobile{display:none}
  .catchtable-detail .detail-footer{margin-top:0}
 }
+
+/* ===== Mobile redesign (<=767px) ===== */
+@media(max-width:767px){
+ /* Overview facts: one row */
+ .catchtable-detail .project-facts{display:grid!important;grid-template-columns:repeat(3,auto)!important;justify-content:space-between;column-gap:16px!important;row-gap:0!important}
+ .catchtable-detail .project-facts>div{grid-column:auto!important;grid-row:auto!important;margin:0!important}
+ /* Problem: numbered card list */
+ .catchtable-detail .problem-fit{height:auto!important;overflow:visible}
+ .catchtable-detail .problem-fit .problem-analysis{display:block!important;width:100%!important;height:auto!important;margin:0!important;transform:none!important}
+ .catchtable-detail .problem-fit .as-is-phone,.catchtable-detail .problem-fit .diagram-highlight,.catchtable-detail .problem-fit .diagram-connector,.catchtable-detail .problem-fit .diagram-error-crop{display:none!important}
+ .catchtable-detail .problem-fit .issues-list{display:flex!important;flex-direction:column;gap:0}
+ .catchtable-detail .problem-fit .issue-card{position:static!important;width:auto!important;left:auto!important;top:auto!important;padding:28px 0!important;border-top:1px solid #e5e5e5!important}
+ .catchtable-detail .problem-fit .issue-card:last-child{border-bottom:1px solid #e5e5e5!important}
+ .catchtable-detail .problem-fit .issue-title{display:flex;align-items:baseline;gap:10px;margin:0 0 16px}
+ .catchtable-detail .problem-fit .issue-title .case-number{color:#ff5900;font-size:14px;font-weight:600;flex:none}
+ .catchtable-detail .problem-fit .issue-card h3{font-size:18px!important;line-height:1.4;white-space:normal!important;word-break:keep-all}
+ .catchtable-detail .problem-fit .issue-card .issue-visual{display:flex!important;align-items:center;justify-content:center;gap:16px;height:168px!important;margin:0 0 18px!important;padding:14px!important;background:#f5f5f5;border-radius:12px;overflow:hidden}
+ .catchtable-detail .problem-fit .issue-card .issue-visual img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
+ .catchtable-detail .problem-fit .issue-card .issue-visual.service-options img{max-width:30%}
+ .catchtable-detail .problem-fit .issue-card .bilingual{gap:12px}
+ .catchtable-detail .problem-fit .issue-card .bilingual>p{max-width:none!important;word-break:keep-all}
+ .catchtable-detail .problem-fit .issue-card .bilingual>p:not([lang=en]){font-size:14px!important;line-height:1.6;color:#333!important}
+ .catchtable-detail .problem-fit .issue-card .bilingual>p[lang=en]{font-size:12px!important;line-height:1.6;color:#aaa!important}
+ /* Service: AS IS / TO BE swipe cards */
+ .mobile-service-compare,#mobile-service-443-2081 .mobile-service-compare{display:flex!important;align-items:flex-start;gap:20px;max-width:none!important;width:auto!important;margin:0 -20px!important;padding:8px 20px 4px!important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .mobile-service-compare::-webkit-scrollbar{display:none}
+ .mobile-service-compare figure{flex:0 0 60%;scroll-snap-align:start}
+ .mobile-service-compare figure:last-child{flex-basis:78%}
+ .mobile-service-compare figcaption{font-size:12px!important;padding:4px 14px!important;margin-bottom:20px!important}
+ .mobile-service-compare::after{content:'';flex:0 0 4px}
+ .mobile-service-section .mobile-service-copy{margin-bottom:28px!important}
+ .mobile-service-section .mobile-service-copy::after{content:"좌우로 넘겨 AS IS / TO BE 비교 →";display:block;margin-top:20px;font-size:12px;line-height:1.6;color:#ff5900;letter-spacing:-.01em}
+ .mobile-service-recommendation{width:84%!important;max-width:340px!important;margin-top:48px!important}
+ /* Status legend: chips */
+ .mobile-service-status{width:auto!important;max-width:none!important;margin:40px 0 0!important}
+ .mobile-service-status .mobile-service-art{aspect-ratio:auto!important}
+ .mobile-service-status .service-layer{position:static!important;width:auto!important;height:auto!important;left:auto!important;top:auto!important}
+ .mobile-service-status [data-mobile-node="443:1985"]{display:flex;flex-wrap:wrap;gap:8px}
+ .mobile-service-status [data-mobile-node="443:1986"]{display:contents}
+ .mobile-service-status [data-mobile-node="443:1987"],.mobile-service-status [data-mobile-node="443:1988"],.mobile-service-status [data-mobile-node="443:1989"],.mobile-service-status [data-mobile-node="443:1990"],.mobile-service-status [data-mobile-node="443:1991"]{display:inline-flex;align-items:center;gap:8px;padding:8px 14px!important;border-radius:999px!important;background:#f5f5f5!important}
+ .mobile-service-status .service-layer:not(p):empty{width:10px!important;height:10px!important;border-radius:50%!important;flex:none}
+ .mobile-service-status .service-copy{font-size:13px!important;line-height:1.4!important;white-space:nowrap}
+}
