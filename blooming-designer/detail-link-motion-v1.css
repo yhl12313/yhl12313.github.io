@@ -16,3 +16,10 @@
  .catchtable-detail .overview-intro{min-width:calc(var(--open-en,12px) * 34.6)}
  .story .ko{max-width:28.311em!important}.story .en{max-width:38.288em!important}.intro .ko{max-width:28.681em}
 }
+
+/* Detail overview unification: title 700, -1% tracking on meta/English, aligned prototype row, Realistic hero width */
+#project-title{font-weight:700!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(p[lang=en],dt,dd,.caption,.meta-label,small,.prototype-row,.prototype-name,.prototype-text,.project-label){letter-spacing:-.01em!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(.prototype-row,.project-name){display:flex;align-items:center;justify-content:space-between;text-box:normal!important;text-box-trim:none!important;line-height:1.6!important;min-height:1.6em}
+:is(#project-overview,.project-overview,main>section.overview) :is(.prototype-name,.project-label,.prototype-text){text-box:normal!important;text-box-trim:none!important;line-height:1.6!important}
+.realistic-detail .hero,.realistic-detail .hero img{width:100%!important;max-width:100%}
