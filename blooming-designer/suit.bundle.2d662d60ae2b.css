@@ -393,3 +393,23 @@ body:not(.catchtable-detail) .bilingual p[data-figma-text] {
   .realistic-detail .hero img{width:100%;height:100%;object-fit:cover}
   .overview .project-name,.overview .project-label{font-weight:500}
 }
+
+/* Figma sub-1 spacing (1280 base, scales with viewport) */
+@media(min-width:1025px){
+ main .type-specimen{margin-top:6.6406vw!important}
+ main .form-section .section-label{margin-top:15.625vw!important}
+ main .structure-row{margin-top:18.4375vw!important}
+ main .font-comparison{margin-top:16.7969vw!important}
+ main .spacing-adjustment{margin-top:9.375vw!important}
+ main .spacing-section{margin-top:22.8125vw!important}
+ main .reading-row{margin-top:7.6563vw!important}
+ main .line-height-section{margin-top:21.6406vw!important}
+ main .line-height-grid{margin-top:9.1406vw!important}
+ main .poster-final{margin-top:21.6406vw!important}
+ main .weight-section{margin-top:21.875vw!important}
+ main .weight-spectrum{margin-top:4.375vw!important}
+ main .weight-detail{margin-top:21.875vw!important}
+ main .life-story{margin-top:21.875vw!important}
+ main .motion-cover{margin-top:21.875vw!important}
+ main .motion-cover{margin-bottom:3.125vw!important}
+}
