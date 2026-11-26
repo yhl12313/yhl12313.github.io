@@ -76,3 +76,5 @@
 
 /* SUIT form-intro English: 2px below the overview English size at every desktop width */
 @media(min-width:1025px){main .form-intro .bilingual>p[lang=en]{font-size:calc(var(--open-en, 12px) - 2px)!important}}
+
+@media(max-width:1024.98px){.realistic-detail [data-source-node="459:669"] .source-line:first-child::after{content:' '}}
