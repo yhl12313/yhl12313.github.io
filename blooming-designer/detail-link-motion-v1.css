@@ -20,6 +20,17 @@
 /* Detail overview unification: title 700, -1% tracking on meta/English, aligned prototype row, Realistic hero width */
 #project-title{font-weight:700!important}
 :is(#project-overview,.project-overview,main>section.overview) :is(p[lang=en],dt,dd,.caption,.meta-label,small,.prototype-row,.prototype-name,.prototype-text,.project-label){letter-spacing:-.01em!important}
-:is(#project-overview,.project-overview,main>section.overview) :is(.prototype-row,.project-name){display:flex;align-items:center;justify-content:space-between;text-box:normal!important;text-box-trim:none!important;line-height:1.6!important;min-height:1.6em}
-:is(#project-overview,.project-overview,main>section.overview) :is(.prototype-name,.project-label,.prototype-text){text-box:normal!important;text-box-trim:none!important;line-height:1.6!important}
 .realistic-detail .hero,.realistic-detail .hero img{width:100%!important;max-width:100%}
+
+/* Prototype arrow = SUIT source; equal gray-label → black-text spacing in overview */
+:is(#project-overview,.project-overview,main>section.overview) :is(dt,dd,.caption,.meta-label,small){text-box:cap alphabetic!important;line-height:1.6!important;margin:0!important}
+:is(#project-overview,.project-overview,main>section.overview) dl>div{display:flex!important;flex-direction:column!important;gap:8px!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source){display:flex!important;flex-direction:column!important;gap:8px!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source)>:is(.prototype-row,.prototype-name,.project-name){display:block!important;position:relative!important;margin:0!important;padding-right:2em;line-height:1.6!important;text-box:cap alphabetic!important;min-height:0!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(.prototype-row>.prototype-name,.project-name>.project-label,.prototype-row .prototype-text){display:inline!important;text-box:normal!important}
+:is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source) :is(img,svg){position:absolute!important;right:0;top:0;bottom:0;margin:auto 0!important;width:11px;height:11px}
+@media(min-width:1025px){
+ :is(#project-overview,.project-overview,main>section.overview) dl>div{gap:.625vw!important}
+ :is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source){gap:.625vw!important}
+ :is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source) :is(img,svg){width:.78125vw!important;height:.78125vw!important}
+}
