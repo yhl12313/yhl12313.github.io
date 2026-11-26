@@ -34,3 +34,45 @@
  :is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source){gap:calc(.625vw + 4px)!important}
  :is(#project-overview,.project-overview,main>section.overview) :is(a.prototype-link,a.project-prototype,a.project-source) :is(img,svg){width:.78125vw!important;height:.78125vw!important}
 }
+
+/* ===== Responsive rules aligned to SUIT (all detail pages) ===== */
+/* Side margins: 20px up to 1024, 3.125vw from 1025 */
+@media(max-width:1024px){body.realistic-detail,html:has(link[href^="tomorrow-visible"]) body{--gutter:20px!important}}
+/* Type scale up to 1023: title 16 / ko 14 / en 12 / meta 11 */
+@media(max-width:1023px){
+ body.realistic-detail{--detail-title:16px!important;--detail-ko:14px!important;--detail-en:12px!important}
+ body.catchtable-detail{--detail-title:16px!important;--detail-ko:14px!important;--detail-en:12px!important;--detail-meta:11px!important;--ct-title:16px!important;--ct-ko:14px!important;--ct-en:12px!important}
+ html:has(link[href^="tomorrow-visible"]) body{--title:16px!important;--body:14px!important;--english:12px!important}
+ :is(#project-overview,.project-overview,main>section.overview) #project-title{font-size:16px!important}
+ :is(#project-overview,.project-overview,main>section.overview) :is(dt,.caption,.meta-label,small){font-size:11px!important}
+}
+/* 1024: title 20 / ko 14 / en 12 / meta 10 */
+@media(min-width:1024px) and (max-width:1024.98px){
+ :is(#project-overview,.project-overview,main>section.overview) #project-title{font-size:20px!important}
+ :is(#project-overview,.project-overview,main>section.overview) :is(dt,.caption,.meta-label,small){font-size:10px!important}
+}
+/* Overview layout 601–1024: intro 55% / facts 38%, side by side */
+@media(min-width:601px) and (max-width:1024.98px){
+ .realistic-detail .project-overview .overview-row,html:has(link[href^="tomorrow-visible"]) body .overview .intro{display:flex!important;justify-content:space-between!important;align-items:flex-start!important;gap:32px!important}
+ .realistic-detail .project-overview .overview-row>.bilingual,html:has(link[href^="tomorrow-visible"]) body .overview .intro>.bilingual{width:55%!important;max-width:none!important;flex:none!important}
+ .realistic-detail .project-overview .overview-row>.project-facts,html:has(link[href^="tomorrow-visible"]) body .overview .intro>aside{width:38%!important;max-width:none!important;flex:none!important;margin:0!important}
+}
+/* Section labels: 11 (≤1023) / 10 (1024–1279) / 12 (1280–1919) / 14 (1920+) */
+.realistic-detail .section-label,.catchtable-detail .case-label,html:has(link[href^="tomorrow-visible"]) body .label{font-size:11px!important}
+@media(min-width:1024px){.realistic-detail .section-label,.catchtable-detail .case-label,html:has(link[href^="tomorrow-visible"]) body .label{font-size:10px!important}}
+@media(min-width:1280px){.realistic-detail .section-label,.catchtable-detail .case-label,html:has(link[href^="tomorrow-visible"]) body .label{font-size:12px!important}}
+@media(min-width:1920px){.realistic-detail .section-label,.catchtable-detail .case-label,html:has(link[href^="tomorrow-visible"]) body .label{font-size:14px!important}}
+
+/* Section heading rows like SUIT: 1 column ≤600, 2 equal columns 601–1024 */
+@media(max-width:600px){.realistic-detail .section-heading-row,html:has(link[href^="tomorrow-visible"]) body .story .heading-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;row-gap:32px!important;column-gap:0!important}}
+@media(min-width:601px) and (max-width:1024.98px){.realistic-detail .section-heading-row,html:has(link[href^="tomorrow-visible"]) body .story .heading-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:20px!important;row-gap:0!important;max-width:none!important}}
+/* Keep authored title breaks; let body copy flow like SUIT up to 1024 */
+.realistic-detail .copy-title .source-line{white-space:nowrap}
+@media(max-width:1024.98px){.realistic-detail p.copy:not(.copy-title):not(.copy-display) .source-line{display:inline!important}.realistic-detail p.copy:not(.copy-title):not(.copy-display) .source-line::after{content:' '}}
+@media(max-width:1024.98px){:is(#project-overview,.project-overview,main>section.overview) dd{white-space:nowrap!important}}
+@media(min-width:601px) and (max-width:1024.98px){html:has(link[href^="tomorrow-visible"]) body .story-image{margin-left:calc(100% - 77.9167%)!important;width:77.9167%!important}}
+@media(min-width:768px) and (max-width:1024.98px){html:has(link[href^="tomorrow-visible"]) body .credits{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:32px 20px!important}html:has(link[href^="tomorrow-visible"]) body .credits>div{width:auto!important}html:has(link[href^="tomorrow-visible"]) body .credits p{white-space:normal!important}html:has(link[href^="tomorrow-visible"]) body .environment-links{display:flex!important;flex-direction:column}html:has(link[href^="tomorrow-visible"]) body .environment-links p{white-space:nowrap!important}html:has(link[href^="tomorrow-visible"]) body .environment-links p+p{margin-top:0}}
+@media(min-width:1025px) and (max-width:1279.98px){html:has(link[href^="tomorrow-visible"]) body .environment-links{gap:12px!important}html:has(link[href^="tomorrow-visible"]) body .credits>div:last-child{width:auto!important}}
+
+/* SUIT form-intro English: 2px below the overview English size at every desktop width */
+@media(min-width:1025px){main .form-intro .bilingual>p[lang=en]{font-size:calc(var(--open-en, 12px) - 2px)!important}}
